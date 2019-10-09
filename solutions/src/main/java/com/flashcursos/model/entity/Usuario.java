@@ -5,6 +5,9 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.OffsetDateTime;
+import java.util.Collection;
+import java.util.UUID;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -20,8 +23,13 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.Assert;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -34,25 +42,43 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Usuario extends AbstractEntity implements Serializable {
-	private static final long serialVersionUID = 1L;
+public abstract class Usuario extends AbstractEntity implements UserDetails {
+	private static final long serialVersionUID = -6624327477248695198L;
 	
 	/**
 	 * ========================== ENTIDADES ==========================
 	 */	
 	
 	@NotBlank
-	@Column(unique = true, nullable = false, length = 40)
-	private String email;
+	@Column(nullable = false, length = 100)
+	@Size(max = 100)
+	private String nome;
+	
+	@Column(unique = true, nullable = false, length = 15)
+	@NotBlank
+	private String cpf;
 	
 	@NotBlank
-	private String senha;
+	@Column(nullable = false, length = 100, unique = true)
+	@Size(max = 100)
+	private String email;
 	
-	private Boolean disponivel;
+	@Column(unique = true, nullable = false, length = 20)
+	@NotBlank
+	private String celular;
+	
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+	@NotBlank
+	@Column(nullable = false, length = 100)
+	@Size(max = 100)
+	private String senha;
 	
 	@NotNull
 	@Enumerated( EnumType.ORDINAL )
-	private TipoUsuarioEnum tipousuario;
+	private TipoUsuarioEnum tipoUsuario;
+	
+	@NotBlank
+	private LocalDate nascimento;
 	
 	/**
 	 * ========================== MÉTODOS ==========================
