@@ -48,6 +48,8 @@ public class UsuarioTests extends AbstractIntegrationTests {
 		Usuario usuario = new Usuario();
 		usuario.setEmail("jlenon7@gmail.com");
 		usuario.setSenha("12345");
+		usuario.setCpf("092.862.988-93");
+		usuario.setCelular("");
 		usuario.setDisponivel(true);
 		usuario.setTipousuario(TipoUsuarioEnum.ADMIN);
 
@@ -102,7 +104,7 @@ public class UsuarioTests extends AbstractIntegrationTests {
 	public void atualizarUsuarioMustFailEmailDuplicado() {
 		Usuario usuario = this.usuarioRepository.findById(1000L).orElse(null);
 		usuario.setEmail("jlenon7@hotmail.com");
-		usuario.setSenha("12345");
+		usuario.setSenha("1234567");
 		usuario.setTipousuario(TipoUsuarioEnum.ADMIN);
 	
 		usuarioService.atualizarUsuario(usuario);
