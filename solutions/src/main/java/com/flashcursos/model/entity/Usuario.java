@@ -81,6 +81,13 @@ public abstract class Usuario extends AbstractEntity implements UserDetails {
 	private LocalDate nascimento;
 	
 	/**
+	 *
+	 */
+	@NotNull
+	@Column(nullable = false)
+	private Boolean disponivel;
+	
+	/**
 	 * ========================== MÉTODOS ==========================
 	 */
 

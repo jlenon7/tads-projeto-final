@@ -29,5 +29,9 @@ public abstract class TurmaReforco extends Aluno implements Serializable{
 	
 	@NotBlank
 	private Boolean disponivel;
+	
+	public TurmaReforco(Long id) {
+		super.setId(id);
+	}
 
 }
