@@ -26,7 +26,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Entity
-public abstract class Usuario extends AbstractEntity implements UserDetails{
+public class Usuario extends AbstractEntity implements UserDetails{
 	private static final long serialVersionUID = -6624327477248695198L;
 	
 	/**
