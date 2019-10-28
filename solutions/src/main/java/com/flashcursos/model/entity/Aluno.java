@@ -11,6 +11,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 public class Aluno extends Usuario{
+	private static final long serialVersionUID = 1L;
 	
 	@ManyToOne(targetEntity = TurmaReforco.class, fetch = FetchType.LAZY, optional = false)	
 	private TurmaReforco turmareforco;
