@@ -1,0 +1,17 @@
+<div xmlns:th="http://www.w3.org/1999/xhtml">
+
+	<h3>
+		<span style="font-weight: normal">Prezado </span> <b
+			th:text="${user.nome} + ','"></b>
+	</h3>
+	<h3>Sua conta foi criada com sucesso.</h3>
+
+	<p>
+		<span>Use o link a seguir para definir sua senha de acesso à
+			plataforma: </span> <a href="${link}+${user.accountActivateToken}"
+			target="_blank"> <a
+			th:href="${link}+${user.accountActivateToken}"
+			th:text="${link}+${user.accountActivateToken}"></a>
+		</a>
+	</p>
+</div>

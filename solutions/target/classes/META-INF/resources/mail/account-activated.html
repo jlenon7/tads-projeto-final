@@ -1,0 +1,18 @@
+<div xmlns:th="http://www.w3.org/1999/xhtml" align="left">
+
+    <h3>
+        <span style="font-weight: normal">Prezado </span>
+        <b th:text="${user.nome} + ','"></b>
+    </h3>
+    
+        <div>
+            <span>Seu usuário foi ativado.</span>
+        </div>
+        <div>
+            <span>Use o link a seguir para acessar a plataforma: </span>
+            <a href="${link}" target="_blank">
+                <a th:href="${link}" th:text="${link}"></a>
+            </a>
+        </div>
+
+</div>

@@ -1,0 +1,30 @@
+{
+  "groups": [
+    {
+      "name": "app",
+      "type": "com.flashcursos.application.configuration.settings.AppSettings",
+      "sourceType": "com.flashcursos.application.configuration.settings.AppSettings"
+    }
+  ],
+  "properties": [
+    {
+      "name": "app.external-url",
+      "type": "java.lang.String",
+      "description": "URL externa da aplicação.",
+      "sourceType": "com.flashcursos.application.configuration.settings.AppSettings"
+    },
+    {
+      "name": "app.mail-from",
+      "type": "java.lang.String",
+      "description": "Remetente padrão para envio de emails.",
+      "sourceType": "com.flashcursos.application.configuration.settings.AppSettings"
+    },
+    {
+      "name": "app.password-token-expiration-hours",
+      "type": "java.lang.Integer",
+      "description": "Tempo de expiração do token de redefinição de senha.",
+      "sourceType": "com.flashcursos.application.configuration.settings.AppSettings"
+    }
+  ],
+  "hints": []
+}
