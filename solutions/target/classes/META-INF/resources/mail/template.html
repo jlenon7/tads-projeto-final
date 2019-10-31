@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
+<table style="background: #F0F0F0;" background="#F0F0F0" border="0" cellpadding="0" align="center" width="100%">
+    <tr>
+        <td align="center" valign="center">
+            <table background="#FFFFFF" border="0" cellpadding="0" align="center" width="600px"
+                   style="background: #FFFFFF; border-radius: 3px; margin: 15px auto; border: 1px solid rgba(0,0,0,0.12); box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">
+                <!--Logo-->
+                <tr>
+                    <td style="background: #254679" background="#254679" align="center">
+                        <img alt="" th:src="'cid:logo'" width="200"
+                             style="max-width:200px; margin-top: 20px; margin-bottom: 20px">
+                    </td>
+                </tr>
+                <!--Template-->
+                <tr>
+                    <td align="center" style="padding: 15px">
+                        <div style="font-family: Roboto, Arial, sans-serif; color: rgba(0,0,0,0.87)"
+                             th:include="${template}"></div>
+                    </td>
+                </tr>
+                <!--Rodapé-->
+                <tr>
+                    <td>
+                        <div style="border-top: 1px solid rgb(239, 239, 239); padding-bottom: 5px;"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" style="padding: 30px">
+                        <img alt="" th:src="'cid:logo'" width="200"
+                             style="max-width:200px; padding-top: 10px">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="font-family: Roboto, Arial, sans-serif; color: rgb(172, 172, 172); border-top: 1px solid rgb(239, 239, 239); text-align: center; font-size: 12px; padding: 25px;"
+                             th:text="${systemName} + ' - ' + ${currentYear}"></div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
