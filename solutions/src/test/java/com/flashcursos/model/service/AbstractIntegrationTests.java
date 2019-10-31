@@ -1,5 +1,7 @@
 package com.flashcursos.model.service;
 
+import java.util.Locale;
+
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -31,7 +33,7 @@ public abstract class AbstractIntegrationTests
 	@Before
 	public void beforeTest()
 	{
-		
+		Locale.setDefault( new Locale( "pt") );
 	}
 }
 
