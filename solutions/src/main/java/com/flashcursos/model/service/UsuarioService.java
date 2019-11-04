@@ -1,40 +1,30 @@
 package com.flashcursos.model.service;
 
-<<<<<<< HEAD
 import java.time.OffsetDateTime;
-import java.util.concurrent.ExecutionException;
-=======
 import java.util.List;
->>>>>>> 5183df69de3f300ef7223ed3b0f53fb20aa36e4a
+import java.util.concurrent.ExecutionException;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-<<<<<<< HEAD
 import org.springframework.mail.MailSendException;
 import org.springframework.security.crypto.password.PasswordEncoder;
-=======
->>>>>>> 5183df69de3f300ef7223ed3b0f53fb20aa36e4a
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import com.flashcursos.model.entity.Usuario;
 import com.flashcursos.model.repository.UsuarioRepository;
-<<<<<<< HEAD
 import com.flashcursos.model.repository.IAccountMailRepository;
 import com.flashcursos.application.configuration.settings.AppSettings;
 import com.flashcursos.application.security.RequestContext;
-=======
->>>>>>> 5183df69de3f300ef7223ed3b0f53fb20aa36e4a
 
 
 @Service
 @Transactional
 public class UsuarioService {
-<<<<<<< HEAD
 	
 	/*
-	 *  Atributos 👍😂
+	 *  Atributos
 	 */
 	
 	// Password encoder
@@ -50,7 +40,7 @@ public class UsuarioService {
 	private IAccountMailRepository accountMailRepository;
 	
 	/*
-	 *  Services 👌😎
+	 *  Services
 	 */
 	
 	/**
@@ -133,7 +123,7 @@ public class UsuarioService {
 
 		Assert.notNull(usuario, "E-mail inválido.");
 		
-		// Gerando um toke de reset de senha e colocando um limite de tempo de uso
+		// Gerando um token de reset de senha e colocando um limite de tempo de uso
 		usuario.generatePasswordResetToken();
 		usuario.setPasswordResetTokenExpiration(OffsetDateTime.now().plusDays(1));
 		usuario = this.usuarioRepository.save(usuario);
@@ -166,34 +156,10 @@ public class UsuarioService {
 		Assert.notNull(usuario, "Token inválido");
 		Assert.isTrue(usuario.getPasswordResetTokenExpiration().isAfter(dateTime), "Token venceu.");
 		usuario.setSenha(this.passwordEncoder.encode(senha));
-=======
-
-	@Autowired
-	private UsuarioRepository usuarioRepository;
-	
-	
-	/**
-	 * Serviço para inserir um novo usuario
-	 * 
-	 * @param aluno
-	 * @return
-	 */
-	public Usuario cadastrarUsuario(Usuario usuario) {
 		return this.usuarioRepository.save(usuario);
 	}
 	
 	/**
-	 * Serviço para atualizar o cadastro de um usuario
-	 * @param funcionario
-	 * @return
-	 */
-	public Usuario atualizarUsuario(Usuario usuario) {
->>>>>>> 5183df69de3f300ef7223ed3b0f53fb20aa36e4a
-		return this.usuarioRepository.save(usuario);
-	}
-	
-	/**
-<<<<<<< HEAD
 	 * Serviço que trás o usuário logado
 	 * @return
 	 */
@@ -233,7 +199,11 @@ public class UsuarioService {
 	{
 		Usuario usuario = this.usuarioRepository.findById(id)
 			.orElseThrow(() -> new IllegalArgumentException("Nenhum usuário encontrado."));
-=======
+		
+		return usuario;
+	}
+	
+	/**
 	 * Serviço para listar os usuarios cadastrados
 	 * @return
 	 */
@@ -241,20 +211,6 @@ public class UsuarioService {
 		return this.usuarioRepository.findAll();
 	}
 	
-
-	/**
-	 * Serviço para detalhar o cadastro de um usuario
-	 * @param id
-	 * @return
-	 */
-	public Usuario detalharUsuario(long id) {
-		Usuario usuario = this.usuarioRepository.findById(id).orElse(null);
-		
-		Assert.notNull(usuario, "ID "+ id +" não encontrado!");
->>>>>>> 5183df69de3f300ef7223ed3b0f53fb20aa36e4a
-		
-		return usuario;
-	}
 	/**
 	 * Serviço para remover o cadastro de um usuario
 	 * @param id

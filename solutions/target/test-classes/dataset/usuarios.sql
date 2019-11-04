@@ -1,12 +1,32 @@
-<<<<<<< HEAD
 
-INSERT INTO usuario (id, created, email, senha, tipousuario, disponivel, nome, cpf, nascimento, celular)
-VALUES (1001, now(), 'jlenon7@hotmail.com', '12345', 1, true, 'João Lenon', '092.862.989-94', '12/09/2000', '(45) 99955-3220'),
-       (1002, now(), 'adryell_nathann@hotmail.com', '12345', 1, true, 'Adryell Nathann', '092.862.989-93', '10/28/2000', '(45) 99955-3221');
-=======
-INSERT INTO usuario (id, created, email, senha, tipousuario, disponivel, nome, cpf, nascimento, celular)
-VALUES
-(1000, now(), 'jlenon7@hotmail.com', '12345', 0, true, 'João Lenon', '092.862.989-94', '09/12/2000', '45 99955-3220'),
-(1001, now(), 'adryell@gmail.com', '123456', 2, true, 'Adryell Nathann', '092.862.989-93', '09/12/2001', '45 99955-3221');
->>>>>>> 5183df69de3f300ef7223ed3b0f53fb20aa36e4a
+	INSERT INTO usuario (
+		id, 
+		created, 
+		email, 
+		tipousuario, 
+		disponivel, 
+		nome, 
+		cpf, 
+		nascimento, 
+		celular, 
+		senha, 
+		account_activate_token, 
+		account_activate_token_expiration, 
+		password_reset_token, 
+		password_reset_token_expiration)
 
+	VALUES (
+		1001, 
+		now(), 
+		'jlenon7@hotmail.com', 
+		1, 
+		false, 
+		'João Lenon', 
+		'092.862.989-94', 
+		'12/09/2000', 
+		'(45) 99955-3220', 
+		'$2a$10$bAdAVLvM.k3DqPaPYi0gnO1OffPSHLref8MElAk.u.fFQ17v9YKC2', 
+		'f786c907-032e-451b-ac93-8508dec75a3d', 
+		'2019-12-02', 
+		'f786c907-032e-451b-ac93-8508dec75a3d', 
+		'2019-12-02');

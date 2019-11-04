@@ -1,17 +1,12 @@
 package com.flashcursos;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-<<<<<<< HEAD
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
-=======
->>>>>>> 5183df69de3f300ef7223ed3b0f53fb20aa36e4a
 
 @SpringBootApplication
 //@EnableAutoConfiguration(exclude = DataSourceAutoConfiguration.class)
@@ -21,7 +16,6 @@ public class SpringWebivApplication {
 		SpringApplication.run(SpringWebivApplication.class, args);
 	}
 	
-<<<<<<< HEAD
 	/**
 	 * @return
 	 */
@@ -44,7 +38,5 @@ public class SpringWebivApplication {
 		return new LocalValidatorFactoryBean();
 	}
 	
-=======
->>>>>>> 5183df69de3f300ef7223ed3b0f53fb20aa36e4a
 
 }

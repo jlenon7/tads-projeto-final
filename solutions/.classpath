@@ -34,7 +34,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-<<<<<<< HEAD
 	<classpathentry kind="src" path=".apt_generated">
 		<attributes>
 			<attribute name="optional" value="true"/>
@@ -63,7 +62,5 @@
 			<attribute name="test" value="true"/>
 		</attributes>
 	</classpathentry>
-=======
->>>>>>> 5183df69de3f300ef7223ed3b0f53fb20aa36e4a
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

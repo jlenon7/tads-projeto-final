@@ -1,36 +1,25 @@
 package com.flashcursos.model.entity;
 
-<<<<<<< HEAD
 
 import java.util.Set;
 import java.util.UUID;
 import java.util.HashSet;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
-=======
-import java.io.Serializable;
-import java.time.LocalDate;
->>>>>>> 5183df69de3f300ef7223ed3b0f53fb20aa36e4a
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Inheritance;
-<<<<<<< HEAD
 import javax.persistence.Transient;
-=======
->>>>>>> 5183df69de3f300ef7223ed3b0f53fb20aa36e4a
 import javax.persistence.InheritanceType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-<<<<<<< HEAD
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-=======
->>>>>>> 5183df69de3f300ef7223ed3b0f53fb20aa36e4a
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -43,11 +32,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-<<<<<<< HEAD
 public class Usuario extends AbstractEntity implements UserDetails{
-=======
-public class Usuario extends AbstractEntity implements Serializable {
->>>>>>> 5183df69de3f300ef7223ed3b0f53fb20aa36e4a
 	private static final long serialVersionUID = 1L;
 	
 	@NotBlank
@@ -58,10 +43,6 @@ public class Usuario extends AbstractEntity implements Serializable {
 	@NotBlank
 	private String cpf;
 	
-<<<<<<< HEAD
-=======
-	@NotBlank
->>>>>>> 5183df69de3f300ef7223ed3b0f53fb20aa36e4a
 	private LocalDate nascimento;
 	
 	@NotBlank
@@ -88,7 +69,6 @@ public class Usuario extends AbstractEntity implements Serializable {
 	public Usuario(Long id) {
 		super.setId(id);
 	}
-<<<<<<< HEAD
 	
 	/**
 	 * Token para resetar o password
@@ -175,8 +155,5 @@ public class Usuario extends AbstractEntity implements Serializable {
 		this.senha = UUID.randomUUID().toString();
 
 	}
-=======
-
->>>>>>> 5183df69de3f300ef7223ed3b0f53fb20aa36e4a
 }
 
