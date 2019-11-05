@@ -12,7 +12,6 @@ import org.springframework.test.context.jdbc.Sql;
 import com.flashcursos.model.entity.AreaConhecimentoEnum;
 import com.flashcursos.model.entity.Professor;
 import com.flashcursos.model.entity.TipoUsuarioEnum;
-import com.flashcursos.model.entity.Usuario;
 import com.flashcursos.model.repository.ProfessorRepository;
 
 public class ProfessorTests extends AbstractIntegrationTests {
