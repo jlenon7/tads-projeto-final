@@ -21,9 +21,9 @@ public class Curso extends AbstractAulas implements Serializable{
 
 	@NotNull
 	@Enumerated( EnumType.ORDINAL )
-	private DificuldadeEnum dificuldadeEnum;
+	private DificuldadeEnum dificuldade;
 	
-	@NotBlank
+	// @NotBlank
 	private Integer cargaHoraria;
 	
 	@NotNull

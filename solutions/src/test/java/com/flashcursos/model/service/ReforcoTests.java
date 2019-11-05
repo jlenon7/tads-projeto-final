@@ -9,13 +9,12 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.jdbc.Sql;
 
+import com.flashcursos.model.entity.DificuldadeEnum;
 import com.flashcursos.model.entity.DisciplinaEnum;
 import com.flashcursos.model.entity.Professor;
 import com.flashcursos.model.entity.Reforco;
-import com.flashcursos.model.entity.AbstractAulas;
 import com.flashcursos.model.repository.ProfessorRepository;
 import com.flashcursos.model.repository.ReforcoRepository;
-import com.flashcursos.model.service.ReforcoService;
 
 public class ReforcoTests extends AbstractIntegrationTests {
 
@@ -28,30 +27,16 @@ public class ReforcoTests extends AbstractIntegrationTests {
 	@Autowired
 	private ProfessorRepository professorRepository;
 
-	/**
-	 * ====================================== LISTAR ===========================================
-	 */
-	@Test
-	@Sql({ "/dataset/truncate.sql", "/dataset/reforcos.sql" })
-	public void listarReforcosMustPass() {
-		List<Reforco> reforcos = this.reforcoService.listarReforcos();
-		Assert.assertEquals(reforcos.size(), 2);
-
-	}
 
 	/**
-	 * ====================================== CADASTRAR ===========================================
+	 * ====================================== (CREATE)RUD ============================================
 	 */
+	
 	@Test
 	@Sql({ "/dataset/truncate.sql", 
 			"/dataset/usuarios.sql", 
 			"/dataset/professor.sql", 
 			"/dataset/reforcos.sql" })
-	
-	/**
-	 * Professor
-	 */
-	
 	public void cadastrarReforcoMustPass() {
 		Reforco reforco = new Reforco();
 		
@@ -64,22 +49,56 @@ public class ReforcoTests extends AbstractIntegrationTests {
 		reforco.setDisponivel(true);
 		
 		reforcoService.cadastrarReforco(reforco);
-		Assert.assertNotNull(reforco.getId());
-		
-	}
-
+		Assert.assertNotNull(reforco.getId());	
+	}	
 	/**
-	 * 
-	 * ========================= ATUALIZAR ==============================
-	 */
+	 * ====================================== C(READ)UD =============================================
+	 */	
+	@Test
+	@Sql({ "/dataset/truncate.sql",
+		"/dataset/usuarios.sql",
+		"/dataset/professor.sql",
+		"/dataset/reforcos.sql" })
+	public void listarReforcosMustPass() {
+		List<Reforco> reforcos = this.reforcoService.listarReforcos();
+		Assert.assertEquals(reforcos.size(), 1);
 
+	}	
 	/**
-	 * =========================== DETALHAR =============================
+	 * ====================================== CR(UPDATE)D ===========================================
 	 */
 	
+	@Test
+	@Sql({ "/dataset/truncate.sql",
+			"/dataset/usuarios.sql",
+			"/dataset/professor.sql",
+			"/dataset/reforcos.sql" })
+	public void alterarReforcoMustPass() {
+		Reforco reforco = this.reforcoRepository.findById(1001L).orElse(null);
+		
+		reforco.setArea("Estatística");
+		reforco.setDisciplina(DisciplinaEnum.MATEMATICA);
+		reforco.setHoraInicio(LocalDateTime.of(2019, Month.NOVEMBER, 15, 20, 00));
+		reforco.setUpdated(LocalDateTime.now());
+		reforco.setVagas(50);
+		
+		this.reforcoService.atualizarReforco(reforco);
+	}
+	
 	/**
-	 * ========================== EXCLUIR ===============================
+	 * ====================================== CRU(DELETE) ===========================================
 	 */
+	
+	@Test
+	@Sql({ "/dataset/truncate.sql",
+			"/dataset/usuarios.sql",
+			"/dataset/professor.sql",
+			"/dataset/reforcos.sql" })
+	public void excluirReforcoMustPass() {
+		this.reforcoService.removerReforco(1001);
+		Reforco reforco = this.reforcoRepository.findById(1001L).orElse(null);
+		Assert.assertNull(reforco);
+	}
 
 	
 
