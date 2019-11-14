@@ -52,7 +52,7 @@ public class ReforcoTests extends AbstractIntegrationTests {
 		Assert.assertNotNull(reforco.getId());	
 	}	
 	/**
-	 * ====================================== C(READ)UD =============================================
+	 * ======================================= C(READ)UD =============================================
 	 */	
 	@Test
 	@Sql({ "/dataset/truncate.sql",
@@ -65,7 +65,7 @@ public class ReforcoTests extends AbstractIntegrationTests {
 
 	}	
 	/**
-	 * ====================================== CR(UPDATE)D ===========================================
+	 * ======================================= CR(UPDATE)D ===========================================
 	 */
 	
 	@Test
@@ -86,7 +86,7 @@ public class ReforcoTests extends AbstractIntegrationTests {
 	}
 	
 	/**
-	 * ====================================== CRU(DELETE) ===========================================
+	 * ======================================= CRU(DELETE) ===========================================
 	 */
 	
 	@Test

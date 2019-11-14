@@ -43,8 +43,8 @@ public class AlunoTests extends AbstractIntegrationTests {
 		aluno.setEmail("lenonsec7@gmail.com");
 		aluno.setCelular("(45) 99955-3219");
 		aluno.setTipousuario(TipoUsuarioEnum.ALUNO);
-		TurmaReforco turmareforco = this.turmaRepository.findById(1L).orElse(null);
-		aluno.setTurmareforco(turmareforco);
+		//TurmaReforco turmareforco = this.turmaRepository.findById(1L).orElse(null);
+		//aluno.setTurmareforco(turmareforco);
 		
 		this.alunoService.cadastrarAluno(aluno);		
 		Assert.assertNotNull(aluno);
