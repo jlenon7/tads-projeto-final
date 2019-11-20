@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -30,9 +31,6 @@ public class MatriculaCurso implements Serializable{
 	@NotBlank
 	private LocalDateTime dataVencimentoMatricula;
 	
-	@Transient
-	private Integer tempoRestante;
-	
 	@NotNull
 	@ManyToOne(targetEntity = Aluno.class, fetch = FetchType.LAZY)	
 	private Aluno aluno;
@@ -40,5 +38,8 @@ public class MatriculaCurso implements Serializable{
 	@NotNull
 	@ManyToOne(targetEntity = Curso.class, fetch = FetchType.LAZY)	
 	private Curso curso;
+	
+	@NotNull
+	private Boolean disponivel;
 
 }
