@@ -53,24 +53,24 @@ Clone o repositório para a pasta Workspace do STS
 git clone https://github.com/jlenon7/projeto-final.git
 ```
 
-Importe o projeto como Maven
+## Importe o projeto como Maven
 
 ![Captura de Tela 2019-11-23 às 12 50 51](https://user-images.githubusercontent.com/52840235/69481480-80a79580-0df0-11ea-8973-0ebe017ced52.png)
 
 
 ![Captura de Tela 2019-11-23 às 12 51 23](https://user-images.githubusercontent.com/52840235/69481492-93ba6580-0df0-11ea-8bf7-41ec9d32775f.png)
 
-E faça um Maven Update
+## E faça um Maven Update
 
 ![Captura de Tela 2019-11-23 às 12 59 33](https://user-images.githubusercontent.com/52840235/69481559-22c77d80-0df1-11ea-9a5c-2cd9ddcb0b03.png)
 
 ## Rodando os testes
 
-Para rodar os testes entre na pasta src/test/java
+# Para rodar os testes entre na pasta src/test/java
 
 ![Captura de Tela 2019-11-23 às 13 01 30](https://user-images.githubusercontent.com/52840235/69481588-6326fb80-0df1-11ea-984e-e54b3339f60f.png)
 
-Escolha um dos testes e rode ele como JUnit
+## Escolha um dos testes e rode ele como JUnit
 
 ![Captura de Tela 2019-11-23 às 13 03 22](https://user-images.githubusercontent.com/52840235/69481625-a6816a00-0df1-11ea-9896-86f66e8ea134.png)
 
@@ -123,7 +123,7 @@ Por enquanto não estamos trabalhando com versionamento mas pretendemos colocar 
 
 * **João Lenon** - *Trabalho Inicial* - [jlenon7](https://github.com/jlenon7)
 
-* **Adryell Nathann** - *Trabalho Inicial* - [jlenon7](https://github.com/Adryell)
+* **Adryell Nathann** - *Trabalho Inicial* - [adryell](https://github.com/Adryell)
 
 ## Licença
 
