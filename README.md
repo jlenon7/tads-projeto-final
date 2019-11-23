@@ -64,9 +64,9 @@ git clone https://github.com/jlenon7/projeto-final.git
 
 ![Captura de Tela 2019-11-23 às 12 59 33](https://user-images.githubusercontent.com/52840235/69481559-22c77d80-0df1-11ea-9a5c-2cd9ddcb0b03.png)
 
-## Rodando os testes
+# Rodando os testes
 
-# Para rodar os testes entre na pasta src/test/java
+## Para rodar os testes entre na pasta src/test/java
 
 ![Captura de Tela 2019-11-23 às 13 01 30](https://user-images.githubusercontent.com/52840235/69481588-6326fb80-0df1-11ea-984e-e54b3339f60f.png)
 
