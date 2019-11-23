@@ -1,0 +1,122 @@
+<div fxLayout="column">
+    <div fxLayout="row" class="header-form">
+      <span fxFlex>Cadastrar/Alterar Aluno</span>
+        <div>
+            <button mat-raised-button class="form-button bgc-grey-500 tc-grey-50" (click)="onBack()">
+            Cancelar
+            </button>
+            <button [disabled]="alunoForm.invalid" mat-raised-button color="accent" class="form-button" (click)="onSave()">
+            Salvar
+            </button>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center start">
+        <mat-card class="background-color" fxFlex="90">
+            <form [formGroup]="alunoForm" novalidate>
+                <div fxLayout="column" fxFlex=90>
+  
+                    <div fxLayout="column">
+                            <div fxLayout="row" fxFlex=50>
+                                    <mat-form-field fxFlex [floatLabel]="'always'">
+                                      <mat-label>Nome</mat-label>
+                                      <input matInput id="nome" formControlName="nome"
+                                             placeholder="Nome"
+                                             maxlength="144" layout-align="center end">
+                                      <mat-error *ngIf="alunoForm.get('nome').hasError('maxLength')">
+                                        Máximo 144 caracteres.
+                                      </mat-error>
+                                      <mat-error *ngIf="alunoForm.get('nome').hasError('required')">
+                                        Nome é obrigatório.
+                                      </mat-error>
+                                    </mat-form-field>
+                            </div>
+                            <div fxLayout="row" fxFlex=50>
+                                <mat-form-field fxFlex [floatLabel]="'always'">
+                                  <mat-label>Nascimento</mat-label>
+                                  <input matInput id="nascimento" formControlName="nascimento"
+                                         placeholder="Nascimento"
+                                         maxlength="14" layout-align="center end">
+                                  <mat-error *ngIf="alunoForm.get('nascimento').hasError('maxLength')">
+                                    Máximo 14 caracteres.
+                                  </mat-error>
+                                  <mat-error *ngIf="alunoForm.get('nascimento').hasError('required')">
+                                    Nascimento é obrigatório.
+                                  </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div fxLayout="row" fxFlex=50>
+                                <mat-form-field fxFlex [floatLabel]="'always'">
+                                  <mat-label>CPF</mat-label>
+                                  <input matInput id="cpf" formControlName="cpf"
+                                         placeholder="CPF"
+                                         maxlength="14" layout-align="center end">
+                                  <mat-error *ngIf="alunoForm.get('cpf').hasError('maxLength')">
+                                    Máximo 14 caracteres.
+                                  </mat-error>
+                                  <mat-error *ngIf="alunoForm.get('cpf').hasError('required')">
+                                    CPF é obrigatório.
+                                  </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div fxLayout="row" fxFlex=50>
+                                <mat-form-field fxFlex [floatLabel]="'always'">
+                                  <mat-label>Email</mat-label>
+                                  <input matInput id="email" formControlName="email"
+                                         placeholder="Email"
+                                         maxlength="144" layout-align="center end">
+                                  <mat-error *ngIf="alunoForm.get('email').hasError('maxLength')">
+                                    Máximo 144 caracteres.
+                                  </mat-error>
+                                  <mat-error *ngIf="alunoForm.get('email').hasError('required')">
+                                    Email é obrigatório.
+                                  </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div fxLayout="row" fxFlex=50>
+                                <mat-form-field fxFlex [floatLabel]="'always'">
+                                  <mat-label>Senha</mat-label>
+                                  <input matInput id="senha" formControlName="senha"
+                                         placeholder="Senha"
+                                         maxlength="144" layout-align="center end">
+                                  <mat-error *ngIf="alunoForm.get('senha').hasError('maxLength')">
+                                    Máximo 144 caracteres.
+                                  </mat-error>
+                                  <mat-error *ngIf="alunoForm.get('senha').hasError('required')">
+                                    Senha é obrigatório.
+                                  </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div fxLayout="row" fxFlex=50>
+                                <mat-form-field fxFlex [floatLabel]="'always'">
+                                  <mat-label>Celular</mat-label>
+                                  <input matInput id="celular" formControlName="celular"
+                                         placeholder="Celular"
+                                         maxlength="144" layout-align="center end">
+                                  <mat-error *ngIf="alunoForm.get('celular').hasError('maxLength')">
+                                    Máximo 144 caracteres.
+                                  </mat-error>
+                                  <mat-error *ngIf="alunoForm.get('celular').hasError('required')">
+                                    Celular é obrigatório.
+                                  </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div fxLayout="row" fxFlex=50>
+                                <mat-form-field fxFlex [floatLabel]="'always'">
+                                  <mat-label>Tipo Usuario</mat-label>
+                                  <input matInput id="tipousuario" formControlName="tipousuario"
+                                         placeholder="tipousuario"
+                                         maxlength="14" layout-align="center end">
+                                  <mat-error *ngIf="alunoForm.get('cpf').hasError('maxLength')">
+                                    Máximo 10 caracteres.
+                                  </mat-error>
+                                 <!-- <mat-error *ngIf="alunoForm.get('cpf').hasError('required')">
+                                    CPF é obrigatório.
+                                  </mat-error> -->
+                                </mat-form-field>
+                            </div>
+                </div>
+            </form>
+        </mat-card>
+    </div>
+</div>
+  

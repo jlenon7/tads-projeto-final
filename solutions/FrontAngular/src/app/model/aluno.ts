@@ -12,7 +12,6 @@ export class Aluno {
        public celular: string,
        public disponivel: Boolean,
        public tipoUsuario: TipoUsuario,
-       public descricao: string,
        // public funcionarios: Curso[]
       ) {  }
     

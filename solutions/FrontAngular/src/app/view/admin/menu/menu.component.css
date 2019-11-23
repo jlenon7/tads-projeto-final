@@ -1,0 +1,29 @@
+.header-container {
+    position: absolute;
+    top: 57px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+  }
+  
+  .menu-header
+  {
+    cursor: pointer;
+  }
+  
+  .menu-group{
+    padding: 20px 20px;
+    color: rgba( 0, 0, 0, 0.56 );
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .no-select{
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently  supported by Chrome and Opera */
+  }
+  

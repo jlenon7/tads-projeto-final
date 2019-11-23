@@ -23,3 +23,4 @@ describe('AlunoListComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

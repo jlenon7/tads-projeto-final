@@ -1,0 +1,65 @@
+<div fxLayout="column">
+    <div fxLayout="row" class="header-form">
+        <span fxFlex>Visualizar Aluno</span>
+        <div>
+            <button mat-raised-button class="form-button bgc-grey-500 tc-grey-50" (click)="onBack()">
+                Voltar
+            </button>
+            <button mat-raised-button color="accent" (click)="navigateToEdit()">
+                Editar
+            </button>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center start">
+        <mat-card class="background-color" fxFlex="90">
+
+            <div fxLayout="column" fxFlex=90>
+      
+                <div fxLayout="column">
+                        <div fxLayout="column" fxFlex=50 class="field-detail">
+                            <span>ID:</span>
+                            <span class="label-detail-value">{{aluno.id}}</span>
+                        </div>
+
+                        <div fxLayout="column" fxFlex=50 class="field-detail">
+                            <span>Nome:</span>
+                            <span class="label-detail-value">{{aluno.nome}}</span>
+                        </div>
+
+                        <div fxLayout="column" fxFlex=50 class="field-detail">
+                            <span>CPF:</span>
+                            <span class="label-detail-value">{{aluno.cpf}}</span>
+                        </div>
+
+                        <div fxLayout="column" fxFlex=50 class="field-detail">
+                            <span>Data de Nascimento:</span>
+                            <span class="label-detail-value">{{aluno.dataNascimento | date: 'dd/MM/yyyy'}}</span>
+                        </div>
+
+                        <div fxLayout="column" fxFlex=50 class="field-detail">
+                                <span>Email:</span>
+                                <span class="label-detail-value">{{aluno.email}}</span>
+                        </div>                      
+
+                        <div fxLayout="column" fxFlex=50 class="field-detail">
+                            <span>Celular:</span>
+                            <span class="label-detail-value">{{aluno.celular'}}</span>
+                        </div>
+
+                        <div fxLayout="column" fxFlex=50 class="field-detail">
+                            <span>Tipo Usuario:</span>
+                            <span class="label-detail-value">{{aluno.tipousuario'}}</span>
+                        </div>
+
+                        <div fxLayout="column" fxFlex=50 class="field-detail">
+                            <span>Status:</span>
+                            <span class="label-detail-value">{{aluno.disponivel'}}</span>
+                        </div>
+                </div>
+    
+            </div>
+        </mat-card>
+    </div>
+</div>
+      
+    

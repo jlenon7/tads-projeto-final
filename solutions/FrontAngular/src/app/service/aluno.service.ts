@@ -10,23 +10,23 @@ export class AlunoService {
   constructor(private http: HttpClient) { }
 
   listar(){
-    return this.http.get<Aluno[]>('http://localhost:4200/api/api/aluno/list/');
+    return this.http.get<Aluno[]>('http://localhost:4200/api/api/admin/aluno/list/');
   }
 
   detalhar(alunoId: number){
-    return this.http.get<Aluno>('http://localhost:4200/api/api/aluno/find?id='+alunoId);
+    return this.http.get<Aluno>('http://localhost:4200/api/api/admin/aluno/find?id='+alunoId);
   }
 
   cadastrar(aluno: Aluno){
-    return this.http.post<Aluno>('http://localhost:4200/api/api/aluno/insert/', aluno);
+    return this.http.post<Aluno>('http://localhost:4200/api/api/admin/aluno/insert/', aluno);
   }
 
   editar(aluno: Aluno){
-    return this.http.post<Aluno>('http://localhost:4200/api/api/aluno/update/', aluno);
+    return this.http.post<Aluno>('http://localhost:4200/api/api/admin/aluno/update/', aluno);
   }
 
   remover(alunoId: number){
-    return this.http.get('http://localhost:4200/api/api/aluno/remove?id='+alunoId);
+    return this.http.get('http://localhost:4200/api/api/aluno/admin/remove?id='+alunoId);
 
   }
 }

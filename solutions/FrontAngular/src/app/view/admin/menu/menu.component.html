@@ -1,0 +1,21 @@
+<div class="header-container">
+        <mat-nav-list>
+          <div class="menu-header" *ngFor="let menuGroup of menuGroups">
+            <div fxLayout="row" fxLayoutAlign="start center" class="mat-body-1 bgc-grey-100 menu-group" (click)="menuGroup.open = !menuGroup.open;">
+              <span>{{menuGroup.label}}</span>
+              <span fxFlex></span>
+              <mat-icon [@indicatorRotate]="getExpandedState(menuGroup)" class="no-select">keyboard_arrow_down</mat-icon>
+            </div>
+            <div [style.overflow]="'hidden'" [@bodyExpansion]="getExpandedState(menuGroup)">
+              <mat-list-item (click)="onToogle.emit(); sidenav.close()"
+                             *ngFor="let menuItem of menuGroup.menuList"
+                             routerLink="{{menuItem?.routerlink}}"
+                             style="border-bottom: 1px solid #e0e0e0;">
+                <mat-icon mat-list-icon>{{menuItem?.icon}}</mat-icon>
+                {{menuItem?.label}}
+              </mat-list-item>
+            </div>
+          </div>
+        </mat-nav-list>
+      </div>
+      

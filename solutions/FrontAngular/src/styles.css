@@ -1,1 +1,87 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; overflow-y: hidden;}
+
+.div-content {
+    overflow-y: hidden !important;
+}
+
+.full-background  {
+    width: 100%; 
+    background-color: gray;
+    height: 100% !important; 
+  }
+
+  #card-login{
+    width: 700px;
+    height: 550px;
+    padding: 60px;
+    border-radius: 15px;
+    background: white !important;
+  }
+
+  .sidenav-container{
+    height: 100% !important; 
+  }
+
+  #link-recupera-senha{
+    color: #71848b;
+    text-decoration: underline;
+    cursor: pointer;
+    margin: 50px;
+  }
+
+  .header-form{
+    padding: 30px 20px 30px 20px;
+    margin-bottom: 10px;
+    background-color: gray;
+  }
+
+  .form-button{
+    margin-right: 10px !important;
+  }
+
+  .item-list{
+    background-color:white;
+    border: 1px solid;
+  }
+
+  .item-list:hover{
+    background-color: gray;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .button-option { 
+      z-index: 100000;
+      background-color: transparent;
+      border: none;
+  }
+
+  .button-option:hover {
+      background-color: whitesmoke;
+      cursor: pointer;
+  }
+
+  .label-detail-value {
+      font-weight: bold;
+  }
+
+  .field-detail {
+      margin-top: 20px;
+  }
+
+  /* Estilos dos Toasts */
+  .toast {
+    white-space: pre-line;
+  }
+  
+  .toast-error {
+    background-color: #c62828 !important; }
+
+  .toast-warnning {
+    background-color: #f9a825 !important; }
+
+  .toast-success {
+    background-color: #2e7d32 !important; }
