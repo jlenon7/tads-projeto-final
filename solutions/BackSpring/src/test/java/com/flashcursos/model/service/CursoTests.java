@@ -26,7 +26,7 @@ public class CursoTests extends AbstractIntegrationTests {
 	private ProfessorRepository professorRepository;
 	
 	/**
-	 * ====================================== (CREATE)RUD ============================================
+	 * ====================================== (CREATE)RUD ===========================================
 	 */
 	
 	@Test
@@ -42,13 +42,11 @@ public class CursoTests extends AbstractIntegrationTests {
 		curso.setDificuldade(DificuldadeEnum.INTERMEDIARIO);
 		Professor ministrante = this.professorRepository.findById(1001L).orElse(null);
 		curso.setMinistrante(ministrante);
-		curso.setDisponivel(true);
 		
 		this.cursoService.cadastrarCurso(curso);
 		Assert.assertNotNull(curso.getId());
 		
 	}
-	
 	
 	/**
 	 * ====================================== C(READ)UD =============================================
@@ -98,6 +96,20 @@ public class CursoTests extends AbstractIntegrationTests {
 		this.cursoService.removerCurso(1001);
 		Curso curso = this.cursoRepository.findById(1001L).orElse(null);
 		Assert.assertNull(curso);
+	}
+	/**
+	 * ====================================== DESATIVAR ============================================
+	 */
+	@Test
+	@Sql({ "/dataset/truncate.sql",
+			"/dataset/usuarios.sql",
+			"/dataset/professor.sql",
+			"/dataset/cursos.sql" })
+	public void desativarCursoMustPass() {
+		Curso curso = this.cursoRepository.findById(1001L).orElse(null);
+		
+		this.cursoService.desativarCurso(curso);
+		Assert.assertNotNull(curso.getId());
 	}
 
 }

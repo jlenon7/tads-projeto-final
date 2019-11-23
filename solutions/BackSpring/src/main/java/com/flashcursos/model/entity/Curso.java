@@ -1,15 +1,10 @@
 package com.flashcursos.model.entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import lombok.Data;
@@ -23,11 +18,11 @@ public class Curso extends AbstractAulas implements Serializable{
 	@Enumerated( EnumType.ORDINAL )
 	private DificuldadeEnum dificuldade;
 	
-	// @NotBlank
+	@NotNull
 	private Integer cargaHoraria;
 	
-	@NotNull
-	@OneToMany(targetEntity = MatriculaCurso.class, fetch = FetchType.LAZY)	
-	private List<MatriculaCurso> matriculas = new ArrayList <MatriculaCurso>();
+	//@NotNull
+	//@OneToMany(targetEntity = MatriculaCurso.class, fetch = FetchType.LAZY)	
+	//private List<MatriculaCurso> matriculas = new ArrayList <MatriculaCurso>();
 
 }

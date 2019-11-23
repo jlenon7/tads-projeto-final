@@ -11,9 +11,7 @@ import org.springframework.test.context.jdbc.Sql;
 
 import com.flashcursos.model.entity.Aluno;
 import com.flashcursos.model.entity.TipoUsuarioEnum;
-import com.flashcursos.model.entity.TurmaReforco;
 import com.flashcursos.model.repository.AlunoRepository;
-import com.flashcursos.model.repository.TurmaRepository;
 
 public class AlunoTests extends AbstractIntegrationTests {
 
@@ -22,18 +20,14 @@ public class AlunoTests extends AbstractIntegrationTests {
 	
 	@Autowired
 	private AlunoRepository alunoRepository;
-	
-	@Autowired
-	private TurmaRepository turmaRepository;
 
 	/**
-	 * ====================================== (CREATE)RUD ============================================
+	 * ====================================== (CREATE)RUD ===========================================
 	 */
 	@Test
 	@Sql({ "/dataset/truncate.sql",
 		  "/dataset/usuarios.sql",
 		 "/dataset/aluno.sql",})
-
 	public void cadastrarAlunoMustPass() {
 		Aluno aluno = new Aluno();
 
@@ -43,8 +37,6 @@ public class AlunoTests extends AbstractIntegrationTests {
 		aluno.setEmail("lenonsec7@gmail.com");
 		aluno.setCelular("(45) 99955-3219");
 		aluno.setTipousuario(TipoUsuarioEnum.ALUNO);
-		//TurmaReforco turmareforco = this.turmaRepository.findById(1L).orElse(null);
-		//aluno.setTurmareforco(turmareforco);
 		
 		this.alunoService.cadastrarAluno(aluno);		
 		Assert.assertNotNull(aluno);
@@ -57,7 +49,6 @@ public class AlunoTests extends AbstractIntegrationTests {
 	 */
 	@Test
 	@Sql({ "/dataset/truncate.sql",
-		  "/dataset/turma_reforco.sql",
 		 "/dataset/usuarios.sql",
 		"/dataset/aluno.sql",})
 	public void listarAlunosMustPass() {
@@ -69,7 +60,6 @@ public class AlunoTests extends AbstractIntegrationTests {
 	 */
 	@Test
 	@Sql({ "/dataset/truncate.sql",
-		  "/dataset/turma_reforco.sql",
 		 "/dataset/usuarios.sql",
 		"/dataset/aluno.sql",})
 	public void atualizarAlunoMustPass() {
@@ -84,7 +74,6 @@ public class AlunoTests extends AbstractIntegrationTests {
 	 */
 	@Test
 	@Sql({ "/dataset/truncate.sql",
-		  "/dataset/turma_reforco.sql",
 		 "/dataset/usuarios.sql",
 		"/dataset/aluno.sql",})
 	public void removerAlunoMustPass() {
@@ -92,4 +81,18 @@ public class AlunoTests extends AbstractIntegrationTests {
 		Aluno aluno = this.alunoRepository.findById(1001L).orElse(null);
 		Assert.assertNull(aluno);
 	}
+	/**
+	 * ====================================== DESATIVAR ============================================
+	 */
+	@Test
+	@Sql({ "/dataset/truncate.sql",
+		 "/dataset/usuarios.sql",
+		"/dataset/aluno.sql",})
+	public void desativarAlunoMustPass() {
+		Aluno aluno = this.alunoRepository.findById(1001L).orElse(null);
+		
+		this.alunoService.desativarAluno(aluno);
+		Assert.assertNotNull(aluno.getId());
+	}
+	
 }

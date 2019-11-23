@@ -68,4 +68,14 @@ public class AlunoService {
 	public void removerAluno(long id) {
 		this.alunoRepository.deleteById(id);
 	}
+	
+	/**
+	 * Serviço que desativa um aluno cadastrado
+	 * @param id
+	 * @return 
+	 */
+	public Aluno desativarAluno(Aluno aluno) {
+		aluno.setDisponivel(false);
+		return this.alunoRepository.save(aluno);
+	}
 }

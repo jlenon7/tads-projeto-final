@@ -1,8 +1,8 @@
-TRUNCATE usuario CASCADE;
-TRUNCATE reforco CASCADE;
-TRUNCATE curso CASCADE;
 TRUNCATE aluno CASCADE;
-TRUNCATE curso_matriculas CASCADE;
+TRUNCATE curso CASCADE;
 TRUNCATE matricula_curso CASCADE;
 TRUNCATE professor CASCADE;
+TRUNCATE reforco CASCADE;
 TRUNCATE turma_reforco CASCADE;
+TRUNCATE turma_reforco_aluno CASCADE;
+TRUNCATE usuario CASCADE;

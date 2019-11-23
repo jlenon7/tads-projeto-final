@@ -15,7 +15,6 @@ import org.springframework.util.Assert;
 import com.flashcursos.model.entity.Usuario;
 import com.flashcursos.model.repository.UsuarioRepository;
 import com.flashcursos.model.repository.IAccountMailRepository;
-import com.flashcursos.application.configuration.settings.AppSettings;
 import com.flashcursos.application.security.RequestContext;
 
 
@@ -30,9 +29,6 @@ public class UsuarioService {
 	// Password encoder
 	@Autowired
 	private PasswordEncoder passwordEncoder;	
-	// AppSettings
-	@Autowired
-	private AppSettings appSettings;
 	// Repositories
 	@Autowired
 	private UsuarioRepository usuarioRepository;

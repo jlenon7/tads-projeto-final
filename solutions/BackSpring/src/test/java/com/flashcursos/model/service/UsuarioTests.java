@@ -29,7 +29,7 @@ public class UsuarioTests extends AbstractIntegrationTests {
 	private UsuarioRepository usuarioRepository;
 	
 	/**
-	 * ====================================== (CREATE)RUD ============================================
+	 * ====================================== (CREATE)RUD ===========================================
 	 */
 	@Test
 	@WithUserDetails("jlenon7@hotmail.com")

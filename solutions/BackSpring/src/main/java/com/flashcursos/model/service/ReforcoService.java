@@ -26,6 +26,7 @@ public class ReforcoService {
 	 * @return
 	 */
 	public Reforco cadastrarReforco(Reforco reforco) {
+		reforco.setDisponivel(true);
 		return this.reforcoRepository.save(reforco);
 	}
 	
@@ -65,5 +66,15 @@ public class ReforcoService {
 	 */
 	public void removerReforco(long id) {
 		this.reforcoRepository.deleteById(id);
+	}
+	
+	/**
+	 * Serviço que desativa um reforço cadastrado
+	 * @param id
+	 * @return 
+	 */
+	public Reforco desativarReforco(Reforco reforco) {
+		reforco.setDisponivel(false);
+		return this.reforcoRepository.save(reforco);
 	}
 }

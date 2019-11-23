@@ -17,41 +17,8 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private ImplUserDetailService detail;
 	
-	private final AuthenticationFailureHandler authenticationFailureHandler;
-	/**
-	 *
-	 */
-	private final AuthenticationSuccessHandler authenticationSuccessHandler;
-
-	@Autowired
-	public SpringSecurityConfiguration( AuthenticationFailureHandler authenticationFailureHandler, AuthenticationSuccessHandler authenticationSuccessHandler )
-	{
-		this.authenticationFailureHandler = authenticationFailureHandler;
-		this.authenticationSuccessHandler = authenticationSuccessHandler;
-	}
-	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		
-		/*http.csrf().disable();
-		http.headers().frameOptions().disable();
-
-		http.authorizeRequests()
-			.antMatchers("/" ).fullyAuthenticated()
-			.anyRequest()
-			.authenticated()
-			.and()
-			.formLogin()
-			.usernameParameter( "email" )
-			.passwordParameter( "password" )
-			.loginPage( "/authentication" )
-			.loginProcessingUrl( "/authenticate" )
-			.failureHandler( this.authenticationFailureHandler )
-			.successHandler( this.authenticationSuccessHandler )
-			.permitAll()
-			.and()
-			.logout()
-			.logoutUrl( "/logout" );
 		http.csrf().disable().
 		authorizeRequests().
 		anyRequest()
@@ -59,11 +26,11 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
 		.and()
 		.formLogin()
 		.defaultSuccessUrl("/index")
-		.and().httpBasic().disable();*/
+		.and().httpBasic().disable();
 		
-		http.cors().and().csrf().disable()
+		/*http
 		.authorizeRequests()
-			.antMatchers( "/api/*" ).permitAll();
+			.antMatchers( "/api/*" ).permitAll();*/
 	}
 	
 	protected void authenticationConfigure(AuthenticationManagerBuilder auth) throws Exception {
@@ -78,4 +45,3 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
 		return encoder;
 	}
 }
-

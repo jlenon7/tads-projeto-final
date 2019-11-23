@@ -70,5 +70,15 @@ public class ProfessorService {
 	public void removerProfessor(long id) {
 		this.professorRepository.deleteById(id);
 	}
+	
+	/**
+	 * Serviço que desativa um professor cadastrado
+	 * @param id
+	 * @return 
+	 */
+	public Professor desativarProfessor(Professor professor) {
+		professor.setDisponivel(false);
+		return this.professorRepository.save(professor);
+	}
 
 }

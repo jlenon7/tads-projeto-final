@@ -25,7 +25,8 @@ public class TurmaService {
 	 * @param turma
 	 * @return
 	 */
-	public TurmaReforco cadastrarTurmaReforco(TurmaReforco turma) {
+	public TurmaReforco cadastrarTurma(TurmaReforco turma) {
+		turma.setDisponivel(true);
 		return this.turmaRepository.save(turma);
 	}
 	
@@ -34,7 +35,7 @@ public class TurmaService {
 	 * @param turma
 	 * @return
 	 */
-	public TurmaReforco atualizarTurmaReforco(TurmaReforco turma) {
+	public TurmaReforco atualizarTurma(TurmaReforco turma) {
 		return this.turmaRepository.save(turma);
 	}
 	
@@ -42,7 +43,7 @@ public class TurmaService {
 	 * Serviço para listar as turmas cadastradas
 	 * @return
 	 */
-	public List<TurmaReforco> listarTurmaReforcos(){
+	public List<TurmaReforco> listarTurmas(){
 		return this.turmaRepository.findAll();
 	}
 
@@ -51,7 +52,7 @@ public class TurmaService {
 	 * @param id
 	 * @return
 	 */
-	public TurmaReforco detalharTurmaReforco(long id) {
+	public TurmaReforco detalharTurma(long id) {
 		TurmaReforco  turma = this.turmaRepository.findById(id).orElse(null);
 		Assert.notNull(turma, "O ID "+ id +" não foi encontrado.");
 		return turma;
@@ -61,7 +62,17 @@ public class TurmaService {
 	 * Serviço que remove uma turma cadastrada
 	 * @param id
 	 */
-	public void removerTurmaReforco(long id) {
+	public void removerTurma(long id) {
 		this.turmaRepository.deleteById(id);
+	}
+	
+	/**
+	 * Serviço que desativa um professor cadastrado
+	 * @param id
+	 * @return 
+	 */
+	public TurmaReforco desativarTurma(TurmaReforco turma) {
+		turma.setDisponivel(false);
+		return this.turmaRepository.save(turma);
 	}
 }

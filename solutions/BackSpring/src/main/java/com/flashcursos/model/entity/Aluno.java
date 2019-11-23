@@ -12,21 +12,10 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @Entity
-//@NoArgsConstructor
-//@AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class Aluno extends Usuario{
 	private static final long serialVersionUID = 1L;
 	
-	//public Aluno(Long id) {
-	//	super.setId(id);
-	//}
-	/*@JsonIgnoreProperties("alunos")
-	@ManyToOne(targetEntity = TurmaReforco.class, 
-				fetch = FetchType.LAZY, 
-				optional = false)	
-	private TurmaReforco turmareforco;*/
-
 	@OneToMany(targetEntity = TurmaReforcoAluno.class, mappedBy = "aluno", fetch = FetchType.LAZY)
 	private List<TurmaReforco> turmasReforco = new ArrayList<TurmaReforco>();
 }

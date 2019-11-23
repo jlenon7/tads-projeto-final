@@ -23,7 +23,7 @@ public class ProfessorTests extends AbstractIntegrationTests {
 	private ProfessorRepository professorRepository;
 
 	/**
-	 * ====================================== (CREATE)RUD ============================================
+	 * ====================================== (CREATE)RUD ===========================================
 	 */
 	@Test
 	@Sql({ "/dataset/truncate.sql", 
@@ -77,9 +77,22 @@ public class ProfessorTests extends AbstractIntegrationTests {
 	@Sql({ "/dataset/truncate.sql", 
 		  "/dataset/usuarios.sql",
 		 "/dataset/professor.sql"})
-	public void removerUsuarioMustPass() {
+	public void removerProfessorMustPass() {
 		this.professorService.removerProfessor(1001);
 		Professor professor = this.professorRepository.findById(1001L).orElse(null);
 		Assert.assertNull(professor);
+	}
+	/**
+	 * ====================================== DESATIVAR ============================================
+	 */
+	@Test
+	@Sql({ "/dataset/truncate.sql",
+		 "/dataset/usuarios.sql",
+		"/dataset/professor.sql",})
+	public void desativarProfessorMustPass() {
+		Professor professor = this.professorRepository.findById(1001L).orElse(null);
+		
+		this.professorService.desativarProfessor(professor);
+		Assert.assertNotNull(professor.getId());
 	}
 }

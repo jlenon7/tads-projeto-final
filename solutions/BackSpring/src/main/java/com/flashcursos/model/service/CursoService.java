@@ -26,6 +26,7 @@ public class CursoService {
 	 * @return
 	 */
 	public Curso cadastrarCurso(Curso curso) {
+		curso.setDisponivel(true);
 		return this.cursoRepository.save(curso);
 	}
 	
@@ -64,6 +65,15 @@ public class CursoService {
 	 */
 	public void removerCurso(long id) {
 		this.cursoRepository.deleteById(id);
+	}
+	/**
+	 * Serviço que desativa um curso cadastrado
+	 * @param id
+	 * @return 
+	 */
+	public Curso desativarCurso(Curso curso) {
+		curso.setDisponivel(false);
+		return this.cursoRepository.save(curso);
 	}
 	
 }

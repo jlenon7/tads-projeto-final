@@ -9,7 +9,6 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.jdbc.Sql;
 
-import com.flashcursos.model.entity.DificuldadeEnum;
 import com.flashcursos.model.entity.DisciplinaEnum;
 import com.flashcursos.model.entity.Professor;
 import com.flashcursos.model.entity.Reforco;
@@ -46,7 +45,6 @@ public class ReforcoTests extends AbstractIntegrationTests {
 		reforco.setVagas(10);
 		Professor ministrante = this.professorRepository.findById(1001L).orElse(null);
 		reforco.setMinistrante(ministrante);
-		reforco.setDisponivel(true);
 		
 		reforcoService.cadastrarReforco(reforco);
 		Assert.assertNotNull(reforco.getId());	
@@ -61,7 +59,7 @@ public class ReforcoTests extends AbstractIntegrationTests {
 		"/dataset/reforcos.sql" })
 	public void listarReforcosMustPass() {
 		List<Reforco> reforcos = this.reforcoService.listarReforcos();
-		Assert.assertEquals(reforcos.size(), 1);
+		Assert.assertEquals(reforcos.size(), 2);
 
 	}	
 	/**
@@ -98,6 +96,20 @@ public class ReforcoTests extends AbstractIntegrationTests {
 		this.reforcoService.removerReforco(1001);
 		Reforco reforco = this.reforcoRepository.findById(1001L).orElse(null);
 		Assert.assertNull(reforco);
+	}
+	/**
+	 * ====================================== DESATIVAR ============================================
+	 */
+	@Test
+	@Sql({ "/dataset/truncate.sql",
+			"/dataset/usuarios.sql",
+			"/dataset/professor.sql",
+			"/dataset/reforcos.sql" })
+	public void desativarReforcoMustPass() {
+		Reforco reforco = this.reforcoRepository.findById(1001L).orElse(null);
+		
+		this.reforcoService.desativarReforco(reforco);
+		Assert.assertNotNull(reforco.getId());
 	}
 
 	

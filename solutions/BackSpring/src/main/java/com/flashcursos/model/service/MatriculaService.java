@@ -25,7 +25,8 @@ public class MatriculaService {
 	 * @param matricula
 	 * @return
 	 */
-	public MatriculaCurso cadastrarMatriculaCurso(MatriculaCurso matricula) {
+	public MatriculaCurso cadastrarMatricula(MatriculaCurso matricula) {
+		matricula.setDisponivel(true);
 		return this.matriculaRepository.save(matricula);
 	}
 	
@@ -34,7 +35,7 @@ public class MatriculaService {
 	 * @param matricula
 	 * @return
 	 */
-	public MatriculaCurso atualizarMatriculaCurso(MatriculaCurso matricula) {
+	public MatriculaCurso atualizarMatricula(MatriculaCurso matricula) {
 		return this.matriculaRepository.save(matricula);
 	}
 	
@@ -42,7 +43,7 @@ public class MatriculaService {
 	 * Serviço para listar as matriculas cadastradas
 	 * @return
 	 */
-	public List<MatriculaCurso> listarMatriculaCursos(){
+	public List<MatriculaCurso> listarMatricula(){
 		return this.matriculaRepository.findAll();
 	}
 	
@@ -52,7 +53,7 @@ public class MatriculaService {
 	 * @param id
 	 * @return
 	 */
-	public MatriculaCurso detalharMatriculaCurso(long id) {
+	public MatriculaCurso detalharMatricula(long id) {
 		MatriculaCurso  matricula = this.matriculaRepository.findById(id).orElse(null);
 		Assert.notNull(matricula, "O ID "+ id +" não foi encontrado.");
 		return matricula;
@@ -62,7 +63,17 @@ public class MatriculaService {
 	 * Serviço que remove uma matricula cadastrada
 	 * @param id
 	 */
-	public void removerMatriculaCurso(long id) {
+	public void removerMatricula(long id) {
 		this.matriculaRepository.deleteById(id);
+	}
+	
+	/**
+	 * Serviço que desativa uma matricula cadastrado
+	 * @param id
+	 * @return 
+	 */
+	public MatriculaCurso desativarMatricula(MatriculaCurso matricula) {
+		matricula.setDisponivel(false);
+		return this.matriculaRepository.save(matricula);
 	}
 }
