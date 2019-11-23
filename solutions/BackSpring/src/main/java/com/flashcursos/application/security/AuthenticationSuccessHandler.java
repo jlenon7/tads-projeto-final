@@ -15,6 +15,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.flashcursos.model.entity.Usuario;
 import com.flashcursos.model.repository.UsuarioRepository;
 
+
 @Component
 public class AuthenticationSuccessHandler implements org.springframework.security.web.authentication.AuthenticationSuccessHandler
 {
@@ -64,3 +65,4 @@ public class AuthenticationSuccessHandler implements org.springframework.securit
 		}
 	}
 }
+
