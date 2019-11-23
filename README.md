@@ -1,87 +1,134 @@
-# Project Title
+# Flash Cursos
 
-One Paragraph of project description goes here
+Projeto final de Web IV - www.flashcursos.com
 
-## Getting Started
+## Começando
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Essas instruções vão te dar uma cópia do projeto funcionando e rodando na sua maquina local para fins de desenvolvimento e testes. Veja as notas de importação para saber como importar o projeto em um sistema ativo.
 
-### Prerequisites
+### Pré requisitos
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+Ferramentas que você deve instalar e como instalar.
 
 ```
-Give the example
+JDK 7+
+```
+```
+STS 3+
+```
+```
+Lombok.jar
+```
+```
+PostgreSQL
+```
+```
+PgAdmin 3+
 ```
 
-And repeat
+### Instalando
+
+Um passo a passo de como ter um ambiente de desenvolvimento env rodando.
+
+
+Primeiro instale o JDK 7 ou superior, lembre-se de criar uma conta na Oracle.
+
+* [JDK 7](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html)
+
+Instale o STS 3+ ou superior.
+
+* [STS 3+](https://spring.io/tools)
+
+Baixe o lombok.jar e procure a pasta onde foi instalado o STS.
+
+* [Lombok.jar](https://projectlombok.org/download)
+
+Baixe o PgAdmin e no meio da instalação marque o checkbox do PostgreSQL
+
+* [PgAdmin/PostgreSQL](https://www.pgadmin.org/download/)
+
+Clone o repositório para a pasta Workspace do STS
 
 ```
-until finished
+git clone https://github.com/jlenon7/projeto-final.git
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+Importe o projeto como Maven
 
-## Running the tests
+![Captura de Tela 2019-11-23 às 12 50 51](https://user-images.githubusercontent.com/52840235/69481480-80a79580-0df0-11ea-8973-0ebe017ced52.png)
 
-Explain how to run the automated tests for this system
 
-### Break down into end to end tests
+![Captura de Tela 2019-11-23 às 12 51 23](https://user-images.githubusercontent.com/52840235/69481492-93ba6580-0df0-11ea-8bf7-41ec9d32775f.png)
 
-Explain what these tests test and why
+E faça um Maven Update
+
+![Captura de Tela 2019-11-23 às 12 59 33](https://user-images.githubusercontent.com/52840235/69481559-22c77d80-0df1-11ea-9a5c-2cd9ddcb0b03.png)
+
+## Rodando os testes
+
+Para rodar os testes entre na pasta src/test/java
+
+![Captura de Tela 2019-11-23 às 13 01 30](https://user-images.githubusercontent.com/52840235/69481588-6326fb80-0df1-11ea-984e-e54b3339f60f.png)
+
+Escolha um dos testes e rode ele como JUnit
+
+![Captura de Tela 2019-11-23 às 13 03 22](https://user-images.githubusercontent.com/52840235/69481625-a6816a00-0df1-11ea-9896-86f66e8ea134.png)
+
+### Por que dos testes
+
+Estes testes foram necessários para não dependermos do Front-end da nossa aplicação e para testarmos todos os tipos de possibilidades que podem acontecer no uso do nosso sistema.
+
+### Um exemplo dos nossos testes
+
+Aqui temos um teste básico de um cadastro de professor
 
 ```
-Give an example
+/**
+	 * ====================================== (CREATE)RUD ===========================================
+	 */
+	@Test
+	@Sql({ "/dataset/truncate.sql", 
+		  "/dataset/usuarios.sql",
+		 "/dataset/professor.sql" })
+
+	public void cadastrarProfessorMustPass() {
+		Professor professor = new Professor();
+
+		professor.setNome("João Lenon Lopes");
+		professor.setCpf("092.862.989-90");
+		professor.setNascimento(LocalDate.of(1990, Month.JANUARY, 1));
+		professor.setEmail("lenonsec7@gmail.com");
+		professor.setCelular("(45) 99955-3219");
+		professor.setTipousuario(TipoUsuarioEnum.PROFESSOR);
+		professor.setAreaConhecimento(AreaConhecimentoEnum.DEV_MOBILE);
+		
+		this.professorService.cadastrarProfessor(professor);		
+		Assert.assertNotNull(professor);
+		Assert.assertNotNull(professor.getId());		
+	}
 ```
 
-### And coding style tests
+## Feito com
 
-Explain what these tests test and why
+* [Spring Boot](https://spring.io/projects/spring-boot) - Back-end framework usado
+* [Maven](https://maven.apache.org/) - Gerenciador de dependencias
+* [Angular](https://spring.io/projects/spring-boot) - Front-end framework usado
 
-```
-Give an example
-```
 
-## Deployment
+## Versionamento
 
-Add additional notes about how to deploy this on a live system
+Por enquanto não estamos trabalhando com versionamento mas pretendemos colocar em atualizações futuras 
 
-## Built With
+## Autores
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* **João Lenon** - *Trabalho Inicial* - [jlenon7](https://github.com/jlenon7)
 
-## Contributing
+* **Adryell Nathann** - *Trabalho Inicial* - [jlenon7](https://github.com/Adryell)
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+## Licença
 
-## Versioning
+Este projeto está licenciado sob a MIT License - veja a [LICENSE.md](LICENSE.md) para mais detalhes
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+## Agradecimentos
 
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* Agradecimentos ao Gabriel Ulysses que foi exencial no desenvolvimento desse projeto.
