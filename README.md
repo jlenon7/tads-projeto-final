@@ -83,7 +83,6 @@ Estes testes foram necessários para não dependermos do Front-end da nossa apli
 Aqui temos um teste básico de um cadastro de professor
 
 ```
-
 @Test
 @Sql({ "/dataset/truncate.sql", 
 	  "/dataset/usuarios.sql",
