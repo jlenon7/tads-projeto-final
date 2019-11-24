@@ -128,4 +128,4 @@ Este projeto está licenciado sob a MIT License - veja a [LICENSE.md](LICENSE.md
 
 ## Agradecimentos
 
-* Agradecimentos ao Gabriel Ulysses que foi essencial no desenvolvimento desse projeto.
+* Agradecimentos ao **Gabriel Ulisses** - [GabrielUlisses](https://github.com/GabrielUlisses) que foi essencial no desenvolvimento desse projeto.
