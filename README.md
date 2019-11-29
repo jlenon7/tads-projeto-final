@@ -83,29 +83,26 @@ Estes testes foram necessários para não dependermos do Front-end da nossa apli
 Aqui temos um teste básico de um cadastro de professor
 
 ```
-/**
-	 * ====================================== (CREATE)RUD ===========================================
-	 */
-	@Test
-	@Sql({ "/dataset/truncate.sql", 
-		  "/dataset/usuarios.sql",
-		 "/dataset/professor.sql" })
+@Test
+@Sql({ "/dataset/truncate.sql", 
+	  "/dataset/usuarios.sql",
+	 "/dataset/professor.sql" })
 
-	public void cadastrarProfessorMustPass() {
-		Professor professor = new Professor();
+public void cadastrarProfessorMustPass() {
+	Professor professor = new Professor();
 
-		professor.setNome("João Lenon Lopes");
-		professor.setCpf("092.862.989-90");
-		professor.setNascimento(LocalDate.of(1990, Month.JANUARY, 1));
-		professor.setEmail("lenonsec7@gmail.com");
-		professor.setCelular("(45) 99955-3219");
-		professor.setTipousuario(TipoUsuarioEnum.PROFESSOR);
-		professor.setAreaConhecimento(AreaConhecimentoEnum.DEV_MOBILE);
-		
-		this.professorService.cadastrarProfessor(professor);		
-		Assert.assertNotNull(professor);
-		Assert.assertNotNull(professor.getId());		
-	}
+	professor.setNome("João Lenon Lopes");
+	professor.setCpf("092.862.989-90");
+	professor.setNascimento(LocalDate.of(1990, Month.JANUARY, 1));
+	professor.setEmail("lenonsec7@gmail.com");
+	professor.setCelular("(45) 99955-3219");
+	professor.setTipousuario(TipoUsuarioEnum.PROFESSOR);
+	professor.setAreaConhecimento(AreaConhecimentoEnum.DEV_MOBILE);
+
+	this.professorService.cadastrarProfessor(professor);		
+	Assert.assertNotNull(professor);
+	Assert.assertNotNull(professor.getId());		
+}
 ```
 
 ## Feito com
@@ -131,4 +128,4 @@ Este projeto está licenciado sob a MIT License - veja a [LICENSE.md](LICENSE.md
 
 ## Agradecimentos
 
-* Agradecimentos ao Gabriel Ulysses que foi exencial no desenvolvimento desse projeto.
+* Agradecimentos ao **Gabriel Ulisses** - [GabrielUlisses](https://github.com/GabrielUlisses) que foi essencial no desenvolvimento desse projeto.
