@@ -14,17 +14,18 @@ import { FlexLayoutModule} from "@angular/flex-layout";
 import { AppRoutingModule } from './app-routing.module';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
+import { MenuComponent } from './view/admin/menu/menu.component';
 
 import { AppComponent } from './app.component';
 import { AlunoFormComponent } from './view/admin/aluno/aluno-form/aluno-form.component';
 import { AlunoListComponent } from './view/admin/aluno/aluno-list/aluno-list.component';
 import { AlunoDetailComponent } from './view/admin/aluno/aluno-detail/aluno-detail.component';
 import { AlunoSearchComponent } from './view/admin/aluno/aluno-search/aluno-search.component';
-/*import { ProfessorFormComponent } from './view/admin/professor/professor-form/professor-form.component';
+import { ProfessorFormComponent } from './view/admin/professor/professor-form/professor-form.component';
 import { ProfessorListComponent } from './view/admin/professor/professor-list/professor-list.component';
 import { ProfessorDetailComponent } from './view/admin/professor/professor-detail/professor-detail.component';
 import { ProfessorSearchComponent } from './view/admin/professor/professor-search/professor-search.component';
-*/
+
 import { AlunoService } from './service/aluno.service';
 //import { ProfessorService } from './service/professor.service';
 import { MessagesService } from './service/messages.service';
@@ -43,11 +44,12 @@ import { ReforcoSearchComponent } from './view/reforco/reforco-search/reforco-se
     AlunoFormComponent,
     AlunoListComponent,
     AlunoDetailComponent,
-    AlunoSearchComponent
-    /*ProfessorFormComponent,
+    AlunoSearchComponent,
+    MenuComponent,
+    ProfessorFormComponent,
     ProfessorListComponent,
     ProfessorDetailComponent,
-    ProfessorSearchComponent*/
+    ProfessorSearchComponent
     /*CursoListComponent,
     CursoSearchComponent,
     CursoDetailComponent,

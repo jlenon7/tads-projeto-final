@@ -63,7 +63,7 @@ export class AlunoFormComponent implements OnInit {
     this.alunoForm = this.fb.group(
       {
         nome: [null, {validators: [Validators.required, Validators.maxLength(144)], updateOn: 'blur'}],
-        nascimento: [null, {validators: [Validators.required, Validators.maxLength(144)], updateOn: 'blur'}],
+        //nascimento: [null, {validators: [Validators.required, Validators.maxLength(144)], updateOn: 'blur'}],
         cpf: [null, {validators: [Validators.required, Validators.maxLength(144)], updateOn: 'blur'}],
         email: [null, {validators: [Validators.required, Validators.maxLength(144)], updateOn: 'blur'}],
         senha: [null, {validators: [Validators.required, Validators.maxLength(144)], updateOn: 'blur'}],
@@ -81,7 +81,7 @@ export class AlunoFormComponent implements OnInit {
     if (this.alunoForm.valid) {
 
       this.aluno.nome = this.alunoForm.get("nome").value;
-      this.aluno.nascimento = this.alunoForm.get("nascimento").value;
+      //this.aluno.nascimento = this.alunoForm.get("nascimento").value;
       this.aluno.cpf = this.alunoForm.get("cpf").value;
       this.aluno.email = this.alunoForm.get("email").value;
       this.aluno.senha = this.alunoForm.get("senha").value;

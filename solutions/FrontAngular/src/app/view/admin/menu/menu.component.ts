@@ -68,30 +68,10 @@ export class MenuComponent implements OnInit
         {
           label: "Cadastros Básicos",
           menuList: [
-            { icon: 'people', label: 'Usuários', routerlink: 'usuarios'},
-            { icon: 'store', label: 'Departamentos', routerlink: 'departamentos'},
-            { icon: 'people', label: 'Funcionários', routerlink: 'funcionarios'},
-            { icon: 'toys', label: 'Produtos', routerlink: 'produtos' }
+            { icon: 'people', label: 'Aluno', routerlink: '/admin/aluno'}
           ],
           open: false
         },
-        {
-          label: "Operação",
-          menuList: [
-            { icon: 'store', label: 'Vendas', routerlink: 'vendas' },
-            { icon: 'store', label: 'Compras', routerlink: 'compras'}
-          ],
-          open: false
-        },
-
-        {
-          label: "Relatórios",
-          menuList: [
-            { icon: 'assessment', label: 'Vendas', routerlink: 'relatorio-vendas' },
-            { icon: 'assessment', label: 'Compras', routerlink: 'relatorio-compras'}
-          ],
-          open: false
-        }
       ]
 
     this.removeEmptyItens();
