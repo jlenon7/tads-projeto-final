@@ -58,7 +58,6 @@ public class Usuario extends AbstractEntity implements UserDetails{
 	@NotBlank
 	private String celular;
 	
-	@NotNull
 	@Enumerated( EnumType.ORDINAL )
 	private TipoUsuarioEnum tipousuario;
 	

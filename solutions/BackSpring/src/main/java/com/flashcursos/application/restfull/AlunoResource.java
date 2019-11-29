@@ -17,7 +17,7 @@ import com.flashcursos.model.service.AlunoService;
 
 @Component
 @RestController
-@RequestMapping( "/api/aluno" )
+@RequestMapping( "/api/admin/aluno" )
 public class AlunoResource {
 	
 	
