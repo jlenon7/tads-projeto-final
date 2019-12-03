@@ -1,5 +1,8 @@
 package com.flashcursos;
 
+import javax.annotation.PostConstruct;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.MessageSource;
@@ -8,9 +11,15 @@ import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+
 @SpringBootApplication
 //@EnableAutoConfiguration(exclude = DataSourceAutoConfiguration.class)
 public class SpringWebivApplication {
+	
+	@Autowired
+	private ObjectMapper objectMapper;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringWebivApplication.class, args);
@@ -29,13 +38,13 @@ public class SpringWebivApplication {
 		return messageSource;
 	}
 	
-	/**
-	 * @return
-	 */
-	@Bean
-	public Validator validator()
-	{
+	public Validator validator() {
 		return new LocalValidatorFactoryBean();
+	}
+	
+	@PostConstruct
+	public void setUp() {
+		objectMapper.registerModule(new JavaTimeModule());
 	}
 	
 

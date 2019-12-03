@@ -19,6 +19,7 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import lombok.AllArgsConstructor;
@@ -58,6 +59,7 @@ public class Usuario extends AbstractEntity implements UserDetails{
 	@NotBlank
 	private String celular;
 	
+	@NotNull
 	@Enumerated( EnumType.ORDINAL )
 	private TipoUsuarioEnum tipousuario;
 	

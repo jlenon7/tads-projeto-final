@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import com.flashcursos.model.entity.Aluno;
+import com.flashcursos.model.entity.TipoUsuarioEnum;
 import com.flashcursos.model.repository.AlunoRepository;
 
 @Service
@@ -28,6 +29,7 @@ public class AlunoService {
 	 * @return
 	 */
 	public Aluno cadastrarAluno(Aluno aluno) {
+		aluno.setTipousuario(TipoUsuarioEnum.ALUNO);
 		this.usuarioService.cadastrarUsuario(aluno);
 		return this.alunoRepository.save(aluno);
 	}
