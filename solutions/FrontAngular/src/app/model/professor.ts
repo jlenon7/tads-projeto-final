@@ -1,6 +1,6 @@
 // import { Curso } from './curso'
-import { TipoUsuarioEnum } from './tipoUsuario';
-import { AreaConhecimentoEnum } from './areaConhecimento';
+import { TipoUsuario } from './tipoUsuario';
+import { AreaConhecimento } from './areaConhecimento';
 
 export class Professor {
     constructor(
@@ -12,9 +12,7 @@ export class Professor {
        public senha: string,
        public celular: string,
        public disponivel: Boolean,
-       public tipoUsuario: TipoUsuarioEnum,
-       public areaConhecimento: AreaConhecimentoEnum
-       // public funcionarios: Curso[]
+       public tipoUsuario: TipoUsuario,
+       public areaConhecimento: AreaConhecimento,
       ) {  }
-    
 }

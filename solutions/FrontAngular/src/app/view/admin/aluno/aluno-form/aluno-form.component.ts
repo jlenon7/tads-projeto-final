@@ -4,6 +4,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlunoService } from 'src/app/service/aluno.service';
 import { MessagesService } from 'src/app/service/messages.service';
+import { ParserToDateService } from 'src/app/service/parser-to-date.service';
+import { DateAdapter } from '@angular/material/core';
 
 @Component({
   selector: 'app-aluno-form',
@@ -31,13 +33,14 @@ export class AlunoFormComponent implements OnInit {
    * @param fb
    * @param activatedRoute
    * @param router
-   * @param departamentoService
    */
   constructor(private fb: FormBuilder,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private alunoService: AlunoService,
-    private messageService: MessagesService) { }
+    private messageService: MessagesService,
+    //private parserToDate: ParserToDateService,
+    private _adapter: DateAdapter<any>) { }
 
   /**
    * Método chamado ao iniciar a classe
@@ -63,14 +66,20 @@ export class AlunoFormComponent implements OnInit {
     this.alunoForm = this.fb.group(
       {
         nome: [null, {validators: [Validators.required, Validators.maxLength(144)], updateOn: 'blur'}],
-        nascimento: [null, {validators: [Validators.required, Validators.maxLength(144)], updateOn: 'blur'}],
+        nascimento: [null, { validators: [Validators.required], updateOn: 'blur' }],
         cpf: [null, {validators: [Validators.required, Validators.maxLength(144)], updateOn: 'blur'}],
         email: [null, {validators: [Validators.required, Validators.maxLength(144)], updateOn: 'blur'}],
         senha: [null, {validators: [Validators.required, Validators.maxLength(144)], updateOn: 'blur'}],
         celular: [null, {validators: [Validators.required, Validators.maxLength(144)], updateOn: 'blur'}],
-        tipousuario: [2]
+        tipousuario: [null],
       }
     );
+
+    /**
+     * Seta o locale da data para usar padrão brasileiro
+     */
+    this._adapter.setLocale('pt');
+
   }
 
 
@@ -86,7 +95,8 @@ export class AlunoFormComponent implements OnInit {
       this.aluno.email = this.alunoForm.get("email").value;
       this.aluno.senha = this.alunoForm.get("senha").value;
       this.aluno.celular = this.alunoForm.get("celular").value;
-      this.aluno.tipoUsuario = this.alunoForm.value;
+      this.aluno.tipoUsuario = this.alunoForm.get("tipousuario").value;
+      console.log(this.aluno);
 
       /**
        * Verifica se é cadastro ou edição
@@ -108,8 +118,9 @@ export class AlunoFormComponent implements OnInit {
           this.messageService.toastSuccess('Aluno atualizado com sucesso.');
           this.onBack();
         },
-          (error: any) => alert(error)
-          );
+        (error: any) => {
+          this.messageService.toastError(error.error.message);
+        });
       }
 
     } else {

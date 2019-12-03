@@ -1,5 +1,5 @@
 // import { Curso } from './curso'
-import { TipoUsuarioEnum } from './tipoUsuario';
+import { TipoUsuario } from './tipoUsuario';
 
 export class Aluno {
     constructor(
@@ -11,7 +11,7 @@ export class Aluno {
        public senha: string,
        public celular: string,
        public disponivel: Boolean,
-       public tipoUsuario: TipoUsuarioEnum
+       public tipoUsuario: TipoUsuario
        // public funcionarios: Curso[]
       ) {  }
     

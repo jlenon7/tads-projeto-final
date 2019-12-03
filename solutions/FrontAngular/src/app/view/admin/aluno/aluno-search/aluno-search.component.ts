@@ -21,7 +21,6 @@ export class AlunoSearchComponent implements OnInit {
    * Construtor da classe
    * @param router 
    * @param activatedRoute 
-   * @param departamentoService 
    */
   constructor(private router: Router,
             private activatedRoute: ActivatedRoute,

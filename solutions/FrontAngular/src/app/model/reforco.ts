@@ -1,5 +1,5 @@
 // import { Curso } from './curso'
-import { DisciplinaEnum } from './disciplinaEnum';
+import { Disciplina } from './disciplina';
 
 export class Reforco {
     constructor(
@@ -9,7 +9,7 @@ export class Reforco {
        public vagas: number,
        public horaInicio: Date,
        public disponivel: Boolean,
-       public disiciplinaEnum: DisciplinaEnum,
+       public disiciplinaEnum: Disciplina
        // public funcionarios: Curso[]
       ) {  }
 

@@ -1,2 +1,2 @@
-export let TipoUsuarioEnumValues: string[] = ['ADMIN', 'PROFESSOR', 'ALUNO'];
-export type TipoUsuarioEnum = 'ADMIN' | 'PROFESSOR' | 'ALUNO';
+export let TipoUsuarioValues: string[] = ['ADMIN', 'PROFESSOR', 'ALUNO'];
+export type TipoUsuario = 'ADMIN' | 'PROFESSOR' | 'ALUNO';

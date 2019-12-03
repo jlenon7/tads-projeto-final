@@ -1,5 +1,5 @@
 // import { Curso } from './curso'
-import { DificuldadeEnum } from './dificuldadeEnum';
+import { Dificuldade } from './dificuldade';
 
 export class Curso {
     constructor(
@@ -8,7 +8,7 @@ export class Curso {
        public ministrante: string,
        public cargaHoraria: number,
        public disponivel: Boolean,
-       public dificuldadeEnum: DificuldadeEnum,
+       public dificuldadeEnum: Dificuldade,
        // public funcionarios: Curso[]
       ) {  }
 

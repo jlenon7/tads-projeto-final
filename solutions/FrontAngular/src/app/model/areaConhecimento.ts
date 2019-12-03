@@ -1,2 +1,2 @@
-export let AreaConhecimentoEnumValues: string[] = ['DEV_WEB', 'DEV_DESKTOP', 'BANCO_DE_DADOS', 'MODELAGEM', 'REDES', 'REFORCOS'];
-export type AreaConhecimentoEnum = 'DEV_WEB' | 'DEV_DESKTOP' | 'BANCO_DE_DADOS' | 'MODELAGEM' | 'REDES' | 'REFORCOS';
+export let AreaConhecimentoValues: string[] = ['DEV_WEB', 'DEV_DESKTOP', 'BANCO_DE_DADOS', 'MODELAGEM', 'REDES', 'REFORCOS'];
+export type AreaConhecimento = 'DEV_WEB' | 'DEV_DESKTOP' | 'BANCO_DE_DADOS' | 'MODELAGEM' | 'REDES' | 'REFORCOS';
