@@ -1,0 +1,115 @@
+<div fxLayout="column">
+    <div fxLayout="row" class="header-form">
+      <span fxFlex>Cadastrar/Alterar Professor</span>
+        <div>
+            <button mat-raised-button class="form-button bgc-grey-500 tc-grey-50" (click)="onBack()">
+            Cancelar
+            </button>
+            <button [disabled]="professorForm.invalid" mat-raised-button color="accent" class="form-button" (click)="onSave()">
+            Salvar
+            </button>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center start">
+        <mat-card class="background-color" fxFlex="90">
+            <form [formGroup]="professorForm" novalidate>
+                <div fxLayout="column" fxFlex=90>
+
+                          <div fxLayout="column">
+                            <div fxLayout="row" fxFlex=50>
+                                    <mat-form-field fxFlex [floatLabel]="'always'">
+                                      <mat-label>Nome</mat-label>
+                                      <input matInput id="nome" formControlName="nome"
+                                             placeholder="Nome"
+                                             maxlength="144" layout-align="center end">
+                                      <mat-error *ngIf="professorForm.get('nome').hasError('maxLength')">
+                                        Máximo 144 caracteres.
+                                      </mat-error>
+                                      <mat-error *ngIf="professorForm.get('nome').hasError('required')">
+                                        Nome é obrigatório.
+                                      </mat-error>
+                                    </mat-form-field>
+                            </div>
+                            <div fxLayout="row" fxFlex=50>
+                              <!--Data de nascimento-->
+                                <mat-form-field>
+                                    <input matInput [matDatepicker]="picker" placeholder="Escolha uma data" formControlName="nascimento" required>
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                  </mat-form-field>
+                            </div>
+                            <div fxLayout="row" fxFlex=50>
+                                <mat-form-field fxFlex [floatLabel]="'always'">
+                                  <mat-label>CPF</mat-label>
+                                  <input matInput id="cpf" formControlName="cpf"
+                                         placeholder="CPF"
+                                         maxlength="14" layout-align="center end">
+                                  <mat-error *ngIf="professorForm.get('cpf').hasError('maxLength')">
+                                    Máximo 14 caracteres.
+                                  </mat-error>
+                                  <mat-error *ngIf="professorForm.get('cpf').hasError('required')">
+                                    CPF é obrigatório.
+                                  </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div fxLayout="row" fxFlex=50>
+                                <mat-form-field fxFlex [floatLabel]="'always'">
+                                  <mat-label>Email</mat-label>
+                                  <input type="email" matInput id="email" formControlName="email"
+                                         placeholder="Email"
+                                         maxlength="144" layout-align="center end">
+                                  <mat-error *ngIf="professorForm.get('email').hasError('maxLength')">
+                                    Máximo 144 caracteres.
+                                  </mat-error>
+                                  <mat-error *ngIf="professorForm.get('email').hasError('required')">
+                                    Email é obrigatório.
+                                  </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div fxLayout="row" fxFlex=50>
+                                <mat-form-field fxFlex [floatLabel]="'always'">
+                                  <mat-label>Senha</mat-label>
+                                  <input type="password" matInput id="senha" formControlName="senha"
+                                         placeholder="Senha"
+                                         maxlength="144" layout-align="center end">
+                                  <mat-error *ngIf="professorForm.get('senha').hasError('maxLength')">
+                                    Máximo 144 caracteres.
+                                  </mat-error>
+                                  <mat-error *ngIf="professorForm.get('senha').hasError('required')">
+                                    Senha é obrigatório.
+                                  </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div fxLayout="row" fxFlex=50>
+                                <mat-form-field fxFlex [floatLabel]="'always'">
+                                  <mat-label>Celular</mat-label>
+                                  <input matInput id="celular" formControlName="celular"
+                                         placeholder="Celular"
+                                         maxlength="144" layout-align="center end">
+                                  <mat-error *ngIf="professorForm.get('celular').hasError('maxLength')">
+                                    Máximo 144 caracteres.
+                                  </mat-error>
+                                  <mat-error *ngIf="professorForm.get('celular').hasError('required')">
+                                    Celular é obrigatório.
+                                  </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div fxLayout="row" fxFlex=50>
+                            <mat-form-field fxFlex [floatLabel]="'always'">
+                              <mat-label>Area de Conhecimento</mat-label>
+                              <mat-select formControlName="areaconhecimento" placeholder="Selecione uma area" required>
+                                <mat-option *ngFor="let areaconhecimento of areaConhecimentoValues" [value]="areaconhecimento">
+                                  {{ areaConhecimento }}
+                                </mat-option>
+                              </mat-select>
+                              <mat-error *ngIf="professorForm.get('areaconhecimento').hasError('required')">
+                                Area é obrigatório.
+                              </mat-error>
+                            </mat-form-field>
+                            </div>
+                </div>
+              </div>
+            </form>
+          </mat-card>
+        </div>
+      </div>
