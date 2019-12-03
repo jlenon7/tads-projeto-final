@@ -14,8 +14,8 @@
         <mat-card class="background-color" fxFlex="90">
             <form [formGroup]="alunoForm" novalidate>
                 <div fxLayout="column" fxFlex=90>
-  
-                    <div fxLayout="column">
+
+                          <div fxLayout="column">
                             <div fxLayout="row" fxFlex=50>
                                     <mat-form-field fxFlex [floatLabel]="'always'">
                                       <mat-label>Nome</mat-label>
@@ -30,7 +30,7 @@
                                       </mat-error>
                                     </mat-form-field>
                             </div>
-                            <!--<div fxLayout="row" fxFlex=50>
+                            <div fxLayout="row" fxFlex=50>
                                 <mat-form-field fxFlex [floatLabel]="'always'">
                                   <mat-label>Nascimento</mat-label>
                                   <input matInput id="nascimento" formControlName="nascimento"
@@ -43,7 +43,7 @@
                                     Nascimento é obrigatório.
                                   </mat-error>
                                 </mat-form-field>
-                            </div>-->
+                            </div>
                             <div fxLayout="row" fxFlex=50>
                                 <mat-form-field fxFlex [floatLabel]="'always'">
                                   <mat-label>CPF</mat-label>
@@ -61,7 +61,7 @@
                             <div fxLayout="row" fxFlex=50>
                                 <mat-form-field fxFlex [floatLabel]="'always'">
                                   <mat-label>Email</mat-label>
-                                  <input matInput id="email" formControlName="email"
+                                  <input type="email" matInput id="email" formControlName="email"
                                          placeholder="Email"
                                          maxlength="144" layout-align="center end">
                                   <mat-error *ngIf="alunoForm.get('email').hasError('maxLength')">
@@ -75,7 +75,7 @@
                             <div fxLayout="row" fxFlex=50>
                                 <mat-form-field fxFlex [floatLabel]="'always'">
                                   <mat-label>Senha</mat-label>
-                                  <input matInput id="senha" formControlName="senha"
+                                  <input type="password" matInput id="senha" formControlName="senha"
                                          placeholder="Senha"
                                          maxlength="144" layout-align="center end">
                                   <mat-error *ngIf="alunoForm.get('senha').hasError('maxLength')">
@@ -100,24 +100,9 @@
                                   </mat-error>
                                 </mat-form-field>
                             </div>
-                            <div fxLayout="row" fxFlex=50>
-                                <mat-form-field fxFlex [floatLabel]="'always'">
-                                  <mat-label>Tipo Usuario</mat-label>
-                                  <input matInput id="tipousuario" formControlName="tipousuario"
-                                         placeholder="tipousuario"
-                                         maxlength="14" layout-align="center end">
-                                  <mat-error *ngIf="alunoForm.get('cpf').hasError('maxLength')">
-                                    Máximo 10 caracteres.
-                                  </mat-error>
-                                 <!-- <mat-error *ngIf="alunoForm.get('cpf').hasError('required')">
-                                    CPF é obrigatório.
-                                  </mat-error> -->
-                                </mat-form-field>
-                            </div>
                 </div>
               </div>
             </form>
           </mat-card>
         </div>
       </div>
-          

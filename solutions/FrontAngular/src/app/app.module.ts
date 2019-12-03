@@ -21,22 +21,28 @@ import { AlunoFormComponent } from './view/admin/aluno/aluno-form/aluno-form.com
 import { AlunoListComponent } from './view/admin/aluno/aluno-list/aluno-list.component';
 import { AlunoDetailComponent } from './view/admin/aluno/aluno-detail/aluno-detail.component';
 import { AlunoSearchComponent } from './view/admin/aluno/aluno-search/aluno-search.component';
+
 import { ProfessorFormComponent } from './view/admin/professor/professor-form/professor-form.component';
 import { ProfessorListComponent } from './view/admin/professor/professor-list/professor-list.component';
 import { ProfessorDetailComponent } from './view/admin/professor/professor-detail/professor-detail.component';
 import { ProfessorSearchComponent } from './view/admin/professor/professor-search/professor-search.component';
 
-import { AlunoService } from './service/aluno.service';
-//import { ProfessorService } from './service/professor.service';
-import { MessagesService } from './service/messages.service';
-/*import { CursoListComponent } from './view/admin/curso-list/curso-list.component';
-import { CursoSearchComponent } from './view/curso-search/curso-search.component';
+import { CursoListComponent } from './view/admin/curso/curso-list/curso-list.component';
+import { CursoSearchComponent } from './view/admin/curso/curso-search/curso-search.component';
 import { CursoDetailComponent } from './view/admin/curso/curso-detail/curso-detail.component';
 import { CursoFormComponent } from './view/admin/curso/curso-form/curso-form.component';
-import { ReforcoFormComponent } from './view/reforco/reforco-form/reforco-form.component';
-import { ReforcoListComponent } from './view/reforco/reforco-list/reforco-list.component';
-import { ReforcoDetailComponent } from './view/reforco/reforco-detail/reforco-detail.component';
-import { ReforcoSearchComponent } from './view/reforco/reforco-search/reforco-search.component';*/
+
+import { ReforcoFormComponent } from './view/admin/reforco/reforco-form/reforco-form.component';
+import { ReforcoListComponent } from './view/admin/reforco/reforco-list/reforco-list.component';
+import { ReforcoDetailComponent } from './view/admin/reforco/reforco-detail/reforco-detail.component';
+import { ReforcoSearchComponent } from './view/admin/reforco/reforco-search/reforco-search.component';
+
+import { AlunoService } from './service/aluno.service';
+import { CursoService } from './service/curso.service';
+import { ReforcoService } from './service/reforco.service';
+//import { ProfessorService } from './service/professor.service';
+import { MessagesService } from './service/messages.service';
+
 
 @NgModule({
   declarations: [
@@ -49,15 +55,15 @@ import { ReforcoSearchComponent } from './view/reforco/reforco-search/reforco-se
     ProfessorFormComponent,
     ProfessorListComponent,
     ProfessorDetailComponent,
-    ProfessorSearchComponent
-    /*CursoListComponent,
+    ProfessorSearchComponent,
+    CursoListComponent,
     CursoSearchComponent,
     CursoDetailComponent,
     CursoFormComponent,
     ReforcoFormComponent,
     ReforcoListComponent,
     ReforcoDetailComponent,
-    ReforcoSearchComponent*/
+    ReforcoSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -68,9 +74,9 @@ import { ReforcoSearchComponent } from './view/reforco/reforco-search/reforco-se
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    
+
     /** Material Modules */
-    
+
     MatButtonModule,
     MatListModule,
     MatIconModule,
@@ -112,6 +118,8 @@ import { ReforcoSearchComponent } from './view/reforco/reforco-search/reforco-se
   ],
   providers: [
     AlunoService,
+    CursoService,
+    ReforcoService,
     //ProfessorService,
     MessagesService
   ],

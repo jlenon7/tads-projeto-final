@@ -1,11 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { AlunoFormComponent } from './view/admin/aluno/aluno-form/aluno-form.component';
 import { AlunoSearchComponent } from './view/admin/aluno/aluno-search/aluno-search.component';
 import { AlunoDetailComponent } from './view/admin/aluno/aluno-detail/aluno-detail.component';
+
 import { ProfessorSearchComponent } from './view/admin/professor/professor-search/professor-search.component';
 import { ProfessorFormComponent } from './view/admin/professor/professor-form/professor-form.component';
 import { ProfessorDetailComponent } from './view/admin/professor/professor-detail/professor-detail.component';
+
+import { CursoSearchComponent } from './view/admin/curso/curso-search/curso-search.component';
+import { CursoFormComponent } from './view/admin/curso/curso-form/curso-form.component';
+import { CursoDetailComponent } from './view/admin/curso/curso-detail/curso-detail.component';
+
+import { ReforcoSearchComponent } from './view/admin/reforco/reforco-search/reforco-search.component';
+import { ReforcoFormComponent } from './view/admin/reforco/reforco-form/reforco-form.component';
+import { ReforcoDetailComponent } from './view/admin/reforco/reforco-detail/reforco-detail.component';
 
 
 const routes: Routes = [
@@ -40,6 +50,38 @@ const routes: Routes = [
   {
     component: ProfessorDetailComponent,
     path: 'admin/professor/detalhes/:id'
+  },
+  {
+    component: CursoSearchComponent,
+    path: 'admin/curso'
+  },
+  {
+    component: CursoFormComponent,
+    path: 'admin/curso/cadastrar'
+  },
+  {
+    component: CursoFormComponent,
+    path: 'admin/curso/alterar/:id'
+  },
+  {
+    component: CursoDetailComponent,
+    path: 'admin/curso/detalhes/:id'
+  },
+  {
+    component: ReforcoSearchComponent,
+    path: 'admin/reforco'
+  },
+  {
+    component: ReforcoFormComponent,
+    path: 'admin/reforco/cadastrar'
+  },
+  {
+    component: ReforcoFormComponent,
+    path: 'admin/reforco/alterar/:id'
+  },
+  {
+    component: ReforcoDetailComponent,
+    path: 'admin/reforco/detalhes/:id'
   }
 ];
 

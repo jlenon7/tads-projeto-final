@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {Aluno} from './../model/aluno'
+import { Aluno } from './../model/aluno'
 
 @Injectable({
   providedIn: 'root'

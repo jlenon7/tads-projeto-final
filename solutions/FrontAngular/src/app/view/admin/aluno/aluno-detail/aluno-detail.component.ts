@@ -27,7 +27,7 @@ export class AlunoDetailComponent implements OnInit {
     if (this.aluno.id) {
       this.loadDados();
     }
-    
+
   }
 
   /**
@@ -41,7 +41,7 @@ export class AlunoDetailComponent implements OnInit {
       this.messageService.toastError(error.error.message);
     }
     );
-    
+
   }
 
   /**
@@ -50,7 +50,7 @@ export class AlunoDetailComponent implements OnInit {
   onBack() {
 
     this.router.navigate(['../../'], { relativeTo: this.activatedRoute });
-    
+
   }
 
   /**

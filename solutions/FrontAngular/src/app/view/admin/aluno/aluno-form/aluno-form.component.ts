@@ -20,7 +20,7 @@ export class AlunoFormComponent implements OnInit {
    * Objeto aluno
    */
   public aluno: Aluno;
-  
+
   /**
   * Controla se é atualização
   */
@@ -28,14 +28,14 @@ export class AlunoFormComponent implements OnInit {
 
   /**
    * Construtor da classe
-   * @param fb 
-   * @param activatedRoute 
-   * @param router 
-   * @param departamentoService 
+   * @param fb
+   * @param activatedRoute
+   * @param router
+   * @param departamentoService
    */
-  constructor(private fb: FormBuilder, 
+  constructor(private fb: FormBuilder,
     private activatedRoute: ActivatedRoute,
-    private router: Router, 
+    private router: Router,
     private alunoService: AlunoService,
     private messageService: MessagesService) { }
 
@@ -50,7 +50,7 @@ export class AlunoFormComponent implements OnInit {
     if (this.aluno.id) {
       this.loadToEdit();
     }
-    
+
   }
 
   /**
@@ -63,12 +63,12 @@ export class AlunoFormComponent implements OnInit {
     this.alunoForm = this.fb.group(
       {
         nome: [null, {validators: [Validators.required, Validators.maxLength(144)], updateOn: 'blur'}],
-        //nascimento: [null, {validators: [Validators.required, Validators.maxLength(144)], updateOn: 'blur'}],
+        nascimento: [null, {validators: [Validators.required, Validators.maxLength(144)], updateOn: 'blur'}],
         cpf: [null, {validators: [Validators.required, Validators.maxLength(144)], updateOn: 'blur'}],
         email: [null, {validators: [Validators.required, Validators.maxLength(144)], updateOn: 'blur'}],
         senha: [null, {validators: [Validators.required, Validators.maxLength(144)], updateOn: 'blur'}],
         celular: [null, {validators: [Validators.required, Validators.maxLength(144)], updateOn: 'blur'}],
-        tipousuario: [null, {validators: [Validators.required, Validators.maxLength(144)], updateOn: 'blur'}]      
+        tipousuario: [2]
       }
     );
   }
@@ -81,12 +81,12 @@ export class AlunoFormComponent implements OnInit {
     if (this.alunoForm.valid) {
 
       this.aluno.nome = this.alunoForm.get("nome").value;
-      //this.aluno.nascimento = this.alunoForm.get("nascimento").value;
+      this.aluno.nascimento = this.alunoForm.get("nascimento").value;
       this.aluno.cpf = this.alunoForm.get("cpf").value;
       this.aluno.email = this.alunoForm.get("email").value;
       this.aluno.senha = this.alunoForm.get("senha").value;
       this.aluno.celular = this.alunoForm.get("celular").value;
-      this.aluno.tipoUsuario = this.alunoForm.get("tipousuario").value;  
+      this.aluno.tipoUsuario = this.alunoForm.value;
 
       /**
        * Verifica se é cadastro ou edição
@@ -114,7 +114,7 @@ export class AlunoFormComponent implements OnInit {
 
     } else {
       this.messageService.toastWarnning('Preencha todos os campos obrigatórios antes de salvar.');
-      
+
     }
   }
 
@@ -137,7 +137,7 @@ export class AlunoFormComponent implements OnInit {
     (error: any) => {
       this.messageService.toastError(error.error.message);
     });
-    
+
   }
 
   /**
@@ -149,7 +149,7 @@ export class AlunoFormComponent implements OnInit {
     }else{
       this.router.navigate(['../../'], { relativeTo: this.activatedRoute });
     }
-    
+
   }
 
 }
