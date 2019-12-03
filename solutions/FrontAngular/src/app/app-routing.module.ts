@@ -35,6 +35,8 @@ const routes: Routes = [
     component: AlunoDetailComponent,
     path: 'admin/aluno/detalhes/:id'
   },
+
+
   {
     component: ProfessorSearchComponent,
     path: 'admin/professor'
@@ -51,6 +53,8 @@ const routes: Routes = [
     component: ProfessorDetailComponent,
     path: 'admin/professor/detalhes/:id'
   },
+
+
   {
     component: CursoSearchComponent,
     path: 'admin/curso'
@@ -67,6 +71,8 @@ const routes: Routes = [
     component: CursoDetailComponent,
     path: 'admin/curso/detalhes/:id'
   },
+
+  
   {
     component: ReforcoSearchComponent,
     path: 'admin/reforco'

@@ -35,7 +35,7 @@ export class AlunoDetailComponent implements OnInit {
    */
   loadDados(){
     this.alunoService.detalhar(this.aluno.id).subscribe(res => {
-      this.aluno = new Aluno(res.id, res.nome, res.cpf, res.nascimento, res.email, res.celular, res.celular, res.disponivel, res.tipoUsuario);
+      this.aluno = new Aluno(res.id, res.nome, res.cpf, res.nascimento, res.email, res.senha, res.celular, res.disponivel, res.tipoUsuario);
     },
     (error: any) => {
       this.messageService.toastError(error.error.message);

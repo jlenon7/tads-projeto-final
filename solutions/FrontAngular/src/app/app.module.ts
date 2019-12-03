@@ -40,7 +40,7 @@ import { ReforcoSearchComponent } from './view/admin/reforco/reforco-search/refo
 import { AlunoService } from './service/aluno.service';
 import { CursoService } from './service/curso.service';
 import { ReforcoService } from './service/reforco.service';
-//import { ProfessorService } from './service/professor.service';
+import { ProfessorService } from './service/professor.service';
 import { MessagesService } from './service/messages.service';
 
 
@@ -51,15 +51,19 @@ import { MessagesService } from './service/messages.service';
     AlunoListComponent,
     AlunoDetailComponent,
     AlunoSearchComponent,
+
     MenuComponent,
+
     ProfessorFormComponent,
     ProfessorListComponent,
     ProfessorDetailComponent,
     ProfessorSearchComponent,
+
     CursoListComponent,
     CursoSearchComponent,
     CursoDetailComponent,
     CursoFormComponent,
+    
     ReforcoFormComponent,
     ReforcoListComponent,
     ReforcoDetailComponent,
@@ -120,7 +124,7 @@ import { MessagesService } from './service/messages.service';
     AlunoService,
     CursoService,
     ReforcoService,
-    //ProfessorService,
+    ProfessorService,
     MessagesService
   ],
   bootstrap: [AppComponent]
