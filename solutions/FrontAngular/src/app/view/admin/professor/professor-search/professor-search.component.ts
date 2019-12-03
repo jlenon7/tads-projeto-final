@@ -19,13 +19,13 @@ export class ProfessorSearchComponent implements OnInit {
 
   /**
    * Construtor da classe
-   * @param router 
-   * @param activatedRoute 
+   * @param router
+   * @param activatedRoute
    */
   constructor(private router: Router,
             private activatedRoute: ActivatedRoute,
-            //private professorService: ProfessorService,
-            private messageService: MessagesService) { 
+            private professorService: ProfessorService,
+            private messageService: MessagesService) {
   }
 
   /**
@@ -45,7 +45,7 @@ export class ProfessorSearchComponent implements OnInit {
 
   /**
    * Método que redireciona para alterar, excluir ou visualizar professor
-   * @param evento 
+   * @param evento
    */
   navigateTo(evento) {
     console.log(evento.acaoRealizada);
@@ -55,11 +55,11 @@ export class ProfessorSearchComponent implements OnInit {
     }
     else if(evento.acaoRealizada == TipoAcaoValues[1]){
       this.router.navigate(['alterar/'+id], { relativeTo: this.activatedRoute });
-    
+
     } else if(evento.acaoRealizada == TipoAcaoValues[2]){
       this.remover(id);
     }
-    
+
   }
 
   /**
@@ -75,7 +75,7 @@ export class ProfessorSearchComponent implements OnInit {
       this.messageService.toastError(error.error.message);
     });
   }
-    
+
   remover(id: number){
     this.professorService.remover(id).subscribe(dados => {
       this.messageService.toastSuccess('Professor excluído com sucesso.');
@@ -84,7 +84,7 @@ export class ProfessorSearchComponent implements OnInit {
     (error: any) => {
       console.log(error.error.message);
       this.messageService.toastError(error.error.message);
-      
+
     });
   }
 }

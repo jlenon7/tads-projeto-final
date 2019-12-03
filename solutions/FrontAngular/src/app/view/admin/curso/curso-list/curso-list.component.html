@@ -1,1 +1,12 @@
-<p>curso-list works!</p>
+<mat-card class="background-color" fxFlex>
+    <mat-list *ngFor="let func of cursos" role="list" >
+            <mat-list-item (click)="selecionar(func.id, false)" class="item-list" role="listitem" fxFlex>
+                    <span fxFlex>{{func.area | uppercase}}</span>
+                    <span fxFlex>{{func.cargaHoraria | uppercase}}</span>
+                    <span fxFlex>{{func.dificuldade | uppercase}}</span>
+                    <span fxFlex>{{func.ministrante | uppercase}}</span>
+                    <span fxFlex>{{func.disponivel | uppercase}}</span>
+                    <button class="button-option" (click)="selecionar(func.id, true)"><mat-icon>edit</mat-icon></button>
+            </mat-list-item>
+    </mat-list>
+</mat-card>
