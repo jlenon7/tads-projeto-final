@@ -7,8 +7,8 @@ export class Curso {
        public area: string,
        public cargaHoraria: number,
        public disponivel: Boolean,
-       public dificuldadeEnum: Dificuldade,
-       public ministrante: Professor[]
+       public dificuldade: Dificuldade,
+       public ministrante: Professor
       ) {  }
 
 }

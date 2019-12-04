@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Reforco } from 'src/app/model/reforco';
-import { Professor } from 'src/app/model/professor';
+import { DisciplinaValues } from 'src/app/model/disciplina';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DisciplinaValues } from 'src/app/model/disciplina';
 import { ReforcoService } from 'src/app/service/reforco.service';
-import { ProfessorService } from 'src/app/service/professor.service';
 import { MessagesService } from 'src/app/service/messages.service';
+import { Professor } from 'src/app/model/professor';
+import { ProfessorService } from 'src/app/service/professor.service';
 import { ParserToDateService } from 'src/app/service/parser-to-date.service';
 import { DateAdapter } from '@angular/material/core';
 
@@ -16,9 +16,9 @@ import { DateAdapter } from '@angular/material/core';
   styleUrls: ['./reforco-form.component.css']
 })
 export class ReforcoFormComponent implements OnInit {
-/**
-   * Reforco Form
-   */
+  /**
+     * Reforco Form
+     */
   public reforcoForm: FormGroup;
 
   /**
@@ -31,23 +31,23 @@ export class ReforcoFormComponent implements OnInit {
   */
   private isOnUpdate: boolean = false;
 
-   /**
-   * Lista de disciplinas
+  /**
+   * Lista de cargos
    */
   private disciplinaValues: string[] = DisciplinaValues;
 
 
   /**
-   * List de Ministrantes
-  */
+   * List de professores
+   */
   public professoresList: Array<Professor> = [];
 
   /**
    * Construtor da classe
-   * @param fb
-   * @param activatedRoute
-   * @param router
-   * @param reforcoService
+   * @param fb 
+   * @param activatedRoute 
+   * @param router 
+   * @param professorService 
    */
   constructor(private fb: FormBuilder,
     private activatedRoute: ActivatedRoute,
@@ -62,6 +62,7 @@ export class ReforcoFormComponent implements OnInit {
    * Método chamado ao iniciar a classe
    */
   ngOnInit() {
+
 
     this.reforco = new Reforco(null, null, null, null, null, null, null);
     this.createForm();
@@ -82,11 +83,14 @@ export class ReforcoFormComponent implements OnInit {
      */
     this.reforcoForm = this.fb.group(
       {
-        area: [null, {validators: [Validators.required, Validators.maxLength(144)], updateOn: 'blur'}],
+        area: [null, { validators: [Validators.required, Validators.maxLength(144)], updateOn: 'blur' }],
+        vagas: [null, { validators: [Validators.required, Validators.maxLength(11)], updateOn: 'blur' }],
+        horainicio: [null, { validators: [Validators.required, Validators.maxLength(11)], updateOn: 'blur' }],
+        disciplina: [null, { validators: [Validators.required] }],
         ministrante: [null, { validators: [Validators.required], updateOn: 'select' }],
-        horaInicio: [null, { validators: [Validators.required], updateOn: 'blur' }],
-        disciplina: [null, { validators: [Validators.required] }]
       }
+      
+      
     );
 
     /**
@@ -95,7 +99,7 @@ export class ReforcoFormComponent implements OnInit {
     this._adapter.setLocale('pt');
 
   }
-  
+
 
   /**
    * Método para salvar o reforco
@@ -104,18 +108,16 @@ export class ReforcoFormComponent implements OnInit {
     if (this.reforcoForm.valid) {
 
       this.reforco.area = this.reforcoForm.get("area").value;
-      
-      var prof : Professor = this.reforcoForm.get("professor").value;
-      this.reforco.ministrante = prof;
+      this.reforco.vagas = this.reforcoForm.get("vagas").value;
       this.reforco.horaInicio = this.reforcoForm.get("horainicio").value;
+      var prof : Professor = this.reforcoForm.get("ministrante").value;
+      this.reforco.ministrante = prof;
       this.reforco.disciplina = this.reforcoForm.get("disciplina").value;
-
       console.log(this.reforco);
-
       /**
        * Verifica se é cadastro ou edição
        */
-      if(this.reforco.id == null){
+      if (this.reforco.id == null) {
         this.reforcoService.cadastrar(this.reforco).subscribe(res => {
           this.reforco = res;
           this.messageService.toastSuccess('Reforço cadastrado com sucesso.');
@@ -125,16 +127,16 @@ export class ReforcoFormComponent implements OnInit {
             this.messageService.toastError(error.error.message);
           });
       }
-      else{
+      else {
         this.reforcoService.editar(this.reforco).subscribe(res => {
           this.reforco = res;
           this.isOnUpdate = true;
           this.messageService.toastSuccess('Reforço atualizado com sucesso.');
           this.onBack();
         },
-          (error: any) => {
-            this.messageService.toastError(error.error.message);
-          });
+        (error: any) => {
+          this.messageService.toastError(error.error.message);
+        });
       }
 
     } else {
@@ -146,19 +148,20 @@ export class ReforcoFormComponent implements OnInit {
 
 
   /**
-   * Método para popular o formulário com os dados do funcionário em edição
+   * Método para popular o formulário com os dados do reforço em edição
    */
-  loadToEdit(){
+  loadToEdit() {
     this.reforcoService.detalhar(this.reforco.id).subscribe(res => {
       this.reforcoForm.get("area").setValue(res.area);
-      this.reforcoForm.get("professor").setValue(res.ministrante);
-      this.reforcoForm.get("horainicio").setValue(res.horaInicio);
       this.reforcoForm.get("disciplina").setValue(res.disciplina);
+      this.reforcoForm.get("vagas").setValue(res.vagas);
+      this.reforcoForm.get("ministrante").setValue(res.ministrante);
+      this.reforcoForm.get("horainicio").setValue(res.horaInicio);
       this.isOnUpdate = true;
     },
-    (error: any) => {
-      this.messageService.toastError(error.error.message);
-    });
+      (error: any) => {
+        this.messageService.toastError(error.error.message);
+      });
 
   }
 
@@ -169,17 +172,18 @@ export class ReforcoFormComponent implements OnInit {
     console.log(this.reforcoForm.get("professor").value);
     if (!this.isOnUpdate) {
       this.router.navigate(['../'], { relativeTo: this.activatedRoute });
-    }else{
+    } else {
       this.router.navigate(['../../'], { relativeTo: this.activatedRoute });
     }
+
   }
+
 
   /**
    * Display de professor
    */
-
-  displayProfessor(professor?: Professor): string | undefined {
-    return professor ? professor.nome : undefined;
+  displayProfessor(ministrante?: Professor): string | undefined {
+    return ministrante ? ministrante.nome : undefined;
   }
 
   listarProfessores(filter: string) {
@@ -193,10 +197,7 @@ export class ReforcoFormComponent implements OnInit {
 
 
   selectProfessor(event: any) {
-    this.reforcoForm.get("professor").setValue(event.option.value);
+    this.reforcoForm.get("ministrante").setValue(event.option.value);
   }
 
 }
-
-
-

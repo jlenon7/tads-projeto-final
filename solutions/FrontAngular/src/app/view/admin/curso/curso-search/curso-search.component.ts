@@ -40,7 +40,6 @@ export class CursoSearchComponent implements OnInit {
    */
   navigateToNovo() {
     this.router.navigate(['cadastrar'], { relativeTo: this.activatedRoute });
-
   }
 
   /**

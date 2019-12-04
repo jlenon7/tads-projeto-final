@@ -20,15 +20,14 @@
                             <!-- Area -->
                             <div fxLayout="row" fxFlex=50>
                                     <mat-form-field fxFlex [floatLabel]="'always'">
-                                      <mat-label>Area</mat-label>
                                       <input matInput id="area" formControlName="area"
-                                             placeholder="Area"
+                                             placeholder="Área"
                                              maxlength="144" layout-align="center end">
                                       <mat-error *ngIf="cursoForm.get('area').hasError('maxLength')">
                                         Máximo 144 caracteres.
                                       </mat-error>
                                       <mat-error *ngIf="cursoForm.get('area').hasError('required')">
-                                        Area é obrigatório.
+                                        Área é obrigatório.
                                       </mat-error>
                                     </mat-form-field>
                             </div>
@@ -36,11 +35,10 @@
                             <!-- Carga horária -->
                             <div fxLayout="row" fxFlex=50>
                                 <mat-form-field fxFlex [floatLabel]="'always'">
-                                  <mat-label>Carga Horaria</mat-label>
                                   <input matInput id="cargaHoraria" formControlName="cargaHoraria"
                                          placeholder="Carga Horaria"
                                          maxlength="14" layout-align="center end">
-                                  <mat-error *ngIf="cursoForm.get('cpf').hasError('required')">
+                                  <mat-error *ngIf="cursoForm.get('cargaHoraria').hasError('required')">
                                     Carga Horária é obrigatória
                                   </mat-error>
                                 </mat-form-field>
@@ -49,7 +47,6 @@
                             <!-- Dificuldade -->
                             <div fxLayout="row" fxFlex=50>
                               <mat-form-field fxFlex [floatLabel]="'always'">
-                                <mat-label>Dificuldade</mat-label>
                                   <mat-select formControlName="dificuldade" placeholder="Selecione uma dificuldade" required>
                                    <mat-option *ngFor="let dificuldade of dificuldadeValues" [value]="dificuldade">
                                       {{ dificuldade }}
@@ -64,16 +61,15 @@
                             <!-- Ministrante -->
                              <div fxLayout="row" fxFlex=50>
                                 <mat-form-field fxFlex [floatLabel]="'always'">
-                                  <mat-label>Ministrante</mat-label>
-                                  <input type="text" placeholder="Selecione um ministrante" matInput id="ministrante"  formControlName="ministrante"
-                                    [matAutocomplete]="autoDep" required>
-                                  <mat-autocomplete #autoDep="matAutocomplete" [displayWith]="displayMinistrante"
-                                    (optionSelected)="selectMinistrante($event)">
-                                    <mat-option *ngFor="let item of ministrantesList" [value]="item">
+                                  <input type="text" placeholder="Selecione um ministrante" matInput id="professor"  formControlName="ministrante"
+                                    [matAutocomplete]="autoProf" required>
+                                  <mat-autocomplete #autoProf="matAutocomplete" [displayWith]="displayProfessor"
+                                    (optionSelected)="selectProfessor($event)">
+                                    <mat-option *ngFor="let item of professoresList" [value]="item">
                                       {{item.ministrante}}
                                     </mat-option>
                                   </mat-autocomplete>
-                                  <mat-error *ngIf="ministranteForm.get('ministrante').hasError('required')">
+                                  <mat-error *ngIf="professorForm.get('professor').hasError('required')">
                                     Ministrante é obrigatório.
                                   </mat-error>
                                 </mat-form-field>

@@ -35,7 +35,7 @@ export class CursoDetailComponent implements OnInit {
    */
   loadDados(){
     this.cursoService.detalhar(this.curso.id).subscribe(res => {
-      this.curso = new Curso(res.id, res.area, res.cargaHoraria, res.disponivel, res.dificuldadeEnum, res.ministrante);
+      this.curso = new Curso(res.id, res.area, res.cargaHoraria, res.disponivel, res.dificuldade, res.ministrante);
     },
     (error: any) => {
       this.messageService.toastError(error.error.message);
