@@ -1,16 +1,17 @@
-// import { Curso } from './curso'
+import { Professor } from './professor'
 import { Disciplina } from './disciplina';
+import { Time } from '@angular/common';
+import { Moment } from 'moment';
 
 export class Reforco {
     constructor(
        public id: number,
        public area: string,
-       public ministrante: string,
+       public ministrante: Professor,
        public vagas: number,
-       public horaInicio: Date,
+       public horaInicio: Time,
        public disponivel: Boolean,
-       public disiciplinaEnum: Disciplina
-       // public funcionarios: Curso[]
+       public disciplina: Disciplina
       ) {  }
 
 }

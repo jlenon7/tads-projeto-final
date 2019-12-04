@@ -1,1 +1,19 @@
-<p>reforco-list works!</p>
+<mat-card class="background-color" fxFlex>
+    <mat-list *ngFor="let func of reforcos" role="list" >
+                <mat-list-item class="item-list" role="listitem" fxFlex>
+                <div fxFlex (click)="selecionar(func.id, 0)">
+                    <span fxFlex>{{func.area | uppercase}}</span>
+                    <span fxFlex>{{func.ministrante | uppercase}}</span>
+                    <span fxFlex>{{func.horaInicio | uppercase}}</span>
+                    <span fxFlex>{{func.disciplina | uppercase}}</span>
+                    <span fxFlex>{{func.disponivel | uppercase}}</span>
+                </div>
+                <button class="button-option" (click)="selecionar(func.id, 1)">
+                        <mat-icon>edit</mat-icon>
+                </button>
+                <button class="button-option" (click)="selecionar(func.id, 2)">
+                        <mat-icon>delete</mat-icon>
+                </button>
+            </mat-list-item>
+    </mat-list>
+</mat-card>

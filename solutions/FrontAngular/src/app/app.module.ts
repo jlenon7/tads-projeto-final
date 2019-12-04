@@ -7,8 +7,9 @@ import { MatButtonModule, MatListModule, MatCardModule, MatMenuModule, MatInputM
   MatDatepickerModule, MatNativeDateModule, MatSliderModule, MatAutocompleteModule } from '@angular/material';
 import {MatDialogModule} from '@angular/material/dialog';
 import { CovalentCommonModule, CovalentLayoutModule, CovalentMediaModule, CovalentExpansionPanelModule,
-  CovalentStepsModule, CovalentLoadingModule, CovalentDialogsModule, CovalentSearchModule, CovalentPagingModule,
+  CovalentStepsModule, CovalentLoadingModule, CovalentSearchModule, CovalentPagingModule,
   CovalentNotificationsModule, CovalentMenuModule, CovalentDataTableModule, CovalentMessageModule } from '@covalent/core';
+import { CovalentDialogsModule } from '@covalent/core/dialogs';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule} from "@angular/flex-layout";
 import { AppRoutingModule } from './app-routing.module';

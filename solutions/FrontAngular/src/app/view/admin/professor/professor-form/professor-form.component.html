@@ -94,19 +94,20 @@
                                   </mat-error>
                                 </mat-form-field>
                             </div>
+
                             <div fxLayout="row" fxFlex=50>
-                            <mat-form-field fxFlex [floatLabel]="'always'">
-                              <mat-label>Area de Conhecimento</mat-label>
-                              <mat-select formControlName="areaconhecimento" placeholder="Selecione uma area" required>
-                                <mat-option *ngFor="let areaconhecimento of areaConhecimentoValues" [value]="areaconhecimento">
-                                  {{ areaConhecimento }}
-                                </mat-option>
-                              </mat-select>
-                              <mat-error *ngIf="professorForm.get('areaconhecimento').hasError('required')">
-                                Area é obrigatório.
-                              </mat-error>
-                            </mat-form-field>
-                            </div>
+                                <mat-form-field fxFlex [floatLabel]="'always'">
+                                  <mat-label>Area de Conhecimento</mat-label>
+                                  <mat-select formControlName="areaconhecimento" placeholder="Selecione uma area" required>
+                                    <mat-option *ngFor="let areaconhecimento of areaConhecimentoValues" [value]="areaconhecimento">
+                                      {{ areaConhecimento }}
+                                    </mat-option>
+                                  </mat-select>
+                                  <mat-error *ngIf="professorForm.get('areaconhecimento').hasError('required')">
+                                    Area é obrigatório.
+                                  </mat-error>
+                                </mat-form-field>
+                              </div>
                 </div>
               </div>
             </form>
