@@ -1,4 +1,2 @@
-	INSERT INTO aluno (
-		id)
-    VALUES (
-    	1001);
+INSERT INTO aluno (id)
+VALUES (1001);

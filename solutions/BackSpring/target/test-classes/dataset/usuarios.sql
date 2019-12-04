@@ -1,4 +1,4 @@
-
+﻿
 	INSERT INTO usuario (
 		id, 
 		created, 
