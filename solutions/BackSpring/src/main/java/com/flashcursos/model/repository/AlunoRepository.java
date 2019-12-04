@@ -23,21 +23,20 @@ public interface AlunoRepository extends JpaRepository<Aluno, Long> {
 	
 	public Page<Aluno> findByDepartamentoId(Long id, Pageable pageable);
 	
-	@Query("FROM Aluno aluno "
+	@Query("FROM Usuario usuario "
 			+ "WHERE "
-			+ "(aluno.nome LIKE '%' || :nome || '%' OR :nome IS NULL) "
-			+ " AND (aluno.cpf LIKE '%' || :cpf || '%' OR :cpf IS NULL) "
-			+ "AND (( aluno.dataNascimento >= :dataNascimentoInicial OR CAST(:dataNascimentoInicial AS timestamp) IS NULL) "
-			+ "AND ( aluno.dataNascimento <= :dataNascimentoFinal OR CAST(:dataNascimentoFinal AS timestamp) IS NULL))")
+			+ "(usuario.nome LIKE '%' || :nome || '%' OR :nome IS NULL) "
+			+ " AND (usuario.cpf LIKE '%' || :cpf || '%' OR :cpf IS NULL) "
+			+ "AND (( usuario.dataNascimento >= :dataNascimentoInicial OR CAST(:dataNascimentoInicial AS timestamp) IS NULL) "
+			+ "AND ( usuario.dataNascimento <= :dataNascimentoFinal OR CAST(:dataNascimentoFinal AS timestamp) IS NULL))")
 	public Page<Aluno> findByFilters(@Param("nome") String nome, @Param("cpf") String cpf, 
 			@Param("dataNascimentoInicial") LocalDate dataNascimentoInicial, @Param("dataNascimentoFinal") LocalDate dataNascimentoFinal, Pageable pageable);
-	
+	*/
 	
 	@Query("FROM Aluno aluno "
 			+ "WHERE ( aluno.nome LIKE '%' || :nome || '%' OR :nome IS NULL) AND "
 			+ "( aluno.cpf LIKE '%' || :cpf || '%' OR :cpf IS NULL)")
 	public Page<Aluno> findByFilters(@Param("nome") String nome, @Param("cpf") String cpf, Pageable pageable);
-}*/ 
 
 }
 

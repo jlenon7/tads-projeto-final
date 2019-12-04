@@ -1,10 +1,13 @@
 package com.flashcursos.model.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
@@ -79,5 +82,9 @@ public class AlunoService {
 	public Aluno desativarAluno(Aluno aluno) {
 		aluno.setDisponivel(false);
 		return this.alunoRepository.save(aluno);
+	}
+	
+	public Page<Aluno> listarAlunosPorFiltros(String nome, String cpf, PageRequest pageable){
+		return this.alunoRepository.findByFilters(nome, cpf, pageable);
 	}
 }

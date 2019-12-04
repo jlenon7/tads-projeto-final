@@ -1,6 +1,6 @@
 <div fxLayout="column">
     <div fxLayout="row" class="header-form">
-        <span fxFlex>Visualizar Curso</span>
+        <span fxFlex>Visualizar Aluno</span>
         <div>
             <button mat-raised-button class="form-button bgc-grey-500 tc-grey-50" (click)="onBack()">
                 Voltar
@@ -23,32 +23,22 @@
 
                         <div fxLayout="column" fxFlex=50 class="field-detail">
                             <span>Area:</span>
-                            <span class="label-detail-value">{{curso.nome}}</span>
+                            <span class="label-detail-value">{{curso.area}}</span>
                         </div>
 
                         <div fxLayout="column" fxFlex=50 class="field-detail">
-                            <span>CPF:</span>
-                            <span class="label-detail-value">{{curso.cpf}}</span>
+                            <span>Carga Horaria:</span>
+                            <span class="label-detail-value">{{curso.cargaHoraria}}</span>
                         </div>
 
                         <div fxLayout="column" fxFlex=50 class="field-detail">
-                            <span>Data de Nascimento:</span>
-                            <span class="label-detail-value">{{curso.dataNascimento | date: 'dd/MM/yyyy'}}</span>
+                            <span>Dificuldade</span>
+                            <span class="label-detail-value">{{curso.dificuldadeEnum}}</span>
                         </div>
 
                         <div fxLayout="column" fxFlex=50 class="field-detail">
-                                <span>Email:</span>
-                                <span class="label-detail-value">{{curso.email}}</span>
-                        </div>
-
-                        <div fxLayout="column" fxFlex=50 class="field-detail">
-                            <span>Celular:</span>
-                            <span class="label-detail-value">{{curso.celular}}</span>
-                        </div>
-
-                        <div fxLayout="column" fxFlex=50 class="field-detail">
-                            <span>Tipo Usuario:</span>
-                            <span class="label-detail-value">{{curso.tipousuario}}</span>
+                                <span>Ministrante:</span>
+                                <span class="label-detail-value">{{curso.ministrante}}</span>
                         </div>
 
                         <div fxLayout="column" fxFlex=50 class="field-detail">

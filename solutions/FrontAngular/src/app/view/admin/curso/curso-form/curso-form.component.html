@@ -1,1 +1,86 @@
-<p>curso-form works!</p>
+<div fxLayout="column">
+    <div fxLayout="row" class="header-form">
+      <span fxFlex>Cadastrar/Alterar Curso</span>
+        <div>
+            <button mat-raised-button class="form-button bgc-grey-500 tc-grey-50" (click)="onBack()">
+            Cancelar
+            </button>
+            <button [disabled]="cursoForm.invalid" mat-raised-button color="accent" class="form-button" (click)="onSave()">
+            Salvar
+            </button>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center start">
+        <mat-card class="background-color" fxFlex="90">
+            <form [formGroup]="cursoForm" novalidate>
+                <div fxLayout="column" fxFlex=90>
+
+                          <div fxLayout="column">
+
+                            <!-- Area -->
+                            <div fxLayout="row" fxFlex=50>
+                                    <mat-form-field fxFlex [floatLabel]="'always'">
+                                      <mat-label>Area</mat-label>
+                                      <input matInput id="area" formControlName="area"
+                                             placeholder="Area"
+                                             maxlength="144" layout-align="center end">
+                                      <mat-error *ngIf="cursoForm.get('area').hasError('maxLength')">
+                                        Máximo 144 caracteres.
+                                      </mat-error>
+                                      <mat-error *ngIf="cursoForm.get('area').hasError('required')">
+                                        Area é obrigatório.
+                                      </mat-error>
+                                    </mat-form-field>
+                            </div>
+
+                            <!-- Carga horária -->
+                            <div fxLayout="row" fxFlex=50>
+                                <mat-form-field fxFlex [floatLabel]="'always'">
+                                  <mat-label>Carga Horaria</mat-label>
+                                  <input matInput id="cargaHoraria" formControlName="cargaHoraria"
+                                         placeholder="Carga Horaria"
+                                         maxlength="14" layout-align="center end">
+                                  <mat-error *ngIf="cursoForm.get('cpf').hasError('required')">
+                                    Carga Horária é obrigatória
+                                  </mat-error>
+                                </mat-form-field>
+                            </div>
+
+                            <!-- Dificuldade -->
+                            <div fxLayout="row" fxFlex=50>
+                              <mat-form-field fxFlex [floatLabel]="'always'">
+                                <mat-label>Dificuldade</mat-label>
+                                  <mat-select formControlName="dificuldade" placeholder="Selecione uma dificuldade" required>
+                                   <mat-option *ngFor="let dificuldade of dificuldadeValues" [value]="dificuldade">
+                                      {{ dificuldade }}
+                                    </mat-option>
+                                  </mat-select>
+                                <mat-error *ngIf="cursoForm.get('dificuldade').hasError('required')">
+                                  Dificuldade é obrigatório.
+                                </mat-error>
+                              </mat-form-field>
+                            </div>
+
+                            <!-- Ministrante -->
+                             <div fxLayout="row" fxFlex=50>
+                                <mat-form-field fxFlex [floatLabel]="'always'">
+                                  <mat-label>Ministrante</mat-label>
+                                  <input type="text" placeholder="Selecione um ministrante" matInput id="ministrante"  formControlName="ministrante"
+                                    [matAutocomplete]="autoDep" required>
+                                  <mat-autocomplete #autoDep="matAutocomplete" [displayWith]="displayMinistrante"
+                                    (optionSelected)="selectMinistrante($event)">
+                                    <mat-option *ngFor="let item of ministrantesList" [value]="item">
+                                      {{item.ministrante}}
+                                    </mat-option>
+                                  </mat-autocomplete>
+                                  <mat-error *ngIf="ministranteForm.get('ministrante').hasError('required')">
+                                    Ministrante é obrigatório.
+                                  </mat-error>
+                                </mat-form-field>
+                            </div>
+                </div>
+              </div>
+            </form>
+          </mat-card>
+        </div>
+      </div>

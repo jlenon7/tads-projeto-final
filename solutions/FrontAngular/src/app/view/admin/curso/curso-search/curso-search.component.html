@@ -1,1 +1,16 @@
-<p>curso-search works!</p>
+<div fxLayout="column" fxFlex class="div-content">
+
+        <div fxLayout="row" class="header-form">
+                <span fxFlex>Consulta de Cursos</span>
+                <div>
+                        <button mat-raised-button color="accent" (click)="navigateToNovo()">Novo Curso</button>
+                </div>
+        </div>
+
+        <div fxFlex>
+                <app-curso-list [cursos]="cursos" (selecionarCurso)="navigateTo($event)"></app-curso-list>
+        </div>
+    </div>
+
+
+

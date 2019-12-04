@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Curso } from 'src/app/model/curso';
+
 
 @Component({
   selector: 'app-curso-list',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CursoListComponent implements OnInit {
 
+  @Input() cursos : Curso[];
+
+  @Output() selecionarCurso = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  selecionar(id: any, toEdit: boolean) {
+    this.selecionarCurso.emit({cursoSelecionadoId : id, toEdit : toEdit})
+
+  }
 }

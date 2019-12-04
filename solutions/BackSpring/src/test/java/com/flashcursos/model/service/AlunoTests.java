@@ -1,17 +1,22 @@
 package com.flashcursos.model.service;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
 
+import javax.validation.ValidationException;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.test.context.jdbc.Sql;
 
 import com.flashcursos.model.entity.Aluno;
 import com.flashcursos.model.entity.TipoUsuarioEnum;
 import com.flashcursos.model.repository.AlunoRepository;
+
 
 public class AlunoTests extends AbstractIntegrationTests {
 
@@ -43,6 +48,35 @@ public class AlunoTests extends AbstractIntegrationTests {
 		Assert.assertNotNull(aluno.getId());		
 	}
 	
+	@Test(expected = DataIntegrityViolationException.class)
+	@Sql({ "/dataset/truncate.sql", 
+		"/dataset/usuarios.sql", 
+		"/dataset/aluno.sql" })
+	public void cadastrarAlunoMustFailCpfDuplicado() {
+		Aluno aluno = new Aluno();
+		aluno.setNome("Adryell");
+		aluno.setEmail("adryell.silva10@gmail.com");
+		aluno.setCpf("092.862.989-94");
+		aluno.setNascimento(LocalDate.of(1995, Month.JANUARY, 1));
+		aluno.setCelular("478597-2577");
+
+		this.alunoService.cadastrarAluno(aluno);
+	}
+	
+	@Test(expected = ValidationException.class)
+	@Sql({ "/dataset/truncate.sql", 
+		"/dataset/usuarios.sql", 
+		"/dataset/aluno.sql" })
+	public void cadastrarAlunoMustFailNomeEmBranco() {
+		Aluno aluno = new Aluno();
+		aluno.setNome("");
+		aluno.setEmail("adryell.silva10@gmail.com");
+		aluno.setCpf("345.862.989-94");
+		aluno.setNascimento(LocalDate.of(1995, Month.JANUARY, 1));
+		aluno.setCelular("478597-2577");
+
+		this.alunoService.cadastrarAluno(aluno);
+	}
 	//Verificar NOTNULL 
 	/**
 	 * ====================================== C(READ)UD =============================================
@@ -55,6 +89,16 @@ public class AlunoTests extends AbstractIntegrationTests {
 		List<Aluno> aluno = this.alunoService.listarAlunos();
 		Assert.assertEquals(aluno.size(), 1);
 	}	
+	
+	// Rever este teste
+	@Test
+	@Sql({ "/dataset/truncate.sql", 
+		"/dataset/usuarios.sql", 
+		"/dataset/aluno.sql" })
+	public void listarAlunosPorFiltrosMustPassFiltrarPorNome() {
+		List<Aluno> alunos = this.alunoService.listarAlunosPorFiltros("jo", null, null).getContent();
+		Assert.assertEquals(2, alunos.size());
+	}
 	/**
 	 * ====================================== CR(UPDATE)D ===========================================
 	 */
@@ -69,6 +113,21 @@ public class AlunoTests extends AbstractIntegrationTests {
 		this.alunoService.atualizarAluno(aluno);
 		Assert.assertTrue(aluno.getNascimento().getYear() == 1990);
 	}	
+	
+	// Rever este teste
+	@Test(expected = DataIntegrityViolationException.class)
+	@Sql({ "/dataset/truncate.sql", 
+		"/dataset/usuarios.sql", 
+		"/dataset/aluno.sql" })
+	public void atualizarAlunoMustFailCpfDuplicado() {
+		Aluno aluno = this.alunoRepository.findById(1001L).orElse(null);
+
+		aluno.setNascimento(LocalDate.of(1990, Month.JANUARY, 1));
+		aluno.setCpf("116.506.789-75");
+
+		alunoService.atualizarAluno(aluno);
+
+	}
 	/**
 	 * ====================================== CRU(DELETE) ===========================================
 	 */
