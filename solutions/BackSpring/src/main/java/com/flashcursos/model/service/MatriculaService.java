@@ -1,5 +1,8 @@
 package com.flashcursos.model.service;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -7,6 +10,8 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.flashcursos.model.entity.MatriculaCurso;
 import com.flashcursos.model.repository.MatriculaRepository;
@@ -25,8 +30,16 @@ public class MatriculaService {
 	 * @param matricula
 	 * @return
 	 */
+	
 	public MatriculaCurso cadastrarMatricula(MatriculaCurso matricula) {
-		matricula.setDisponivel(true);
+		
+		LocalDateTime dataMatricula = (LocalDateTime.now());
+		matricula.setDataMatricula(dataMatricula);
+		LocalDateTime daquiUmAno = dataMatricula.plus(1, ChronoUnit.YEARS);
+		
+		matricula.setDataVencimentoMatricula(daquiUmAno);
+		
+		matricula.setDisponivel(true); 
 		return this.matriculaRepository.save(matricula);
 	}
 	

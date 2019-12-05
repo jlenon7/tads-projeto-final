@@ -69,9 +69,17 @@ export class MenuComponent implements OnInit
           label: "Cadastros Básicos",
           menuList: [
             { icon: 'people', label: 'Aluno', routerlink: '/admin/aluno' },
-            { icon: 'people', label: 'Professor', routerlink: '/admin/professor' },
-            { icon: 'people', label: 'Curso', routerlink: '/admin/curso' },
-            { icon: 'people', label: 'Reforço', routerlink: '/admin/reforco' }
+            { icon: 'people', label: 'Professor', routerlink: '/admin/professor' }
+          ],
+          open: false
+        },
+        {
+          label: "Cadastros Complexos",
+          menuList: [
+            { icon: 'assessment', label: 'Curso', routerlink: '/admin/curso' },
+            { icon: 'assessment', label: 'Reforço', routerlink: '/admin/reforco' },
+            { icon: 'toys', label: 'Matricular no Curso', routerlink: '/admin/matricula' },
+            { icon: 'store', label: 'Entrar na Turma', routerlink: '/admin/turma' },
           ],
           open: false
         },

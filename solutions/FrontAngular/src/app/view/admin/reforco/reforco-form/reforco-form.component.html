@@ -55,17 +55,19 @@
                                       {{item.nome}}
                                     </mat-option>
                                   </mat-autocomplete>
-                                  <mat-error *ngIf="professorForm.get('ministrante').hasError('required')">
+                                  <!--<mat-error *ngIf="ministranteForm.get('ministrante').hasError('required')">
                                     Ministrante é obrigatório.
-                                  </mat-error>
+                                  </mat-error>-->
                                 </mat-form-field>
                             </div>
 
                             <div fxLayout="row" fxFlex=50>
                                 <mat-form-field>
-                                    <input matInput [matDatepicker]="picker" placeholder="Hora de inicio" formControlName="horainicio" required>
+                                    <!--<input matInput [matDatepicker]="picker" placeholder="Hora de inicio" formControlName="horainicio" required>-->
+                                    <input matInput [ngxTimepicker]="picker" placeholder="Hora de inicio" formControlName="horainicio" required>
                                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                                    <mat-datepicker #picker></mat-datepicker>
+                                    <!--<mat-datepicker #picker></mat-datepicker>-->
+                                    <ngx-material-timepicker #picker></ngx-material-timepicker>
                                   </mat-form-field>
                             </div>
                             
@@ -74,12 +76,12 @@
                                 <mat-label>Disciplina</mat-label>
                                 <mat-select formControlName="disciplina" placeholder="Selecione uma disciplina" required>
                                     <mat-option *ngFor="let disciplina of disciplinaValues" [value]="disciplina">
-                                    {{ Disciplina }}
+                                    {{ disciplina }}
                                     </mat-option>
                                 </mat-select>
-                                <mat-error *ngIf="disciplinaForm.get('disciplina').hasError('required')">
+                                <!--<mat-error *ngIf="disciplinaForm.get('disciplina').hasError('required')">
                                     Disciplina é obrigatório.
-                                </mat-error>
+                                </mat-error>-->
                                 </mat-form-field>
                             </div>
                 </div>

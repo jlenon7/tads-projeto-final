@@ -16,6 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { MenuComponent } from './view/admin/menu/menu.component';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
 import { AppComponent } from './app.component';
 import { AlunoFormComponent } from './view/admin/aluno/aluno-form/aluno-form.component';
@@ -118,7 +119,8 @@ import { MessagesService } from './service/messages.service';
     CovalentNotificationsModule,
     CovalentMenuModule,
     CovalentDataTableModule,
-    CovalentMessageModule
+    CovalentMessageModule,
+    NgxMaterialTimepickerModule,
 
   ],
   providers: [

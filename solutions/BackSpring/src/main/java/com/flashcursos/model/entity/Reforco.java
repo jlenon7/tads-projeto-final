@@ -1,7 +1,5 @@
 package com.flashcursos.model.entity;
 
-import java.time.LocalDateTime;
-
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -18,7 +16,7 @@ public class Reforco extends AbstractAulas{
 	private Integer vagas;
 	
 	//@NotBlank
-	private LocalDateTime horaInicio;
+	private String horaInicio;
 	
 	@NotNull
 	@Enumerated( EnumType.ORDINAL )

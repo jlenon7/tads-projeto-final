@@ -41,7 +41,7 @@ public class ReforcoTests extends AbstractIntegrationTests {
 		
 		reforco.setDisciplina(DisciplinaEnum.MATEMATICA);
 		reforco.setArea("Funções Matemáticas");
-		reforco.setHoraInicio(LocalDateTime.of(2019, Month.DECEMBER, 01, 17, 00));
+		reforco.setHoraInicio("20:00");
 		reforco.setVagas(10);
 		Professor ministrante = this.professorRepository.findById(1001L).orElse(null);
 		reforco.setMinistrante(ministrante);
@@ -76,7 +76,7 @@ public class ReforcoTests extends AbstractIntegrationTests {
 		
 		reforco.setArea("Estatística");
 		reforco.setDisciplina(DisciplinaEnum.MATEMATICA);
-		reforco.setHoraInicio(LocalDateTime.of(2019, Month.NOVEMBER, 15, 20, 00));
+		reforco.setHoraInicio("21:00");
 		reforco.setUpdated(LocalDateTime.now());
 		reforco.setVagas(50);
 		

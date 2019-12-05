@@ -17,7 +17,6 @@ import com.flashcursos.model.entity.Aluno;
 import com.flashcursos.model.entity.TipoUsuarioEnum;
 import com.flashcursos.model.repository.AlunoRepository;
 
-
 public class AlunoTests extends AbstractIntegrationTests {
 
 	@Autowired
@@ -87,18 +86,20 @@ public class AlunoTests extends AbstractIntegrationTests {
 		"/dataset/aluno.sql",})
 	public void listarAlunosMustPass() {
 		List<Aluno> aluno = this.alunoService.listarAlunos();
-		Assert.assertEquals(aluno.size(), 1);
+		Assert.assertEquals(aluno.size(), 2);
 	}	
 	
-	// Rever este teste
+	/* Rever este teste
 	@Test
 	@Sql({ "/dataset/truncate.sql", 
 		"/dataset/usuarios.sql", 
 		"/dataset/aluno.sql" })
 	public void listarAlunosPorFiltrosMustPassFiltrarPorNome() {
-		List<Aluno> alunos = this.alunoService.listarAlunosPorFiltros("jo", null, null).getContent();
-		Assert.assertEquals(2, alunos.size());
+		List<Aluno> alunos = this.alunoService.listarAlunosPorFiltros("João", null, null).getContent();
+		Assert.assertEquals(1, alunos.size());
 	}
+	*/
+	
 	/**
 	 * ====================================== CR(UPDATE)D ===========================================
 	 */
@@ -114,7 +115,6 @@ public class AlunoTests extends AbstractIntegrationTests {
 		Assert.assertTrue(aluno.getNascimento().getYear() == 1990);
 	}	
 	
-	// Rever este teste
 	@Test(expected = DataIntegrityViolationException.class)
 	@Sql({ "/dataset/truncate.sql", 
 		"/dataset/usuarios.sql", 
@@ -126,7 +126,20 @@ public class AlunoTests extends AbstractIntegrationTests {
 		aluno.setCpf("116.506.789-75");
 
 		alunoService.atualizarAluno(aluno);
+	}
+	
+	@Test(expected = ValidationException.class)
+	@Sql({ "/dataset/truncate.sql", 
+		"/dataset/usuarios.sql", 
+		"/dataset/aluno.sql" })
+	public void atualizarAlunoMustFailNomeEmBranco() {
+		Aluno aluno = new Aluno();
+		aluno.setNome("");
+		aluno.setCelular("45 999964523");
+		aluno.setCpf("64444444444");
+		aluno.setEmail("adryell.silva10@gmail.com");
 
+		this.alunoService.atualizarAluno(aluno);
 	}
 	/**
 	 * ====================================== CRU(DELETE) ===========================================
@@ -140,6 +153,30 @@ public class AlunoTests extends AbstractIntegrationTests {
 		Aluno aluno = this.alunoRepository.findById(1001L).orElse(null);
 		Assert.assertNull(aluno);
 	}
+	
+	/**
+	 * ================== DETALHAR ===============================
+	 */
+	@Test()
+	@Sql({ "/dataset/truncate.sql", 
+		"/dataset/usuarios.sql", 
+		"/dataset/aluno.sql" })
+	public void detalharAlunoMustPass() {
+		Aluno aluno = this.alunoService.detalharAluno(1001L);
+
+		Assert.assertNotNull(aluno);
+		Assert.assertNotNull(aluno.getId());
+		Assert.assertEquals(aluno.getCpf(), "092.862.989-94");
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	@Sql({ "/dataset/truncate.sql", 
+		"/dataset/usuarios.sql", 
+		"/dataset/aluno.sql" })
+	public void detalharAlunoMustFailIdNaoExiste() {
+		Aluno aluno = this.alunoService.detalharAluno(1L);
+	}
+	
 	/**
 	 * ====================================== DESATIVAR ============================================
 	 */

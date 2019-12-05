@@ -26,7 +26,7 @@ export class CursoService {
   }
 
   remover(cursoId: number){
-    return this.http.get('http://localhost:4200/api/api/curso/admin/remove?id='+cursoId);
+    return this.http.get('http://localhost:4200/api/api/admin/curso/remove?id='+cursoId);
 
   }
 }

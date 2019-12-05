@@ -107,6 +107,7 @@ export class ReforcoFormComponent implements OnInit {
   onSave() {
     if (this.reforcoForm.valid) {
 
+      this.reforco.disponivel = true;
       this.reforco.area = this.reforcoForm.get("area").value;
       this.reforco.vagas = this.reforcoForm.get("vagas").value;
       this.reforco.horaInicio = this.reforcoForm.get("horainicio").value;

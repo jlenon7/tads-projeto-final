@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/jlenon7/projeto-final/issues"
   },
-  "homepage": "https://github.com/jlenon7/projeto-final#readme"
+  "homepage": "https://github.com/jlenon7/projeto-final#readme",
+  "dependencies": {
+    "ngx-material-timepicker": "^5.2.3"
+  }
 }

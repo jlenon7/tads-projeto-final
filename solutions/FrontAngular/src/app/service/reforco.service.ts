@@ -26,7 +26,7 @@ export class ReforcoService {
   }
 
   remover(reforcoId: number){
-    return this.http.get('http://localhost:4200/api/api/reforco/admin/remove?id='+reforcoId);
+    return this.http.get('http://localhost:4200/api/api/admin/reforco/remove?id='+reforcoId);
 
   }
 }

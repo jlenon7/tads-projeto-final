@@ -1,5 +1,7 @@
 import { Professor } from './professor'
-import { Dificuldade } from './dificuldade';
+import { Dificuldade} from './dificuldade';
+import { Time } from '@angular/common';
+import { Moment } from 'moment';
 
 export class Curso {
     constructor(

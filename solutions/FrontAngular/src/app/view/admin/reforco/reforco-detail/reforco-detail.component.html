@@ -27,18 +27,18 @@
                             </div>
 
                             <div fxLayout="column" fxFlex=50 class="field-detail">
-                                    <span>Vagas:</span>
-                                    <span class="label-detail-value">{{Vagas.area}}</span>
-                                </div>
+                                <span>Vagas:</span>
+                                <span class="label-detail-value">{{reforco.vagas}}</span>
+                            </div>
     
                             <div fxLayout="column" fxFlex=50 class="field-detail">
                                 <span>Ministrante:</span>
-                                <span class="label-detail-value">{{reforco.ministrante}}</span>
+                                <span class="label-detail-value">{{reforco.ministrante.nome}}</span>
                             </div>
     
                             <div fxLayout="column" fxFlex=50 class="field-detail">
                                 <span>Hora de Ínicio:</span>
-                                <span class="label-detail-value">{{reforco.horaInicio | date: 'dd/MM/yyyy'}}</span>
+                                <span class="label-detail-value">{{reforco.horaInicio}}</span>
                             </div>
     
                             <div fxLayout="column" fxFlex=50 class="field-detail">

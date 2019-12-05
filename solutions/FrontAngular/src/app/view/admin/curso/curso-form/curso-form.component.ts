@@ -3,7 +3,7 @@ import { Curso } from 'src/app/model/curso';
 import { Professor } from 'src/app/model/professor';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DisciplinaValues } from 'src/app/model/disciplina';
+import { DificuldadeValues } from 'src/app/model/dificuldade';
 import { CursoService } from 'src/app/service/curso.service';
 import { ProfessorService } from 'src/app/service/professor.service';
 import { MessagesService } from 'src/app/service/messages.service';
@@ -34,7 +34,7 @@ export class CursoFormComponent implements OnInit {
    /**
    * Lista de disciplinas
    */
-  private disciplinaValues: string[] = DisciplinaValues;
+  private dificuldadeValues: string[] = DificuldadeValues;
 
 
   /**
@@ -103,10 +103,11 @@ export class CursoFormComponent implements OnInit {
   onSave() {
     if (this.cursoForm.valid) {
 
+      this.curso.disponivel = true;
       this.curso.area = this.cursoForm.get("area").value;
       this.curso.cargaHoraria = this.cursoForm.get("cargaHoraria").value;
       this.curso.dificuldade = this.cursoForm.get("dificuldade").value;
-      var prof : Professor = this.cursoForm.get("professor").value;
+      var prof : Professor = this.cursoForm.get("ministrante").value;
       this.curso.ministrante = prof;
 
       console.log(this.curso);
@@ -152,7 +153,7 @@ export class CursoFormComponent implements OnInit {
       this.cursoForm.get("area").setValue(res.area);
       this.cursoForm.get("cargaHoraria").setValue(res.cargaHoraria);
       this.cursoForm.get("dificuldade").setValue(res.dificuldade);
-      this.cursoForm.get("professor").setValue(res.ministrante);
+      this.cursoForm.get("ministrante").setValue(res.ministrante);
       this.isOnUpdate = true;
     },
     (error: any) => {
@@ -177,8 +178,8 @@ export class CursoFormComponent implements OnInit {
    * Display de professor
    */
 
-  displayProfessor(professor?: Professor): string | undefined {
-    return professor ? professor.nome : undefined;
+  displayProfessor(ministrante?: Professor): string | undefined {
+    return ministrante ? ministrante.nome : undefined;
   }
 
   listarProfessores(filter: string) {
@@ -190,9 +191,8 @@ export class CursoFormComponent implements OnInit {
       });
   }
 
-
   selectProfessor(event: any) {
-    this.cursoForm.get("professor").setValue(event.option.value);
+    this.cursoForm.get("ministrante").setValue(event.option.value);
   }
 
 }

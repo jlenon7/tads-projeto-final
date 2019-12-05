@@ -80,7 +80,7 @@ export class ReforcoSearchComponent implements OnInit {
   }
     
   /**
-   * Método para remover um funcionario
+   * Método para remover um reforço
    */
   remover(id: number){
     this.openRemoverConfirm(id);
@@ -104,7 +104,6 @@ export class ReforcoSearchComponent implements OnInit {
         (error: any) => {
           console.log(error.error.message);
           this.messageService.toastError(error.error.message);
-
         });
       } else {
         // DO SOMETHING ELSE

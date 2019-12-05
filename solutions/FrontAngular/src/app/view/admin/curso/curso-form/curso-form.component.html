@@ -44,34 +44,36 @@
                                 </mat-form-field>
                             </div>
 
-                            <!-- Dificuldade -->
-                            <div fxLayout="row" fxFlex=50>
-                              <mat-form-field fxFlex [floatLabel]="'always'">
-                                  <mat-select formControlName="dificuldade" placeholder="Selecione uma dificuldade" required>
-                                   <mat-option *ngFor="let dificuldade of dificuldadeValues" [value]="dificuldade">
-                                      {{ dificuldade }}
-                                    </mat-option>
-                                  </mat-select>
-                                <mat-error *ngIf="cursoForm.get('dificuldade').hasError('required')">
-                                  Dificuldade é obrigatório.
-                                </mat-error>
-                              </mat-form-field>
-                            </div>
-
                             <!-- Ministrante -->
-                             <div fxLayout="row" fxFlex=50>
+                            <div fxLayout="row" fxFlex=50>
                                 <mat-form-field fxFlex [floatLabel]="'always'">
-                                  <input type="text" placeholder="Selecione um ministrante" matInput id="professor"  formControlName="ministrante"
+                                  <mat-label>Ministrante</mat-label>
+                                  <input type="text" placeholder="Selecione um ministrante" matInput id="ministrante"  formControlName="ministrante"
                                     [matAutocomplete]="autoProf" required>
                                   <mat-autocomplete #autoProf="matAutocomplete" [displayWith]="displayProfessor"
                                     (optionSelected)="selectProfessor($event)">
                                     <mat-option *ngFor="let item of professoresList" [value]="item">
-                                      {{item.ministrante}}
+                                      {{item.nome}}
                                     </mat-option>
                                   </mat-autocomplete>
-                                  <mat-error *ngIf="professorForm.get('professor').hasError('required')">
+                                  <!--<mat-error *ngIf="ministranteForm.get('ministrante').hasError('required')">
                                     Ministrante é obrigatório.
-                                  </mat-error>
+                                  </mat-error>-->
+                                </mat-form-field>
+                            </div>
+
+                            <!-- Dificuldade -->
+                            <div fxLayout="row" fxFlex=50>
+                                <mat-form-field fxFlex [floatLabel]="'always'">
+                                <mat-label>Dificuldade</mat-label>
+                                <mat-select formControlName="dificuldade" placeholder="Selecione uma dificuldade" required>
+                                    <mat-option *ngFor="let dificuldade of dificuldadeValues" [value]="dificuldade">
+                                    {{ dificuldade }}
+                                    </mat-option>
+                                </mat-select>
+                                <!--<mat-error *ngIf="disciplinaForm.get('disciplina').hasError('required')">
+                                    Disciplina é obrigatório.
+                                </mat-error>-->
                                 </mat-form-field>
                             </div>
                 </div>
