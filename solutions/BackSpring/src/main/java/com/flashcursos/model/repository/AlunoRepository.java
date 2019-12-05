@@ -14,13 +14,13 @@ import com.flashcursos.model.entity.Aluno;
 
 public interface AlunoRepository extends JpaRepository<Aluno, Long> {
 	
-	/*
-	 * VERIFICAR !!!!!!!!!!!
-	 * @Override
-	@EntityGraph(attributePaths = "departamento")
+	
+	 
+	@Override
+	// @EntityGraph(attributePaths = "departamento")
 	public Optional<Aluno> findById(Long id);
 	
-	
+	/*
 	public Page<Aluno> findByDepartamentoId(Long id, Pageable pageable);
 	
 	@Query("FROM Usuario usuario "

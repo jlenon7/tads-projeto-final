@@ -44,6 +44,8 @@ public class TurmaService {
 	 * @return
 	 */
 	public List<TurmaReforco> listarTurmas(){
+	//	TurmaReforco turma = new TurmaReforco();
+		//turma.setDataInicio(dataInicio);
 		return this.turmaRepository.findAll();
 	}
 
