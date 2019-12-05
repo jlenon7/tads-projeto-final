@@ -77,9 +77,7 @@ export class MenuComponent implements OnInit
           label: "Cadastros Complexos",
           menuList: [
             { icon: 'assessment', label: 'Curso', routerlink: '/admin/curso' },
-            { icon: 'assessment', label: 'Reforço', routerlink: '/admin/reforco' },
-            { icon: 'toys', label: 'Matricula', routerlink: '/admin/matricula' },
-            { icon: 'store', label: 'Turma', routerlink: '/admin/turma' },
+            { icon: 'store', label: 'Matricula', routerlink: '/admin/matricula' }
           ],
           open: false
         },

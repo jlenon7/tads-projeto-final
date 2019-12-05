@@ -39,6 +39,7 @@ const routes: Routes = [
     component: MatriculaDetailComponent,
     path: 'admin/matricula/detalhes/:id'
   },
+  
   {
     component: AlunoSearchComponent,
     path: 'admin/aluno'
