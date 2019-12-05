@@ -16,7 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { MenuComponent } from './view/admin/menu/menu.component';
-import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 import { AppComponent } from './app.component';
 import { AlunoFormComponent } from './view/admin/aluno/aluno-form/aluno-form.component';
@@ -39,10 +39,16 @@ import { ReforcoListComponent } from './view/admin/reforco/reforco-list/reforco-
 import { ReforcoDetailComponent } from './view/admin/reforco/reforco-detail/reforco-detail.component';
 import { ReforcoSearchComponent } from './view/admin/reforco/reforco-search/reforco-search.component';
 
+import { MatriculaFormComponent } from './view/admin/matricula/matricula-form/matricula-form.component';
+import { MatriculaListComponent } from './view/admin/matricula/matricula-list/matricula-list.component';
+import { MatriculaDetailComponent } from './view/admin/matricula/matricula-detail/matricula-detail.component';
+import { MatriculaSearchComponent } from './view/admin/matricula/matricula-search/matricula-search.component';
+
 import { AlunoService } from './service/aluno.service';
 import { CursoService } from './service/curso.service';
 import { ReforcoService } from './service/reforco.service';
 import { ProfessorService } from './service/professor.service';
+import { MatriculaService } from './service/matricula.service';
 import { MessagesService } from './service/messages.service';
 
 
@@ -69,7 +75,12 @@ import { MessagesService } from './service/messages.service';
     ReforcoFormComponent,
     ReforcoListComponent,
     ReforcoDetailComponent,
-    ReforcoSearchComponent
+    ReforcoSearchComponent,
+
+    MatriculaFormComponent,
+    MatriculaListComponent,
+    MatriculaDetailComponent,
+    MatriculaSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -128,6 +139,7 @@ import { MessagesService } from './service/messages.service';
     CursoService,
     ReforcoService,
     ProfessorService,
+    MatriculaService,
     MessagesService
   ],
   bootstrap: [AppComponent]

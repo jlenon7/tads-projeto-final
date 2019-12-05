@@ -1,22 +1,22 @@
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
-import { Aluno } from 'src/app/model/aluno';
+import { Matricula } from 'src/app/model/matricula';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AlunoService } from 'src/app/service/aluno.service';
-import { TipoAcaoValues } from 'src/app/model/tipo-acao';
+import { MatriculaService } from 'src/app/service/matricula.service';
 import { MessagesService } from 'src/app/service/messages.service';
+import { TipoAcaoValues } from 'src/app/model/tipo-acao';
 import { TdDialogService } from '@covalent/core/dialogs';
 
 @Component({
-  selector: 'app-aluno-search',
-  templateUrl: './aluno-search.component.html',
-  styleUrls: ['./aluno-search.component.css']
+  selector: 'app-matricula-search',
+  templateUrl: './matricula-search.component.html',
+  styleUrls: ['./matricula-search.component.css']
 })
-export class AlunoSearchComponent implements OnInit {
+export class MatriculaSearchComponent implements OnInit {
 
    /**
-   * Lista de alunos a ser exibida
+   * Lista de matriculas a ser exibida
    */
-  alunos : Array<Aluno>;
+  matriculas : Array<Matricula>;
 
   /**
    * Construtor da classe
@@ -25,7 +25,7 @@ export class AlunoSearchComponent implements OnInit {
    */
   constructor(private router: Router,
             private activatedRoute: ActivatedRoute,
-            private alunoService: AlunoService,
+            private matriculaService: MatriculaService,
             private messageService: MessagesService,
             private _dialogService: TdDialogService,
             private _viewContainerRef: ViewContainerRef) { 
@@ -39,7 +39,7 @@ export class AlunoSearchComponent implements OnInit {
   }
 
   /**
-   * Método que redireciona para cadastrar aluno
+   * Método que redireciona para cadastrar matricula
    */
   navigateToNovo() {
     this.router.navigate(['cadastrar'], { relativeTo: this.activatedRoute });
@@ -47,12 +47,12 @@ export class AlunoSearchComponent implements OnInit {
   }
 
   /**
-   * Método que redireciona para alterar, excluir ou visualizar aluno
+   * Método que redireciona para alterar, excluir ou visualizar matricula
    * @param evento 
    */
   navigateTo(evento) {
     console.log(evento.acaoRealizada);
-    let id: number  = evento.alunoSelecionadoId;
+    let id: number  = evento.matriculaSelecionadoId;
     if(evento.acaoRealizada == TipoAcaoValues[0]){
       this.router.navigate(['detalhes/'+id], { relativeTo: this.activatedRoute });
     }
@@ -66,11 +66,11 @@ export class AlunoSearchComponent implements OnInit {
   }
 
   /**
-   * Método para listar os alunos
+   * Método para listar os matriculas
    */
   listar(){
-    this.alunoService.listar().subscribe(dados => {
-      this.alunos = dados;
+    this.matriculaService.listar().subscribe(dados => {
+      this.matriculas = dados;
     },
     (error: any) => {
       console.log(error);
@@ -80,7 +80,7 @@ export class AlunoSearchComponent implements OnInit {
   }
     
   /**
-   * Método para remover um reforço
+   * Método para remover um matricula
    */
   remover(id: number){
     this.openRemoverConfirm(id);
@@ -88,17 +88,17 @@ export class AlunoSearchComponent implements OnInit {
 
   openRemoverConfirm(id: number): void {
     this._dialogService.openConfirm({
-      message: 'Tem certeza que deseja excluir esse aluno?',
+      message: 'Tem certeza que deseja excluir esta matricula?',
       disableClose: true, // defaults to false
       viewContainerRef: this._viewContainerRef, //OPTIONAL
-      title: 'Excluir aluno', //OPTIONAL, hides if not provided
+      title: 'Excluir matricula', //OPTIONAL, hides if not provided
       cancelButton: 'Não', //OPTIONAL, defaults to 'CANCEL'
       acceptButton: 'Sim', //OPTIONAL, defaults to 'ACCEPT'
       width: '500px', //OPTIONAL, defaults to 400px
     }).afterClosed().subscribe((accept: boolean) => {
       if (accept) {
-        this.alunoService.remover(id).subscribe(dados => {
-          this.messageService.toastSuccess('Aluno excluído com sucesso.');
+        this.matriculaService.remover(id).subscribe(dados => {
+          this.messageService.toastSuccess('Matricula excluída com sucesso.');
           this.listar();
         },
         (error: any) => {

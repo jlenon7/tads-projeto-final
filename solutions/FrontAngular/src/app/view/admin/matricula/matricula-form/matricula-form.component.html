@@ -1,0 +1,57 @@
+<div fxLayout="column">
+    <div fxLayout="row" class="header-form">
+      <span fxFlex>Cadastrar/Alterar Matricula</span>
+        <div>
+            <button mat-raised-button class="form-button bgc-grey-500 tc-grey-50" (click)="onBack()">
+            Cancelar
+            </button>
+            <button [disabled]="matriculaForm.invalid" mat-raised-button color="accent" class="form-button" (click)="onSave()">
+            Salvar
+            </button>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center start">
+        <mat-card class="background-color" fxFlex="90">
+            <form [formGroup]="matriculaForm" novalidate>
+                <div fxLayout="column" fxFlex=90>
+
+                          <div fxLayout="column">
+                            
+                            <div fxLayout="row" fxFlex=50>
+                                <mat-form-field fxFlex [floatLabel]="'always'">
+                                  <mat-label>Curso</mat-label>
+                                  <input type="text" placeholder="Selecione um curso" matInput id="curso"  formControlName="curso"
+                                    [matAutocomplete]="autoCurs" required>
+                                  <mat-autocomplete #autoCurs="matAutocomplete" [displayWith]="displayCurso"
+                                    (optionSelected)="selectCurso($event)">
+                                    <mat-option *ngFor="let item of cursosList" [value]="item">
+                                      {{item.area}}
+                                    </mat-option>
+                                  </mat-autocomplete>
+                                  <!--<mat-error *ngIf="matriculaForm.get('curso').hasError('required')">
+                                    Curso é obrigatório.
+                                  </mat-error>-->
+                                </mat-form-field>
+                            </div>
+                            <div fxLayout="row" fxFlex=50>
+                              <mat-form-field fxFlex [floatLabel]="'always'">
+                                <mat-label>Aluno</mat-label>
+                                <input type="text" placeholder="Selecione um aluno" matInput id="aluno"  formControlName="aluno"
+                                  [matAutocomplete]="autoAlun" required>
+                                <mat-autocomplete #autoAlun="matAutocomplete" [displayWith]="displayAluno"
+                                  (optionSelected)="selectAluno($event)">
+                                  <mat-option *ngFor="let item of alunosList" [value]="item">
+                                    {{item.nome}}
+                                  </mat-option>
+                                </mat-autocomplete>
+                                <!--<mat-error *ngIf="matriculaForm.get('aluno').hasError('required')">
+                                  Aluno é obrigatório.
+                                </mat-error>-->
+                              </mat-form-field>
+                          </div>
+                </div>
+              </div>
+            </form>
+          </mat-card>
+        </div>
+      </div>

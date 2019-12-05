@@ -17,8 +17,28 @@ import { ReforcoSearchComponent } from './view/admin/reforco/reforco-search/refo
 import { ReforcoFormComponent } from './view/admin/reforco/reforco-form/reforco-form.component';
 import { ReforcoDetailComponent } from './view/admin/reforco/reforco-detail/reforco-detail.component';
 
+import { MatriculaSearchComponent } from './view/admin/matricula/matricula-search/matricula-search.component';
+import { MatriculaFormComponent } from './view/admin/matricula/matricula-form/matricula-form.component';
+import { MatriculaDetailComponent } from './view/admin/matricula/matricula-detail/matricula-detail.component';
+
 
 const routes: Routes = [
+  {
+    component: MatriculaSearchComponent,
+    path: 'admin/matricula'
+  },
+  {
+    component: MatriculaFormComponent,
+    path: 'admin/matricula/cadastrar'
+  },
+  {
+    component: MatriculaFormComponent,
+    path: 'admin/matricula/alterar/:id'
+  },
+  {
+    component: MatriculaDetailComponent,
+    path: 'admin/matricula/detalhes/:id'
+  },
   {
     component: AlunoSearchComponent,
     path: 'admin/aluno'
@@ -88,7 +108,8 @@ const routes: Routes = [
   {
     component: ReforcoDetailComponent,
     path: 'admin/reforco/detalhes/:id'
-  }
+  },
+
 ];
 
 @NgModule({

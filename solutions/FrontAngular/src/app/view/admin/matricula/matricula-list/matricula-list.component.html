@@ -1,0 +1,18 @@
+<mat-card class="background-color" fxFlex>
+    <mat-list *ngFor="let matr of matriculas" role="list" >
+            <mat-list-item class="item-list" role="listitem" fxFlex>
+                <div fxFlex (click)="selecionar(matr.id, 0)">
+                    <span fxFlex>{{matr.dataMatricula}}</span>
+                    <span fxFlex>{{matr.dataVencimentoMatricula}}</span>
+                    <span fxFlex>{{matr.curso.area}}</span>
+                    <span fxFlex>{{matr.aluno.nome}}</span>
+                </div>
+                <button class="button-option" (click)="selecionar(matr.id, 1)">
+                        <mat-icon>edit</mat-icon>
+                </button>
+                <button class="button-option" (click)="selecionar(matr.id, 2)">
+                        <mat-icon>delete</mat-icon>
+                </button>
+            </mat-list-item>
+    </mat-list>
+</mat-card>

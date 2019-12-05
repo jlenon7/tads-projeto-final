@@ -1,15 +1,18 @@
 <mat-card class="background-color" fxFlex>
-    <mat-list *ngFor="let func of professores" role="list" >
-            <mat-list-item (click)="selecionar(func.id, false)" class="item-list" role="listitem" fxFlex>
-                    <span fxFlex>{{func.nome | uppercase}}</span>
-                    <span fxFlex>{{func.nascimento | uppercase}}</span>
-                    <span fxFlex>{{func.cpf | uppercase}}</span>
-                    <span fxFlex>{{func.email | uppercase}}</span>
-                    <span fxFlex>{{func.celular | uppercase}}</span>
-                    <span fxFlex>{{func.tipousuario | uppercase}}</span>
-                    <span fxFlex>{{func.areaconhecimento | uppercase}}</span>
-                    <span fxFlex>{{func.disponivel | uppercase}}</span>
-                    <button class="button-option" (click)="selecionar(func.id, true)"><mat-icon>edit</mat-icon></button>
-            </mat-list-item>
-    </mat-list>
-</mat-card>
+        <mat-list *ngFor="let prof of professores" role="list" >
+                    <mat-list-item class="item-list" role="listitem" fxFlex>
+                    <div fxFlex (click)="selecionar(prof.id, 0)">                      
+                        <span fxFlex>{{prof.nome}}</span>
+                        <span fxFlex>{{prof.email}}</span>
+                        <span fxFlex>{{prof.tipousuario}}</span>
+                        <span fxFlex>{{prof.areaconhecimento}}</span>
+                    </div>
+                    <button class="button-option" (click)="selecionar(prof.id, 1)">
+                            <mat-icon>edit</mat-icon>
+                    </button>
+                    <button class="button-option" (click)="selecionar(prof.id, 2)">
+                            <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-list-item>
+        </mat-list>
+    </mat-card>

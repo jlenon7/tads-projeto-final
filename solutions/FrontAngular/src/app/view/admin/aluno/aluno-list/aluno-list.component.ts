@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Aluno } from 'src/app/model/aluno';
+import { TipoAcaoValues } from 'src/app/model/tipo-acao';
 
 
 @Component({
@@ -18,8 +19,7 @@ export class AlunoListComponent implements OnInit {
   ngOnInit() {
   }
 
-  selecionar(id: any, toEdit: boolean) {
-    this.selecionarAluno.emit({alunoSelecionadoId : id, toEdit : toEdit})
-
+  selecionar(id: any, acao: number) {
+    this.selecionarAluno.emit({alunoSelecionadoId : id, acaoRealizada : TipoAcaoValues[acao]});
   }
 }

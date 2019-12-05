@@ -26,7 +26,7 @@ export class ProfessorService {
   }
 
   remover(professorId: number){
-    return this.http.get('http://localhost:4200/api/api/professor/admin/remove?id='+professorId);
+    return this.http.get('http://localhost:4200/api/api/admin/professor/remove?id='+professorId);
     
   }
 }

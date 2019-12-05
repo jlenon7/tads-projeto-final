@@ -166,7 +166,6 @@ export class CursoFormComponent implements OnInit {
    * Método para voltar a pagina de list de cursos
    */
   onBack() {
-    console.log(this.cursoForm.get("professor").value);
     if (!this.isOnUpdate) {
       this.router.navigate(['../'], { relativeTo: this.activatedRoute });
     }else{

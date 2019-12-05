@@ -78,8 +78,8 @@ export class MenuComponent implements OnInit
           menuList: [
             { icon: 'assessment', label: 'Curso', routerlink: '/admin/curso' },
             { icon: 'assessment', label: 'Reforço', routerlink: '/admin/reforco' },
-            { icon: 'toys', label: 'Matricular no Curso', routerlink: '/admin/matricula' },
-            { icon: 'store', label: 'Entrar na Turma', routerlink: '/admin/turma' },
+            { icon: 'toys', label: 'Matricula', routerlink: '/admin/matricula' },
+            { icon: 'store', label: 'Turma', routerlink: '/admin/turma' },
           ],
           open: false
         },
