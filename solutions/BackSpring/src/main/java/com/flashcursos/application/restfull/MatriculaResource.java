@@ -41,15 +41,13 @@ public class MatriculaResource {
 	}
 	
 	@PostMapping( "/insert" )
-	public MatriculaCurso cadastrar( @RequestBody MatriculaCurso matricula )
-	{
+	public MatriculaCurso cadastrar( @RequestBody MatriculaCurso matricula ) {
 		return this.matriculaService.cadastrarMatricula(matricula);
 	}
 	
 
 	@PostMapping( "/update" )
-	public MatriculaCurso atualizar( @RequestBody MatriculaCurso matricula )
-	{
+	public MatriculaCurso atualizar( @RequestBody MatriculaCurso matricula ) {
 		return this.matriculaService.atualizarMatricula(matricula);
 	}
 }

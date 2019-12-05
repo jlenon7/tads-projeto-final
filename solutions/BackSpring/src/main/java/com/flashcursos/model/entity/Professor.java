@@ -1,8 +1,16 @@
 package com.flashcursos.model.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,16 +29,17 @@ public class Professor extends Usuario{
 		super.setId(id);
 	}
 	
-	/*@JsonIgnoreProperties("reforco")
-	@OneToMany(targetEntity = Reforco.class, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE},
-			fetch = FetchType.EAGER, mappedBy = "reforco", orphanRemoval = true)
-	private List<Reforco> meusReforcos = new ArrayList<Reforco>();
-	
-	  @JsonIgnoreProperties("curso")
-	@OneToMany(targetEntity = Curso.class, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE},
-			fetch = FetchType.EAGER, mappedBy = "curso", orphanRemoval = true)
-	private List<Curso> meusCursos = new ArrayList<Curso>();*/
-
 	@Enumerated( EnumType.ORDINAL )
 	private AreaConhecimentoEnum areaConhecimento;
+	
+	@JsonIgnoreProperties("ministrante")
+	@OneToMany(
+			targetEntity = Curso.class,
+			cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE},
+			fetch = FetchType.LAZY,
+			mappedBy = "ministrante",
+			orphanRemoval = true
+			)
+	private List<Curso> aulas = new ArrayList<Curso>();
+
 }

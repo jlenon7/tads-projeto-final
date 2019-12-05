@@ -43,6 +43,8 @@ public class AlunoService {
 	 * @return
 	 */
 	public Aluno atualizarAluno(Aluno aluno) {
+		aluno.setTipousuario(TipoUsuarioEnum.ALUNO);
+		aluno.setDisponivel(true);
 		return this.alunoRepository.save(aluno);
 	}
 	
@@ -71,6 +73,7 @@ public class AlunoService {
 	 * @param id
 	 */
 	public void removerAluno(long id) {
+		
 		this.alunoRepository.deleteById(id);
 	}
 	

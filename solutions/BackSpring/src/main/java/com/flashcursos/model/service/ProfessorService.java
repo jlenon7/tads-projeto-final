@@ -42,6 +42,8 @@ public class ProfessorService {
 	 * @return
 	 */
 	public Professor atualizarProfessor(Professor professor) {
+		professor.setTipousuario(TipoUsuarioEnum.PROFESSOR);
+		professor.setDisponivel(true);
 		return this.professorRepository.save(professor);
 	}
 	
