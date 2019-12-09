@@ -2,6 +2,11 @@
     <mat-list *ngFor="let matr of matriculas" role="list" >
             <mat-list-item class="item-list" role="listitem" fxFlex>
                 <div fxFlex (click)="selecionar(matr.id, 0)">
+<<<<<<< HEAD
+=======
+                    <span fxFlex>{{matr.dataMatricula}}</span>
+                    <span fxFlex>{{matr.dataVencimentoMatricula}}</span>
+>>>>>>> 93f4b2d4998741a5c56b47336865ea644251ba48
                     <span fxFlex>{{matr.curso.area}}</span>
                     <span fxFlex>{{matr.aluno.nome}}</span>
                 </div>

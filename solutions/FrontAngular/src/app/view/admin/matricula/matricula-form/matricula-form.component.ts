@@ -4,6 +4,10 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatriculaService } from 'src/app/service/matricula.service';
 import { MessagesService } from 'src/app/service/messages.service';
+<<<<<<< HEAD
+=======
+import { ParserToDateService } from 'src/app/service/parser-to-date.service';
+>>>>>>> 93f4b2d4998741a5c56b47336865ea644251ba48
 import { DateAdapter } from '@angular/material/core';
 import { Aluno } from 'src/app/model/aluno';
 import { Curso } from 'src/app/model/curso';
@@ -42,12 +46,15 @@ export class MatriculaFormComponent implements OnInit {
   public cursosList: Array<Curso> = [];
 
   /**
+<<<<<<< HEAD
   * Controla o Spinner
   */
  
   private showSpinner: boolean = false;
 
   /**
+=======
+>>>>>>> 93f4b2d4998741a5c56b47336865ea644251ba48
    * Construtor da classe
    * @param fb 
    * @param activatedRoute 
@@ -104,6 +111,7 @@ export class MatriculaFormComponent implements OnInit {
 
   }
 
+<<<<<<< HEAD
   /**
    * Método para chamar o loader
    */
@@ -114,6 +122,8 @@ export class MatriculaFormComponent implements OnInit {
       this.showSpinner = false;
     }, 30000);
   }
+=======
+>>>>>>> 93f4b2d4998741a5c56b47336865ea644251ba48
 
   /**
    * Método para salvar a matricula

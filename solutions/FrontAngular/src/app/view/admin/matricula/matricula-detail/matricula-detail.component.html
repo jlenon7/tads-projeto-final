@@ -17,6 +17,7 @@
     
                     <div fxLayout="column">
                             <div fxLayout="column" fxFlex=50 class="field-detail">
+<<<<<<< HEAD
                                 <span>ID: <span class="label-detail-value">{{matricula.id}}</span></span>
                                 
                             </div>
@@ -43,6 +44,35 @@
     
                             <div fxLayout="column" fxFlex=50 class="field-detail">
                                 <span>Status do Usuário: <span class="label-detail-value">{{value.myString}}</span></span>
+=======
+                                <span>ID:</span>
+                                <span class="label-detail-value">{{matricula.id}}</span>
+                            </div>
+    
+                            <div fxLayout="column" fxFlex=50 class="field-detail">
+                                <span>Aluno:</span>
+                                <span class="label-detail-value">{{matricula.aluno.nome}}</span>
+                            </div>
+
+                            <div fxLayout="column" fxFlex=50 class="field-detail">
+                                <span>Curso:</span>
+                                <span class="label-detail-value">{{matricula.curso.area}}</span>
+                            </div>
+    
+                            <div fxLayout="column" fxFlex=50 class="field-detail">
+                                <span>Data de Matricula:</span>
+                                <span class="label-detail-value">{{matricula.dataMatricula}}</span>
+                            </div>
+    
+                            <div fxLayout="column" fxFlex=50 class="field-detail">
+                                    <span>Data de Vencimento</span>
+                                    <span class="label-detail-value">{{matricula.dataVencimentoMatricula}}</span>
+                            </div>
+    
+                            <div fxLayout="column" fxFlex=50 class="field-detail">
+                                <span>Status:</span>
+                                <span class="label-detail-value">{{matricula.disponivel}}</span>
+>>>>>>> 93f4b2d4998741a5c56b47336865ea644251ba48
                             </div>
                     </div>
     
