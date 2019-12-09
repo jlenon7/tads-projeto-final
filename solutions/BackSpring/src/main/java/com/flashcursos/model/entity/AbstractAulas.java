@@ -29,7 +29,7 @@ public abstract class AbstractAulas extends AbstractEntity implements Serializab
 	private String area;
 	
 	@NotNull
-	@ManyToOne(targetEntity = Professor.class, fetch = FetchType.LAZY, optional = false)	
+	@ManyToOne(targetEntity = Professor.class, fetch = FetchType.LAZY, optional = false)
 	private Professor ministrante;
 	
 	@NotNull

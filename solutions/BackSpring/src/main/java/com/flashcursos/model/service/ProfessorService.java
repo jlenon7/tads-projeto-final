@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
+import com.flashcursos.model.entity.Aluno;
 import com.flashcursos.model.entity.Professor;
 import com.flashcursos.model.entity.TipoUsuarioEnum;
 import com.flashcursos.model.repository.ProfessorRepository;
@@ -23,7 +24,6 @@ public class ProfessorService {
 	@Autowired
 	private UsuarioService usuarioService;
 	
-	
 	/**
 	 * Serviço para inserir um novo professor
 	 * 
@@ -32,7 +32,7 @@ public class ProfessorService {
 	 */
 	public Professor cadastrarProfessor(Professor professor) {
 		professor.setTipousuario(TipoUsuarioEnum.PROFESSOR);
-		this.usuarioService.cadastrarUsuario(professor);
+		this.usuarioService.autenticarUsuario(professor);
 		return this.professorRepository.save(professor);
 	}
 	
@@ -42,6 +42,14 @@ public class ProfessorService {
 	 * @return
 	 */
 	public Professor atualizarProfessor(Professor professor) {
+		professor.setTipousuario(TipoUsuarioEnum.PROFESSOR);
+		professor.setDisponivel(true);
+		
+		if(professor.getSenha() == null) {
+			Professor professorOld = this.professorRepository.findById(professor.getId()).orElse(null);
+			professor.setSenha(professorOld.getSenha());
+		}
+		
 		return this.professorRepository.save(professor);
 	}
 	

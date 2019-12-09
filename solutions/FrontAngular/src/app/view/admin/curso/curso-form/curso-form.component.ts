@@ -7,7 +7,6 @@ import { DificuldadeValues } from 'src/app/model/dificuldade';
 import { CursoService } from 'src/app/service/curso.service';
 import { ProfessorService } from 'src/app/service/professor.service';
 import { MessagesService } from 'src/app/service/messages.service';
-import { ParserToDateService } from 'src/app/service/parser-to-date.service';
 import { DateAdapter } from '@angular/material/core';
 
 @Component({
@@ -43,6 +42,12 @@ export class CursoFormComponent implements OnInit {
   public professoresList: Array<Professor> = [];
 
   /**
+  * Controla o Spinner
+  */
+ 
+  private showSpinner: boolean = false;
+
+  /**
    * Construtor da classe
    * @param fb
    * @param activatedRoute
@@ -55,7 +60,6 @@ export class CursoFormComponent implements OnInit {
     private cursoService: CursoService,
     private messageService: MessagesService,
     private professorService: ProfessorService,
-    private parserToDate: ParserToDateService,
     private _adapter: DateAdapter<any>) { }
 
   /**
@@ -94,6 +98,17 @@ export class CursoFormComponent implements OnInit {
      */
     this._adapter.setLocale('pt');
 
+  }
+
+  /**
+   * Método para chamar o loader
+   */
+
+  loadData() {
+    this.showSpinner = true;
+    setTimeout(() => {
+      this.showSpinner = false;
+    }, 30000);
   }
   
 
@@ -166,7 +181,6 @@ export class CursoFormComponent implements OnInit {
    * Método para voltar a pagina de list de cursos
    */
   onBack() {
-    console.log(this.cursoForm.get("professor").value);
     if (!this.isOnUpdate) {
       this.router.navigate(['../'], { relativeTo: this.activatedRoute });
     }else{

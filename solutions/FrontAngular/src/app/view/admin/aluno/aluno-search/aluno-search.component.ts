@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AlunoService } from 'src/app/service/aluno.service';
 import { TipoAcaoValues } from 'src/app/model/tipo-acao';
 import { MessagesService } from 'src/app/service/messages.service';
+import { TdDialogService } from '@covalent/core/dialogs';
 
 @Component({
   selector: 'app-aluno-search',
@@ -25,7 +26,9 @@ export class AlunoSearchComponent implements OnInit {
   constructor(private router: Router,
             private activatedRoute: ActivatedRoute,
             private alunoService: AlunoService,
-            private messageService: MessagesService) { 
+            private messageService: MessagesService,
+            private _dialogService: TdDialogService,
+            private _viewContainerRef: ViewContainerRef) { 
   }
 
   /**
@@ -76,15 +79,35 @@ export class AlunoSearchComponent implements OnInit {
     });
   }
     
+  /**
+   * Método para remover um reforço
+   */
   remover(id: number){
-    this.alunoService.remover(id).subscribe(dados => {
-      this.messageService.toastSuccess('Aluno excluído com sucesso.');
-      this.listar();
-    },
-    (error: any) => {
-      console.log(error.error.message);
-      this.messageService.toastError(error.error.message);
-      
+    this.openRemoverConfirm(id);
+  }
+
+  openRemoverConfirm(id: number): void {
+    this._dialogService.openConfirm({
+      message: 'Tem certeza que deseja excluir esse aluno?',
+      disableClose: true, // defaults to false
+      viewContainerRef: this._viewContainerRef, //OPTIONAL
+      title: 'Excluir aluno', //OPTIONAL, hides if not provided
+      cancelButton: 'Não', //OPTIONAL, defaults to 'CANCEL'
+      acceptButton: 'Sim', //OPTIONAL, defaults to 'ACCEPT'
+      width: '500px', //OPTIONAL, defaults to 400px
+    }).afterClosed().subscribe((accept: boolean) => {
+      if (accept) {
+        this.alunoService.remover(id).subscribe(dados => {
+          this.messageService.toastSuccess('Aluno excluído com sucesso.');
+          this.listar();
+        },
+        (error: any) => {
+          console.log(error.error.message);
+          this.messageService.toastError(error.error.message);
+        });
+      } else {
+        // DO SOMETHING ELSE
+      }
     });
   }
 }

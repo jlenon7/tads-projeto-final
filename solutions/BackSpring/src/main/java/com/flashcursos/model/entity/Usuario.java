@@ -19,7 +19,6 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import lombok.AllArgsConstructor;
@@ -141,20 +140,17 @@ public class Usuario extends AbstractEntity implements UserDetails{
 	{
 		this.passwordResetToken = UUID.randomUUID().toString();
 		this.passwordResetTokenExpiration = OffsetDateTime.now().plusDays( 1 );
-
 	}
 	
 	public void generateAccountActivateToken()
 	{
 		this.accountActivateToken = UUID.randomUUID().toString();
 		this.accountActivateTokenExpiration = OffsetDateTime.now().plusDays( 1 );
-
 	}
 	
 	public void generatePassword()
 	{
 		this.senha = UUID.randomUUID().toString();
-
 	}
 }
 

@@ -5,10 +5,15 @@
             <button mat-raised-button class="form-button bgc-grey-500 tc-grey-50" (click)="onBack()">
             Cancelar
             </button>
-            <button [disabled]="professorForm.invalid" mat-raised-button color="accent" class="form-button" (click)="onSave()">
+            <button [disabled]="professorForm.invalid" mat-raised-button color="accent" class="form-button" (click)="loadData(); onSave();">
             Salvar
             </button>
         </div>
+    </div>
+    <div fxLayout="row" style="
+    background-color: #fff; 
+    border-radius: 100px" *ngIf="showSpinner" class="header-form">
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
     </div>
     <div fxLayout="row" fxLayoutAlign="center start">
         <mat-card class="background-color" fxFlex="90">
@@ -32,7 +37,8 @@
                             </div>
                             <div fxLayout="row" fxFlex=50>
                               <!--Data de nascimento-->
-                                <mat-form-field>
+                                <mat-form-field fxFlex [floatLabel]="'always'">
+                                    <mat-label>Nascimento</mat-label>
                                     <input matInput [matDatepicker]="picker" placeholder="Escolha uma data" formControlName="nascimento" required>
                                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                     <mat-datepicker #picker></mat-datepicker>
@@ -55,18 +61,18 @@
                             <div fxLayout="row" fxFlex=50>
                                 <mat-form-field fxFlex [floatLabel]="'always'">
                                   <mat-label>Email</mat-label>
-                                  <input type="email" matInput id="email" formControlName="email"
+                                  <input matInput id="email" formControlName="email"
                                          placeholder="Email"
-                                         maxlength="144" layout-align="center end">
-                                  <mat-error *ngIf="professorForm.get('email').hasError('maxLength')">
-                                    Máximo 144 caracteres.
-                                  </mat-error>
+                                         maxlength="144" layout-align="center end" [(ngModel)]="email">
                                   <mat-error *ngIf="professorForm.get('email').hasError('required')">
                                     Email é obrigatório.
                                   </mat-error>
+                                  <mat-error *ngIf="professorForm.get('email').hasError('email')">
+                                      Não é um formato de email válido.
+                                  </mat-error>
                                 </mat-form-field>
                             </div>
-                            <div fxLayout="row" fxFlex=50>
+                            <div fxLayout="row" fxFlex=50 *ngIf="!isOnUpdate">
                                 <mat-form-field fxFlex [floatLabel]="'always'">
                                   <mat-label>Senha</mat-label>
                                   <input type="password" matInput id="senha" formControlName="senha"

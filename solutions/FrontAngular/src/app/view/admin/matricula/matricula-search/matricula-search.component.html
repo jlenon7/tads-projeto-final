@@ -1,0 +1,12 @@
+<div fxLayout="column" fxFlex class="div-content">
+    <div fxLayout="row" class="header-form">
+            <span fxFlex>Consulta de Matriculas</span>
+            <div>
+                <button mat-raised-button color="accent" (click)="navigateToNovo()">Nova Matricula</button>
+            </div>
+    </div>
+            
+    <div fxFlex>
+            <app-matricula-list [matriculas]="matriculas" (selecionarMatricula)="navigateTo($event)"></app-matricula-list>
+    </div>
+</div>

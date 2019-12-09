@@ -1,14 +1,17 @@
 <mat-card class="background-color" fxFlex>
-    <mat-list *ngFor="let func of alunos" role="list" >
-            <mat-list-item (click)="selecionar(func.id, false)" class="item-list" role="listitem" fxFlex>
-                    <span fxFlex>{{func.nome | uppercase}}</span>
-                    <span fxFlex>{{func.nascimento | uppercase}}</span>
-                    <span fxFlex>{{func.cpf | uppercase}}</span>
-                    <span fxFlex>{{func.email | uppercase}}</span>
-                    <span fxFlex>{{func.celular | uppercase}}</span>
-                    <span fxFlex>{{func.tipousuario | uppercase}}</span>
-                    <span fxFlex>{{func.disponivel | uppercase}}</span>
-                    <button class="button-option" (click)="selecionar(func.id, true)"><mat-icon>edit</mat-icon></button>
-            </mat-list-item>
-    </mat-list>
-</mat-card>
+        <mat-list *ngFor="let alun of alunos" role="list" >
+                    <mat-list-item class="item-list" role="listitem" fxFlex>
+                    <div fxFlex (click)="selecionar(alun.id, 0)">
+                        <span fxFlex>{{alun.nome}}</span>
+                        <span fxFlex>{{alun.email}}</span>
+                        <span fxFlex>{{alun.tipousuario}}</span>
+                    </div>
+                    <button class="button-option" (click)="selecionar(alun.id, 1)">
+                            <mat-icon>edit</mat-icon>
+                    </button>
+                    <button class="button-option" (click)="selecionar(alun.id, 2)">
+                            <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-list-item>
+        </mat-list>
+    </mat-card>

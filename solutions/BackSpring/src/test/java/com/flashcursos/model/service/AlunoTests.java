@@ -87,19 +87,16 @@ public class AlunoTests extends AbstractIntegrationTests {
 	public void listarAlunosMustPass() {
 		List<Aluno> aluno = this.alunoService.listarAlunos();
 		Assert.assertEquals(aluno.size(), 2);
-	}	
-	
-	/* Rever este teste
-	@Test
-	@Sql({ "/dataset/truncate.sql", 
-		"/dataset/usuarios.sql", 
-		"/dataset/aluno.sql" })
-	public void listarAlunosPorFiltrosMustPassFiltrarPorNome() {
-		List<Aluno> alunos = this.alunoService.listarAlunosPorFiltros("João", null, null).getContent();
-		Assert.assertEquals(1, alunos.size());
 	}
-	*/
-	
+	@Test
+	@Sql({ "/dataset/truncate.sql",
+		 "/dataset/usuarios.sql",
+		"/dataset/aluno.sql",})
+	public void listarAlunosMustFailSize2() {
+		List<Aluno> aluno = this.alunoService.listarAlunos();
+		Assert.assertEquals(aluno.size(), 2);
+	}
+
 	/**
 	 * ====================================== CR(UPDATE)D ===========================================
 	 */
@@ -149,13 +146,47 @@ public class AlunoTests extends AbstractIntegrationTests {
 		 "/dataset/usuarios.sql",
 		"/dataset/aluno.sql",})
 	public void removerAlunoMustPass() {
+		this.alunoService.removerAluno(1002);
+		Aluno aluno = this.alunoRepository.findById(1002L).orElse(null);
+		Assert.assertNull(aluno);
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	@Sql({ "/dataset/truncate.sql",
+		 "/dataset/usuarios.sql",
+		"/dataset/aluno.sql",})
+	public void removerAlunoMustFailIdNaoExiste() {
+		this.alunoService.removerAluno(1);
+	}
+	
+	@Test
+	@Sql({ "/dataset/truncate.sql",
+		  "/dataset/usuarios.sql",
+		 "/dataset/aluno.sql",
+		"/dataset/professor.sql",
+	   "/dataset/cursos.sql",
+	  "/dataset/matricula_curso.sql"})
+	public void removerAlunoMatriculadoMustPass() {
+		this.alunoService.removerAluno(1002);
+		Aluno aluno = this.alunoRepository.findById(1002L).orElse(null);
+		Assert.assertNull(aluno);
+	}
+	
+	@Test
+	@Sql({ "/dataset/truncate.sql",
+		  "/dataset/usuarios.sql",
+		 "/dataset/aluno.sql",
+		"/dataset/professor.sql",
+	   "/dataset/cursos.sql",
+	  "/dataset/matricula_curso.sql"})
+	public void removerAlunoMatriculadoMustFailIdNaoExiste() {
 		this.alunoService.removerAluno(1001);
 		Aluno aluno = this.alunoRepository.findById(1001L).orElse(null);
 		Assert.assertNull(aluno);
 	}
 	
 	/**
-	 * ================== DETALHAR ===============================
+	 * ======================================= DETALHAR ============================================
 	 */
 	@Test()
 	@Sql({ "/dataset/truncate.sql", 

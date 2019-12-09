@@ -4,7 +4,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlunoService } from 'src/app/service/aluno.service';
 import { MessagesService } from 'src/app/service/messages.service';
-import { ParserToDateService } from 'src/app/service/parser-to-date.service';
 import { DateAdapter } from '@angular/material/core';
 
 @Component({
@@ -29,6 +28,12 @@ export class AlunoFormComponent implements OnInit {
   private isOnUpdate: boolean = false;
 
   /**
+  * Controla o Spinner
+  */
+
+  private showSpinner: boolean = false;
+
+  /**
    * Construtor da classe
    * @param fb
    * @param activatedRoute
@@ -39,17 +44,18 @@ export class AlunoFormComponent implements OnInit {
     private router: Router,
     private alunoService: AlunoService,
     private messageService: MessagesService,
-    //private parserToDate: ParserToDateService,
     private _adapter: DateAdapter<any>) { }
 
   /**
    * Método chamado ao iniciar a classe
    */
   ngOnInit() {
-
     this.aluno = new Aluno(null, null, null, null, null, null, null, null, null);
-    this.createForm();
     this.aluno.id = this.activatedRoute.snapshot.params['id'];
+    if(this.aluno.id){
+      this.isOnUpdate = true;
+    }
+    this.createForm();
     if (this.aluno.id) {
       this.loadToEdit();
     }
@@ -68,8 +74,8 @@ export class AlunoFormComponent implements OnInit {
         nome: [null, {validators: [Validators.required, Validators.maxLength(144)], updateOn: 'blur'}],
         nascimento: [null, { validators: [Validators.required], updateOn: 'blur' }],
         cpf: [null, {validators: [Validators.required, Validators.maxLength(144)], updateOn: 'blur'}],
-        email: [null, {validators: [Validators.required, Validators.maxLength(144)], updateOn: 'blur'}],
-        senha: [null, {validators: [Validators.required, Validators.maxLength(144)], updateOn: 'blur'}],
+        email: [null, {validators: [Validators.required, Validators.email] }],
+        senha: [null, {validators: (this.isOnUpdate ? null : [Validators.required, Validators.maxLength(144)]), updateOn: 'blur'}],
         celular: [null, {validators: [Validators.required, Validators.maxLength(144)], updateOn: 'blur'}],
         tipousuario: [null],
       }
@@ -82,6 +88,16 @@ export class AlunoFormComponent implements OnInit {
 
   }
 
+  /**
+   * Método para chamar o loader
+   */
+
+  loadData() {
+    this.showSpinner = true;
+    setTimeout(() => {
+      this.showSpinner = false;
+    }, 30000);
+  }
 
   /**
    * Método para salvar o aluno
@@ -93,7 +109,6 @@ export class AlunoFormComponent implements OnInit {
       this.aluno.nascimento = this.alunoForm.get("nascimento").value;
       this.aluno.cpf = this.alunoForm.get("cpf").value;
       this.aluno.email = this.alunoForm.get("email").value;
-      this.aluno.senha = this.alunoForm.get("senha").value;
       this.aluno.celular = this.alunoForm.get("celular").value;
       this.aluno.tipoUsuario = this.alunoForm.get("tipousuario").value;
       console.log(this.aluno);
@@ -102,6 +117,7 @@ export class AlunoFormComponent implements OnInit {
        * Verifica se é cadastro ou edição
        */
       if(this.aluno.id == null){
+        this.aluno.senha = this.alunoForm.get("senha").value;
         this.alunoService.cadastrar(this.aluno).subscribe(res => {
           this.aluno = res;
           this.messageService.toastSuccess('Aluno cadastrado com sucesso.');
@@ -132,7 +148,7 @@ export class AlunoFormComponent implements OnInit {
 
 
   /**
-   * Método para popular o formulário com os dados do funcionário em edição
+   * Método para popular o formulário com os dados do aluno em edição
    */
   loadToEdit(){
     this.alunoService.detalhar(this.aluno.id).subscribe(res => {
@@ -140,10 +156,8 @@ export class AlunoFormComponent implements OnInit {
       this.alunoForm.get("nascimento").setValue(res.nascimento);
       this.alunoForm.get("cpf").setValue(res.cpf);
       this.alunoForm.get("email").setValue(res.email);
-      this.alunoForm.get("senha").setValue(res.senha);
       this.alunoForm.get("celular").setValue(res.celular);
       this.alunoForm.get("tipousuario").setValue(res.tipoUsuario);
-      this.isOnUpdate = true;
     },
     (error: any) => {
       this.messageService.toastError(error.error.message);

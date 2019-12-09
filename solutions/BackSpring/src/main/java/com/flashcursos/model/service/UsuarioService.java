@@ -40,11 +40,11 @@ public class UsuarioService {
 	 */
 	
 	/**
-	 * Serviço para inserir um novo usuario
+	 * Serviço para autenticar um novo usuario
 	 * @param usuario
 	 * @return
 	 */
-	public Usuario cadastrarUsuario(Usuario usuario)
+	public Usuario autenticarUsuario(Usuario usuario)
 	{
 		// Setando o usuário como inátivo
 		usuario.setDisponivel(false);
@@ -56,7 +56,6 @@ public class UsuarioService {
 		// Gerando token de ativação da conta
 		usuario.generateAccountActivateToken();
 		
-		usuario = this.usuarioRepository.save(usuario);
 		try
 		{
 			this.accountMailRepository.sendNewUserAccount(usuario).get();

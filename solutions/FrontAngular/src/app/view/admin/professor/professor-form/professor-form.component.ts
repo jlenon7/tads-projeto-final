@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Professor } from 'src/app/model/professor';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AreaConhecimentoValues } from 'src/app/model/areaConhecimento';
 import { ProfessorService } from 'src/app/service/professor.service';
 import { MessagesService } from 'src/app/service/messages.service';
-import { ParserToDateService } from 'src/app/service/parser-to-date.service';
 import { DateAdapter } from '@angular/material/core';
 
 @Component({
@@ -29,16 +28,16 @@ export class ProfessorFormComponent implements OnInit {
   */
   private isOnUpdate: boolean = false;
 
+  /**
+  * Controla o Spinner
+  */
+ 
+  private showSpinner: boolean = false;
+
    /**
    * Lista de areas
    */
   private areaConhecimentoValues: string[] = AreaConhecimentoValues;
-
-
-  /**
-   * List de departamentos
-   
-  public departamentosList: Array<Departamento> = [];*/
 
   /**
    * Construtor da classe
@@ -52,7 +51,6 @@ export class ProfessorFormComponent implements OnInit {
     private router: Router,
     private professorService: ProfessorService,
     private messageService: MessagesService,
-    //private parserToDate: ParserToDateService,
     private _adapter: DateAdapter<any>) { }
 
   /**
@@ -63,6 +61,10 @@ export class ProfessorFormComponent implements OnInit {
     this.professor = new Professor(null, null, null, null, null, null, null, null, null, null);
     this.createForm();
     this.professor.id = this.activatedRoute.snapshot.params['id'];
+    if(this.professor.id){
+      this.isOnUpdate = true;
+    }
+    this.createForm();
     if (this.professor.id) {
       this.loadToEdit();
     }
@@ -81,8 +83,8 @@ export class ProfessorFormComponent implements OnInit {
         nome: [null, {validators: [Validators.required, Validators.maxLength(144)], updateOn: 'blur'}],
         nascimento: [null, { validators: [Validators.required], updateOn: 'blur' }],
         cpf: [null, {validators: [Validators.required, Validators.maxLength(144)], updateOn: 'blur'}],
-        email: [null, {validators: [Validators.required, Validators.maxLength(144)], updateOn: 'blur'}],
-        senha: [null, {validators: [Validators.required, Validators.maxLength(144)], updateOn: 'blur'}],
+        email: [null, {validators: [Validators.required, Validators.email] }],
+        senha: [null, {validators: (this.isOnUpdate ? null : [Validators.required, Validators.maxLength(144)]), updateOn: 'blur'}],
         celular: [null, {validators: [Validators.required, Validators.maxLength(144)], updateOn: 'blur'}],
         tipousuario: [1],
         areaconhecimento: [null, { validators: [Validators.required] }],
@@ -94,6 +96,17 @@ export class ProfessorFormComponent implements OnInit {
      */
     this._adapter.setLocale('pt');
 
+  }
+
+  /**
+   * Método para chamar o loader
+   */
+
+  loadData() {
+    this.showSpinner = true;
+    setTimeout(() => {
+      this.showSpinner = false;
+    }, 30000);
   }
   
 
@@ -177,27 +190,6 @@ export class ProfessorFormComponent implements OnInit {
     }else{
       this.router.navigate(['../../'], { relativeTo: this.activatedRoute });
     }
-
-  /**
-   * Display de departamento
-   
-  displayDepartamento(departamento?: Departamento): string | undefined {
-    return departamento ? departamento.descricao : undefined;
-  }
-
-  listarDepartamentos(filter: string) {
-    this.departamentoService.listar().subscribe(dados => {
-      this.departamentosList = dados;
-    },
-      (error: any) => {
-        this.messageService.toastError(error.error.message);
-      });
-  }
-
-
-  selectDepartamento(event: any) {
-    this.funcionarioForm.get("departamento").setValue(event.option.value);*/
-
   }
 
 }

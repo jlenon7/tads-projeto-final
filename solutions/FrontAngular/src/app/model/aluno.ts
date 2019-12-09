@@ -1,4 +1,3 @@
-// import { Curso } from './curso'
 import { TipoUsuario } from './tipoUsuario';
 
 export class Aluno {
@@ -12,7 +11,6 @@ export class Aluno {
        public celular: string,
        public disponivel: Boolean,
        public tipoUsuario: TipoUsuario
-       // public funcionarios: Curso[]
       ) {  }
     
 }

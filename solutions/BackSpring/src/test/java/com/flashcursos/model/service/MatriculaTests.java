@@ -74,7 +74,7 @@ public class MatriculaTests extends AbstractIntegrationTests {
       "/dataset/matricula_curso.sql"})
 	public void listarMatriculasMustPass() {
 		List<MatriculaCurso> matriculas = this.matriculaService.listarMatricula();
-		Assert.assertEquals(matriculas.size(), 1);
+		Assert.assertEquals(matriculas.size(), 2);
 	}	
 	/**
 	 * ======================================= CR(UPDATE)D ===========================================

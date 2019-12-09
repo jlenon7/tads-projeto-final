@@ -32,7 +32,7 @@ INSERT INTO usuario (
 		1002, 
 		now(), 
 		'adryell.silva10@gmail.com', 
-		1, 
+		2, 
 		false, 
 		'Adryell Nathann', 
 		'116.506.789-75', 

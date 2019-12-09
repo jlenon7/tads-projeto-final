@@ -1,6 +1,5 @@
 package com.flashcursos.model.service;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -33,7 +32,8 @@ public class AlunoService {
 	 */
 	public Aluno cadastrarAluno(Aluno aluno) {
 		aluno.setTipousuario(TipoUsuarioEnum.ALUNO);
-		this.usuarioService.cadastrarUsuario(aluno);
+		
+		this.usuarioService.autenticarUsuario(aluno);
 		return this.alunoRepository.save(aluno);
 	}
 	
@@ -43,6 +43,13 @@ public class AlunoService {
 	 * @return
 	 */
 	public Aluno atualizarAluno(Aluno aluno) {
+		aluno.setTipousuario(TipoUsuarioEnum.ALUNO);
+		aluno.setDisponivel(true);
+		if(aluno.getSenha() == null) {
+			Aluno alunoOld = this.alunoRepository.findById(aluno.getId()).orElse(null);
+			aluno.setSenha(alunoOld.getSenha());
+		}
+		
 		return this.alunoRepository.save(aluno);
 	}
 	
@@ -71,6 +78,7 @@ public class AlunoService {
 	 * @param id
 	 */
 	public void removerAluno(long id) {
+		
 		this.alunoRepository.deleteById(id);
 	}
 	

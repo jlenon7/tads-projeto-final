@@ -13,9 +13,9 @@ import { CursoSearchComponent } from './view/admin/curso/curso-search/curso-sear
 import { CursoFormComponent } from './view/admin/curso/curso-form/curso-form.component';
 import { CursoDetailComponent } from './view/admin/curso/curso-detail/curso-detail.component';
 
-import { ReforcoSearchComponent } from './view/admin/reforco/reforco-search/reforco-search.component';
-import { ReforcoFormComponent } from './view/admin/reforco/reforco-form/reforco-form.component';
-import { ReforcoDetailComponent } from './view/admin/reforco/reforco-detail/reforco-detail.component';
+import { MatriculaSearchComponent } from './view/admin/matricula/matricula-search/matricula-search.component';
+import { MatriculaFormComponent } from './view/admin/matricula/matricula-form/matricula-form.component';
+import { MatriculaDetailComponent } from './view/admin/matricula/matricula-detail/matricula-detail.component';
 
 
 const routes: Routes = [
@@ -71,24 +71,25 @@ const routes: Routes = [
     component: CursoDetailComponent,
     path: 'admin/curso/detalhes/:id'
   },
-
   
+
   {
-    component: ReforcoSearchComponent,
-    path: 'admin/reforco'
+    component: MatriculaSearchComponent,
+    path: 'admin/matricula'
   },
   {
-    component: ReforcoFormComponent,
-    path: 'admin/reforco/cadastrar'
+    component: MatriculaFormComponent,
+    path: 'admin/matricula/cadastrar'
   },
   {
-    component: ReforcoFormComponent,
-    path: 'admin/reforco/alterar/:id'
+    component: MatriculaFormComponent,
+    path: 'admin/matricula/alterar/:id'
   },
   {
-    component: ReforcoDetailComponent,
-    path: 'admin/reforco/detalhes/:id'
-  }
+    component: MatriculaDetailComponent,
+    path: 'admin/matricula/detalhes/:id'
+  },
+
 ];
 
 @NgModule({

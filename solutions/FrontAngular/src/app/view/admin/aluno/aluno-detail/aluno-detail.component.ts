@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Aluno } from 'src/app/model/aluno';
+import { Value } from 'src/app/model/value';
 import { AlunoService } from 'src/app/service/aluno.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MessagesService } from 'src/app/service/messages.service';
@@ -12,9 +13,14 @@ import { MessagesService } from 'src/app/service/messages.service';
 export class AlunoDetailComponent implements OnInit {
 
   /**
-   * Objeto funcionário
+   * Objeto aluno
    */
   public aluno: Aluno;
+
+  /**
+   * Objeto value
+   */
+  public value: Value;
 
   constructor(private alunoService: AlunoService,
     private activatedRoute: ActivatedRoute,
@@ -36,6 +42,18 @@ export class AlunoDetailComponent implements OnInit {
   loadDados(){
     this.alunoService.detalhar(this.aluno.id).subscribe(res => {
       this.aluno = new Aluno(res.id, res.nome, res.cpf, res.nascimento, res.email, res.senha, res.celular, res.disponivel, res.tipoUsuario);
+      if (this.aluno.disponivel === true){
+        var myBool: Boolean = this.aluno.disponivel;
+        var myString: string = String(myBool);
+        this.value = new Value(myString = "Ativo");
+        console.log(myString);
+
+      } else {
+        var myBool: Boolean = this.aluno.disponivel;
+        var myString: string = String(myBool);
+        this.value = new Value(myString = "Inativo");
+        console.log(myString);
+      }
     },
     (error: any) => {
       this.messageService.toastError(error.error.message);
@@ -48,9 +66,7 @@ export class AlunoDetailComponent implements OnInit {
    * Método para voltar a pagina de list de alunos
    */
   onBack() {
-
     this.router.navigate(['../../'], { relativeTo: this.activatedRoute });
-
   }
 
   /**

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Professor } from 'src/app/model/professor';
+import { Value } from 'src/app/model/value';
 import { ProfessorService } from 'src/app/service/professor.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MessagesService } from 'src/app/service/messages.service';
@@ -15,6 +16,11 @@ export class ProfessorDetailComponent implements OnInit {
    * Objeto funcionário
    */
   public professor: Professor;
+
+  /**
+   * Objeto value
+   */
+  public value: Value;
 
   constructor(private professorService: ProfessorService,
     private activatedRoute: ActivatedRoute,
@@ -36,6 +42,18 @@ export class ProfessorDetailComponent implements OnInit {
   loadDados(){
     this.professorService.detalhar(this.professor.id).subscribe(res => {
       this.professor = new Professor(res.id, res.nome, res.cpf, res.nascimento, res.email, res.senha, res.celular, res.disponivel, res.tipoUsuario, res.areaConhecimento);
+      if (this.professor.disponivel === true){
+        var myBool: Boolean = this.professor.disponivel;
+        var myString: string = String(myBool);
+        this.value = new Value(myString = "Ativo");
+        console.log(myString);
+
+      } else {
+        var myBool: Boolean = this.professor.disponivel;
+        var myString: string = String(myBool);
+        this.value = new Value(myString = "Inativo");
+        console.log(myString);
+      }
     },
     (error: any) => {
       this.messageService.toastError(error.error.message);

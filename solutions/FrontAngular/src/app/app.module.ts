@@ -2,13 +2,13 @@ import { BrowserModule} from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatListModule, MatCardModule, MatMenuModule, MatInputModule, MatButtonToggleModule, MatIconModule,
-  MatProgressSpinnerModule, MatSelectModule, MatSlideToggleModule, MatSnackBarModule, MatToolbarModule,
+  MatProgressSpinnerModule, MatProgressBarModule, MatSelectModule, MatSlideToggleModule, MatSnackBarModule, MatToolbarModule,
   MatTabsModule, MatSidenavModule, MatTooltipModule, MatRippleModule, MatRadioModule, MatGridListModule,
   MatDatepickerModule, MatNativeDateModule, MatSliderModule, MatAutocompleteModule } from '@angular/material';
 import {MatDialogModule} from '@angular/material/dialog';
 import { CovalentCommonModule, CovalentLayoutModule, CovalentMediaModule, CovalentExpansionPanelModule,
   CovalentStepsModule, CovalentLoadingModule, CovalentSearchModule, CovalentPagingModule,
-  CovalentNotificationsModule, CovalentMenuModule, CovalentDataTableModule, CovalentMessageModule } from '@covalent/core';
+  CovalentNotificationsModule, CovalentMenuModule, CovalentDataTableModule, CovalentMessageModule, TdLoadingComponent } from '@covalent/core';
 import { CovalentDialogsModule } from '@covalent/core/dialogs';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule} from "@angular/flex-layout";
@@ -16,7 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { MenuComponent } from './view/admin/menu/menu.component';
-import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 import { AppComponent } from './app.component';
 import { AlunoFormComponent } from './view/admin/aluno/aluno-form/aluno-form.component';
@@ -34,15 +34,16 @@ import { CursoSearchComponent } from './view/admin/curso/curso-search/curso-sear
 import { CursoDetailComponent } from './view/admin/curso/curso-detail/curso-detail.component';
 import { CursoFormComponent } from './view/admin/curso/curso-form/curso-form.component';
 
-import { ReforcoFormComponent } from './view/admin/reforco/reforco-form/reforco-form.component';
-import { ReforcoListComponent } from './view/admin/reforco/reforco-list/reforco-list.component';
-import { ReforcoDetailComponent } from './view/admin/reforco/reforco-detail/reforco-detail.component';
-import { ReforcoSearchComponent } from './view/admin/reforco/reforco-search/reforco-search.component';
+import { MatriculaFormComponent } from './view/admin/matricula/matricula-form/matricula-form.component';
+import { MatriculaListComponent } from './view/admin/matricula/matricula-list/matricula-list.component';
+import { MatriculaDetailComponent } from './view/admin/matricula/matricula-detail/matricula-detail.component';
+import { MatriculaSearchComponent } from './view/admin/matricula/matricula-search/matricula-search.component';
 
 import { AlunoService } from './service/aluno.service';
 import { CursoService } from './service/curso.service';
 import { ReforcoService } from './service/reforco.service';
 import { ProfessorService } from './service/professor.service';
+import { MatriculaService } from './service/matricula.service';
 import { MessagesService } from './service/messages.service';
 
 
@@ -65,11 +66,11 @@ import { MessagesService } from './service/messages.service';
     CursoSearchComponent,
     CursoDetailComponent,
     CursoFormComponent,
-    
-    ReforcoFormComponent,
-    ReforcoListComponent,
-    ReforcoDetailComponent,
-    ReforcoSearchComponent
+
+    MatriculaFormComponent,
+    MatriculaListComponent,
+    MatriculaDetailComponent,
+    MatriculaSearchComponent,
   ],
   imports: [
     BrowserModule,
@@ -106,6 +107,7 @@ import { MessagesService } from './service/messages.service';
     MatNativeDateModule,
     MatSliderModule,
     MatAutocompleteModule,
+    MatProgressBarModule,
     /** Covalent Modules */
     CovalentCommonModule,
     CovalentLayoutModule,
@@ -120,14 +122,14 @@ import { MessagesService } from './service/messages.service';
     CovalentMenuModule,
     CovalentDataTableModule,
     CovalentMessageModule,
-    NgxMaterialTimepickerModule,
-
+    NgxMaterialTimepickerModule
   ],
   providers: [
     AlunoService,
     CursoService,
     ReforcoService,
     ProfessorService,
+    MatriculaService,
     MessagesService
   ],
   bootstrap: [AppComponent]

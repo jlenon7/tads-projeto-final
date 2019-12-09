@@ -26,7 +26,7 @@ export class AlunoService {
   }
 
   remover(alunoId: number){
-    return this.http.get('http://localhost:4200/api/api/aluno/admin/remove?id='+alunoId);
+    return this.http.get('http://localhost:4200/api/api/admin/aluno/remove?id='+alunoId);
 
   }
 }

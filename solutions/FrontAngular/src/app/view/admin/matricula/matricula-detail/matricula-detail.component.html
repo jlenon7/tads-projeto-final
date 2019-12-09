@@ -1,6 +1,6 @@
 <div fxLayout="column">
         <div fxLayout="row" class="header-form">
-            <span fxFlex>Visualizar Reforço</span>
+            <span fxFlex>Visualizar Matricula</span>
             <div>
                 <button mat-raised-button class="form-button bgc-grey-500 tc-grey-50" (click)="onBack()">
                     Voltar
@@ -17,38 +17,32 @@
     
                     <div fxLayout="column">
                             <div fxLayout="column" fxFlex=50 class="field-detail">
-                                <span>ID:</span>
-                                <span class="label-detail-value">{{reforco.id}}</span>
+                                <span>ID: <span class="label-detail-value">{{matricula.id}}</span></span>
+                                
                             </div>
     
                             <div fxLayout="column" fxFlex=50 class="field-detail">
-                                <span>Area:</span>
-                                <span class="label-detail-value">{{reforco.area}}</span>
+                                <span>Aluno: <span class="label-detail-value">{{matricula.aluno.nome}}</span></span>
+                                
                             </div>
 
                             <div fxLayout="column" fxFlex=50 class="field-detail">
-                                <span>Vagas:</span>
-                                <span class="label-detail-value">{{reforco.vagas}}</span>
+                                <span>Curso: <span class="label-detail-value">{{matricula.curso.area}}</span></span>
+                                
                             </div>
     
                             <div fxLayout="column" fxFlex=50 class="field-detail">
-                                <span>Ministrante:</span>
-                                <span class="label-detail-value">{{reforco.ministrante.nome}}</span>
+                                <span>Data de Matricula: <span class="label-detail-value">{{matricula.dataMatricula | date: 'dd/MM/yyyy hh:mm'}}</span></span>
+                               
                             </div>
     
                             <div fxLayout="column" fxFlex=50 class="field-detail">
-                                <span>Hora de Ínicio:</span>
-                                <span class="label-detail-value">{{reforco.horaInicio}}</span>
+                                <span>Data de Vencimento: <span class="label-detail-value">{{matricula.dataVencimentoMatricula | date: 'dd/MM/yyyy hh:mm'}}</span></span>
+                                    
                             </div>
     
                             <div fxLayout="column" fxFlex=50 class="field-detail">
-                                    <span>Disciplina:</span>
-                                    <span class="label-detail-value">{{reforco.disciplina}}</span>
-                            </div>
-    
-                            <div fxLayout="column" fxFlex=50 class="field-detail">
-                                <span>Status:</span>
-                                <span class="label-detail-value">{{reforco.disponivel}}</span>
+                                <span>Status do Usuário: <span class="label-detail-value">{{value.myString}}</span></span>
                             </div>
                     </div>
     

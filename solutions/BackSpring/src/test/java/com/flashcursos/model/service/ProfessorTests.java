@@ -1,12 +1,17 @@
 package com.flashcursos.model.service;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
 
+import javax.validation.ValidationException;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.InvalidDataAccessApiUsageException;
 import org.springframework.test.context.jdbc.Sql;
 
 import com.flashcursos.model.entity.AreaConhecimentoEnum;
@@ -45,6 +50,37 @@ public class ProfessorTests extends AbstractIntegrationTests {
 		Assert.assertNotNull(professor);
 		Assert.assertNotNull(professor.getId());		
 	}
+	
+	@Test(expected = DataIntegrityViolationException.class)
+	@Sql({ "/dataset/truncate.sql", 
+		"/dataset/usuarios.sql", 
+		"/dataset/professor.sql" })
+	public void cadastrarProfessorMustFailCpfDuplicado() {
+		Professor professor = new Professor();
+		professor.setNome("Adryell");
+		professor.setEmail("adryell.silva10@gmail.com");
+		professor.setCpf("092.862.989-94");
+		professor.setNascimento(LocalDate.of(1995, Month.JANUARY, 1));
+		professor.setCelular("478597-2577");
+
+		this.professorService.cadastrarProfessor(professor);
+	}
+	
+	@Test(expected = ValidationException.class)
+	@Sql({ "/dataset/truncate.sql", 
+		"/dataset/usuarios.sql", 
+		"/dataset/professor.sql" })
+	public void cadastrarProfessorMustFailNomeEmBranco() {
+		Professor professor = new Professor();
+		professor.setNome("");
+		professor.setEmail("adryell.silva10@gmail.com");
+		professor.setCpf("345.862.989-94");
+		professor.setNascimento(LocalDate.of(1995, Month.JANUARY, 1));
+		professor.setCelular("478597-2577");
+
+		this.professorService.cadastrarProfessor(professor);
+	}
+	
 	/**
 	 * ====================================== C(READ)UD =============================================
 	 */
@@ -70,6 +106,34 @@ public class ProfessorTests extends AbstractIntegrationTests {
 		this.professorService.atualizarProfessor(professor);
 		Assert.assertTrue(professor.getNascimento().getYear() == 1990);
 	}	
+	
+
+	@Test(expected = DataIntegrityViolationException.class)
+	@Sql({ "/dataset/truncate.sql", 
+		"/dataset/usuarios.sql", 
+		"/dataset/professor.sql" })
+	public void atualizarProfessorMustFailCpfDuplicado() {
+		Professor professor = this.professorRepository.findById(1001L).orElse(null);
+
+		professor.setNascimento(LocalDate.of(1990, Month.JANUARY, 1));
+		professor.setCpf("092.862.989-94");
+
+		professorService.atualizarProfessor(professor);
+
+	}
+
+	@Test(expected = ValidationException.class)
+	@Sql({ "/dataset/truncate.sql", 
+		"/dataset/usuarios.sql", 
+		"/dataset/professor.sql" })
+	public void atualizarProfessorMustFailNomeEmBranco() {
+		Professor professor = new Professor();
+		professor.setNome("");
+		professor.setCpf("007.574.236-85");
+		professor.setNascimento(LocalDate.of(2000, Month.JANUARY, 1));
+
+		this.professorService.atualizarProfessor(professor);
+	}
 	/**
 	 * ====================================== CRU(DELETE) ===========================================
 	 */
@@ -82,6 +146,30 @@ public class ProfessorTests extends AbstractIntegrationTests {
 		Professor professor = this.professorRepository.findById(1001L).orElse(null);
 		Assert.assertNull(professor);
 	}
+	
+	/**
+	 * ================== DETALHAR ===============================
+	 */
+	@Test()
+	@Sql({ "/dataset/truncate.sql", 
+		"/dataset/usuarios.sql", 
+		"/dataset/professor.sql" })
+	public void detalharProfessorMustPass() {
+		Professor professor = this.professorService.detalharProfessor(1001L);
+
+		Assert.assertNotNull(professor);
+		Assert.assertNotNull(professor.getId());
+		Assert.assertEquals(professor.getCpf(), "092.862.989-94");
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	@Sql({ "/dataset/truncate.sql", 
+		"/dataset/usuarios.sql", 
+		"/dataset/professor.sql" })
+	public void detalharAlunoMustFailIdNaoExiste() {
+		Professor professor = this.professorService.detalharProfessor(1L);
+	}
+	
 	/**
 	 * ====================================== DESATIVAR ============================================
 	 */

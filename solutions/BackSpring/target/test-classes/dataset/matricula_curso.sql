@@ -6,11 +6,12 @@ INSERT INTO matricula_curso (
     aluno_id,
     curso_id
 )
-VALUES (    
+VALUES
+(    
     1001,
     '2019-11-23 11:17:05.502',
     '2020-11-23 11:17:05.502',
-    true,
-    1001,
+    false,
+    1002,
     1001
 );

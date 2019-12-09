@@ -1,20 +1,32 @@
 package com.flashcursos.model.repository;
 
-import java.time.LocalDate;
 import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.flashcursos.model.entity.Aluno;
+import com.flashcursos.model.entity.Usuario;
 
 public interface AlunoRepository extends JpaRepository<Aluno, Long> {
 	
+	/*
+	 * 
+	 */
+	Aluno findByEmailIgnoreCase(String email);
 	
+	/**
+	 *
+	 */
+	Optional<Aluno> findByPasswordResetToken( String token );
+	
+	/**
+	 *
+	 */
+	Optional<Usuario> findByAccountActivateToken( String token );
 	 
 	@Override
 	// @EntityGraph(attributePaths = "departamento")
