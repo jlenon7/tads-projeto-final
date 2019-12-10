@@ -45,14 +45,11 @@ public class AlunoService {
 	public Aluno atualizarAluno(Aluno aluno) {
 		aluno.setTipousuario(TipoUsuarioEnum.ALUNO);
 		aluno.setDisponivel(true);
-<<<<<<< HEAD
 		if(aluno.getSenha() == null) {
 			Aluno alunoOld = this.alunoRepository.findById(aluno.getId()).orElse(null);
 			aluno.setSenha(alunoOld.getSenha());
 		}
 		
-=======
->>>>>>> 93f4b2d4998741a5c56b47336865ea644251ba48
 		return this.alunoRepository.save(aluno);
 	}
 	

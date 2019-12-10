@@ -44,15 +44,12 @@ public class ProfessorService {
 	public Professor atualizarProfessor(Professor professor) {
 		professor.setTipousuario(TipoUsuarioEnum.PROFESSOR);
 		professor.setDisponivel(true);
-<<<<<<< HEAD
 		
 		if(professor.getSenha() == null) {
 			Professor professorOld = this.professorRepository.findById(professor.getId()).orElse(null);
 			professor.setSenha(professorOld.getSenha());
 		}
 		
-=======
->>>>>>> 93f4b2d4998741a5c56b47336865ea644251ba48
 		return this.professorRepository.save(professor);
 	}
 	

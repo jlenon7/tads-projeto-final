@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Matricula } from 'src/app/model/matricula';
-<<<<<<< HEAD
 import { Value} from 'src/app/model/value';
-=======
->>>>>>> 93f4b2d4998741a5c56b47336865ea644251ba48
 import { MatriculaService } from 'src/app/service/matricula.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MessagesService } from 'src/app/service/messages.service';
@@ -21,14 +18,11 @@ export class MatriculaDetailComponent implements OnInit {
    */
   public matricula: Matricula;
 
-<<<<<<< HEAD
   /**
    * Objeto value
    */
   public value: Value;
 
-=======
->>>>>>> 93f4b2d4998741a5c56b47336865ea644251ba48
   constructor(private matriculaService: MatriculaService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
@@ -49,7 +43,6 @@ export class MatriculaDetailComponent implements OnInit {
   loadDados(){
     this.matriculaService.detalhar(this.matricula.id).subscribe(res => {
       this.matricula = new Matricula(res.id, res.dataMatricula, res.dataVencimentoMatricula, res.curso, res.aluno, res.disponivel);
-<<<<<<< HEAD
       if (this.matricula.disponivel === true){
         var myBool: Boolean = this.matricula.disponivel;
         var myString: string = String(myBool);
@@ -62,8 +55,6 @@ export class MatriculaDetailComponent implements OnInit {
         this.value = new Value(myString = "Inativo");
         console.log(myString);
       }
-=======
->>>>>>> 93f4b2d4998741a5c56b47336865ea644251ba48
     },
     (error: any) => {
       this.messageService.toastError(error.error.message);

@@ -17,29 +17,8 @@ import { MatriculaSearchComponent } from './view/admin/matricula/matricula-searc
 import { MatriculaFormComponent } from './view/admin/matricula/matricula-form/matricula-form.component';
 import { MatriculaDetailComponent } from './view/admin/matricula/matricula-detail/matricula-detail.component';
 
-import { MatriculaSearchComponent } from './view/admin/matricula/matricula-search/matricula-search.component';
-import { MatriculaFormComponent } from './view/admin/matricula/matricula-form/matricula-form.component';
-import { MatriculaDetailComponent } from './view/admin/matricula/matricula-detail/matricula-detail.component';
-
 
 const routes: Routes = [
-  {
-    component: MatriculaSearchComponent,
-    path: 'admin/matricula'
-  },
-  {
-    component: MatriculaFormComponent,
-    path: 'admin/matricula/cadastrar'
-  },
-  {
-    component: MatriculaFormComponent,
-    path: 'admin/matricula/alterar/:id'
-  },
-  {
-    component: MatriculaDetailComponent,
-    path: 'admin/matricula/detalhes/:id'
-  },
-  
   {
     component: AlunoSearchComponent,
     path: 'admin/aluno'
@@ -107,13 +86,8 @@ const routes: Routes = [
     path: 'admin/matricula/alterar/:id'
   },
   {
-<<<<<<< HEAD
     component: MatriculaDetailComponent,
     path: 'admin/matricula/detalhes/:id'
-=======
-    component: ReforcoDetailComponent,
-    path: 'admin/reforco/detalhes/:id'
->>>>>>> 93f4b2d4998741a5c56b47336865ea644251ba48
   },
 
 ];

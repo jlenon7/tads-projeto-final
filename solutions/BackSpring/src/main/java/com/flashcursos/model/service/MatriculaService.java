@@ -11,9 +11,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
-import com.flashcursos.model.entity.Aluno;
 import com.flashcursos.model.entity.MatriculaCurso;
-import com.flashcursos.model.entity.TurmaReforcoAluno;
 import com.flashcursos.model.repository.MatriculaRepository;
 
 @Service

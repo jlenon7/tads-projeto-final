@@ -39,11 +39,6 @@ import { MatriculaListComponent } from './view/admin/matricula/matricula-list/ma
 import { MatriculaDetailComponent } from './view/admin/matricula/matricula-detail/matricula-detail.component';
 import { MatriculaSearchComponent } from './view/admin/matricula/matricula-search/matricula-search.component';
 
-import { MatriculaFormComponent } from './view/admin/matricula/matricula-form/matricula-form.component';
-import { MatriculaListComponent } from './view/admin/matricula/matricula-list/matricula-list.component';
-import { MatriculaDetailComponent } from './view/admin/matricula/matricula-detail/matricula-detail.component';
-import { MatriculaSearchComponent } from './view/admin/matricula/matricula-search/matricula-search.component';
-
 import { AlunoService } from './service/aluno.service';
 import { CursoService } from './service/curso.service';
 import { ReforcoService } from './service/reforco.service';
@@ -71,23 +66,11 @@ import { MessagesService } from './service/messages.service';
     CursoSearchComponent,
     CursoDetailComponent,
     CursoFormComponent,
-<<<<<<< HEAD
-=======
-    
-    ReforcoFormComponent,
-    ReforcoListComponent,
-    ReforcoDetailComponent,
-    ReforcoSearchComponent,
->>>>>>> 93f4b2d4998741a5c56b47336865ea644251ba48
 
     MatriculaFormComponent,
     MatriculaListComponent,
     MatriculaDetailComponent,
-<<<<<<< HEAD
     MatriculaSearchComponent,
-=======
-    MatriculaSearchComponent
->>>>>>> 93f4b2d4998741a5c56b47336865ea644251ba48
   ],
   imports: [
     BrowserModule,

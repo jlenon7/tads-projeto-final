@@ -86,11 +86,7 @@ public class AlunoTests extends AbstractIntegrationTests {
 		"/dataset/aluno.sql",})
 	public void listarAlunosMustPass() {
 		List<Aluno> aluno = this.alunoService.listarAlunos();
-<<<<<<< HEAD
 		Assert.assertEquals(aluno.size(), 2);
-=======
-		Assert.assertEquals(aluno.size(), 1);
->>>>>>> 93f4b2d4998741a5c56b47336865ea644251ba48
 	}
 	@Test
 	@Sql({ "/dataset/truncate.sql",
@@ -154,26 +150,15 @@ public class AlunoTests extends AbstractIntegrationTests {
 		Aluno aluno = this.alunoRepository.findById(1002L).orElse(null);
 		Assert.assertNull(aluno);
 	}
-<<<<<<< HEAD
 	
 	@Test(expected = IllegalArgumentException.class)
-=======
-	@Test
->>>>>>> 93f4b2d4998741a5c56b47336865ea644251ba48
 	@Sql({ "/dataset/truncate.sql",
 		 "/dataset/usuarios.sql",
 		"/dataset/aluno.sql",})
 	public void removerAlunoMustFailIdNaoExiste() {
-<<<<<<< HEAD
 		this.alunoService.removerAluno(1);
 	}
 	
-=======
-		this.alunoService.removerAluno(1001);
-		Aluno aluno = this.alunoRepository.findById(1001L).orElse(null);
-		Assert.assertNull(aluno);
-	}
->>>>>>> 93f4b2d4998741a5c56b47336865ea644251ba48
 	@Test
 	@Sql({ "/dataset/truncate.sql",
 		  "/dataset/usuarios.sql",
@@ -186,10 +171,7 @@ public class AlunoTests extends AbstractIntegrationTests {
 		Aluno aluno = this.alunoRepository.findById(1002L).orElse(null);
 		Assert.assertNull(aluno);
 	}
-<<<<<<< HEAD
 	
-=======
->>>>>>> 93f4b2d4998741a5c56b47336865ea644251ba48
 	@Test
 	@Sql({ "/dataset/truncate.sql",
 		  "/dataset/usuarios.sql",
