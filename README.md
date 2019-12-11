@@ -258,4 +258,6 @@ Este projeto está licenciado sob a MIT License - veja a [LICENSE.md](LICENSE.md
 
 ## Agradecimentos
 
-* Agradecimentos ao **Gabriel Ulisses** - [GabrielUlisses](https://github.com/GabrielUlisses) que foi essencial no desenvolvimento desse projeto.
+* Agradecimentos ao **Gabriel Ulisses** - [GabrielUlisses](https://github.com/GabrielUlisses)
+
+* Agradecimentos a **Marcieli Langer** - [marcylanger](https://github.com/marcylanger)
