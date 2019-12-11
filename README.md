@@ -35,6 +35,7 @@ Node JS
 Angular CLI
 ```
 
+
 ## Instalando Spring Boot
 
 Um passo a passo de como ter um ambiente de desenvolvimento env do back-end rodando.
@@ -152,6 +153,32 @@ Abra a pasta clonada do repositório pelo VS Code, caso não tenha clonado, use 
 
 ```
 git clone https://github.com/jlenon7/projeto-final.git
+```
+
+### Abra o projeto no VS Code
+
+![Captura de Tela 2019-12-11 às 09 48 45](https://user-images.githubusercontent.com/52840235/70622842-8f1cec00-1bfb-11ea-9f05-c627a9cf727b.png)
+---
+![Captura de Tela 2019-12-11 às 09 49 05](https://user-images.githubusercontent.com/52840235/70622893-a1972580-1bfb-11ea-8173-b646ce1743af.png)
+
+### Rode o seu projeto no Spring Boot como um Spring Boot APP
+
+![Captura de Tela 2019-12-11 às 09 55 57](https://user-images.githubusercontent.com/52840235/70623256-7b25ba00-1bfc-11ea-8d6c-678f4bf34add.png)
+
+### Seu Console no Spring deve estar assim;
+
+![Captura de Tela 2019-12-11 às 09 57 20](https://user-images.githubusercontent.com/52840235/70623343-af997600-1bfc-11ea-9452-83c7e190909a.png)
+
+### Com seu Spring Boot rodando, entre na pasta FrontAngular pelo terminal e utilize o comando;
+
+```
+ng serve --proxy-config proxy.config.js
+```
+
+### Entre nessa porta local e seu projeto já vai estar rodando;
+
+```
+localhost:4200
 ```
 
 ## Feito com
