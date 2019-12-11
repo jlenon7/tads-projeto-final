@@ -1,8 +1,6 @@
 package com.flashcursos.model.service;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.Month;
 import java.util.List;
 
 import javax.validation.ValidationException;
@@ -49,8 +47,8 @@ public class CursoTests extends AbstractIntegrationTests {
 		
 		this.cursoService.cadastrarCurso(curso);
 		Assert.assertNotNull(curso.getId());
-		
 	}
+	
 	
 	@Test(expected = ValidationException.class)
 	@Sql({ "/dataset/truncate.sql", 

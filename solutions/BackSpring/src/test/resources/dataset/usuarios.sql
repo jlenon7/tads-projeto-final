@@ -28,18 +28,4 @@ INSERT INTO usuario (
 		'f786c907-032e-451b-ac93-8508dec75a3d', 
 		'2019-12-02', 
 		'f786c907-032e-451b-ac93-8508dec75a3d', 
-		'2019-12-02'), (
-		1002, 
-		now(), 
-		'adryell.silva10@gmail.com', 
-		2, 
-		false, 
-		'Adryell Nathann', 
-		'116.506.789-75', 
-		'10/27/2000', 
-		'(45) 99996-4523', 
-		'$2a$10$bAdAVLvM.k3DqPaPYi0gnO1OffPSHLref8MElAk.u.fFQ17v9YKC2', 
-		'f786c907-032e-451b-ac93-8508dec75a3d', 
-		'2019-12-02', 
-		'f786c907-032e-451b-ac93-8508dec75a3d', 
 		'2019-12-02');

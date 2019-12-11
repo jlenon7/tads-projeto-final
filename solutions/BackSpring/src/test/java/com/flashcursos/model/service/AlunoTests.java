@@ -1,6 +1,5 @@
 package com.flashcursos.model.service;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
@@ -58,6 +57,36 @@ public class AlunoTests extends AbstractIntegrationTests {
 		aluno.setCpf("092.862.989-94");
 		aluno.setNascimento(LocalDate.of(1995, Month.JANUARY, 1));
 		aluno.setCelular("478597-2577");
+
+		this.alunoService.cadastrarAluno(aluno);
+	}
+	
+	@Test(expected = DataIntegrityViolationException.class)
+	@Sql({ "/dataset/truncate.sql", 
+		"/dataset/usuarios.sql", 
+		"/dataset/aluno.sql" })
+	public void cadastrarAlunoMustFailEmailDuplicado() {
+		Aluno aluno = new Aluno();
+		aluno.setNome("Adryell");
+		aluno.setEmail("jlenon7@hotmail.com");
+		aluno.setCpf("587.220.269-99");
+		aluno.setNascimento(LocalDate.of(1995, Month.JANUARY, 1));
+		aluno.setCelular("1254-9852");
+
+		this.alunoService.cadastrarAluno(aluno);
+	}
+	
+	@Test(expected = DataIntegrityViolationException.class)
+	@Sql({ "/dataset/truncate.sql", 
+		"/dataset/usuarios.sql", 
+		"/dataset/aluno.sql" })
+	public void cadastrarAlunoMustFailTelefoneDuplicado() {
+		Aluno aluno = new Aluno();
+		aluno.setNome("Adryell");
+		aluno.setEmail("adryell.silva10@gmail.com");
+		aluno.setCpf("587.220.269-99");
+		aluno.setNascimento(LocalDate.of(1995, Month.JANUARY, 1));
+		aluno.setCelular("(45) 99955-3220");
 
 		this.alunoService.cadastrarAluno(aluno);
 	}
@@ -205,7 +234,7 @@ public class AlunoTests extends AbstractIntegrationTests {
 		"/dataset/usuarios.sql", 
 		"/dataset/aluno.sql" })
 	public void detalharAlunoMustFailIdNaoExiste() {
-		Aluno aluno = this.alunoService.detalharAluno(1L);
+		this.alunoService.detalharAluno(1L);
 	}
 	
 	/**

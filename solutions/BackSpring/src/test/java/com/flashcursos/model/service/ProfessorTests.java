@@ -1,6 +1,5 @@
 package com.flashcursos.model.service;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
@@ -11,7 +10,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.dao.InvalidDataAccessApiUsageException;
 import org.springframework.test.context.jdbc.Sql;
 
 import com.flashcursos.model.entity.AreaConhecimentoEnum;
@@ -63,6 +61,38 @@ public class ProfessorTests extends AbstractIntegrationTests {
 		professor.setNascimento(LocalDate.of(1995, Month.JANUARY, 1));
 		professor.setCelular("478597-2577");
 
+		this.professorService.cadastrarProfessor(professor);
+	}
+	
+	@Test(expected = DataIntegrityViolationException.class)
+	@Sql({ "/dataset/truncate.sql", 
+		"/dataset/usuarios.sql", 
+		"/dataset/professor.sql" })
+	public void cadastrarProfessorMustFailEmailDuplicado() {
+		Professor professor = new Professor();
+		
+		professor.setNome("Adryell");
+		professor.setEmail("jlenon7@hotmail.com");
+		professor.setCpf("123.456.789-10");
+		professor.setNascimento(LocalDate.of(1995, Month.JANUARY, 1));
+		professor.setCelular("478597-2577");
+		
+		this.professorService.cadastrarProfessor(professor);
+	}
+	
+	@Test(expected = DataIntegrityViolationException.class)
+	@Sql({ "/dataset/truncate.sql", 
+		"/dataset/usuarios.sql", 
+		"/dataset/professor.sql" })
+	public void cadastrarProfessorMustFailTelefoneDuplicado() {
+		Professor professor = new Professor();
+		
+		professor.setNome("Adryell");
+		professor.setEmail("adryell.silva10@gmail.com");
+		professor.setCpf("123.456.789-10");
+		professor.setNascimento(LocalDate.of(1995, Month.JANUARY, 1));
+		professor.setCelular("(45) 99955-3220");
+		
 		this.professorService.cadastrarProfessor(professor);
 	}
 	
@@ -167,7 +197,7 @@ public class ProfessorTests extends AbstractIntegrationTests {
 		"/dataset/usuarios.sql", 
 		"/dataset/professor.sql" })
 	public void detalharAlunoMustFailIdNaoExiste() {
-		Professor professor = this.professorService.detalharProfessor(1L);
+		this.professorService.detalharProfessor(1L);
 	}
 	
 	/**
