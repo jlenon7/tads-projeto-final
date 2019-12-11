@@ -25,11 +25,19 @@ PostgreSQL
 ```
 PgAdmin 3+
 ```
+```
+Visual Studio Code
+```
+```
+Node JS
+```
+```
+Angular CLI
+```
 
+## Instalando Spring Boot
 
-## Instalando
-
-Um passo a passo de como ter um ambiente de desenvolvimento env rodando.
+Um passo a passo de como ter um ambiente de desenvolvimento env do back-end rodando.
 
 
 Primeiro instale o JDK 7 ou superior, lembre-se de criar uma conta na Oracle.
@@ -54,11 +62,11 @@ Clone o repositório para a pasta Workspace do STS
 git clone https://github.com/jlenon7/projeto-final.git
 ```
 
+
 ### Importe o projeto como Maven
 
 ![Captura de Tela 2019-11-23 às 12 50 51](https://user-images.githubusercontent.com/52840235/69481480-80a79580-0df0-11ea-8973-0ebe017ced52.png)
-
-
+---
 ![Captura de Tela 2019-11-23 às 12 51 23](https://user-images.githubusercontent.com/52840235/69481492-93ba6580-0df0-11ea-8bf7-41ec9d32775f.png)
 
 ### E faça um Maven Update
@@ -66,6 +74,12 @@ git clone https://github.com/jlenon7/projeto-final.git
 ![Captura de Tela 2019-11-23 às 12 59 33](https://user-images.githubusercontent.com/52840235/69481559-22c77d80-0df1-11ea-9a5c-2cd9ddcb0b03.png)
 
 ## Rodando os testes
+
+### Entre no PgAdmin e crie a base de dados com o nome *flashcursos*
+
+![Captura de Tela 2019-12-11 às 09 23 29](https://user-images.githubusercontent.com/52840235/70621381-2f711180-1bf8-11ea-96a4-0dc52355d95c.png)
+---
+![Captura de Tela 2019-12-11 às 09 23 57](https://user-images.githubusercontent.com/52840235/70621435-57607500-1bf8-11ea-9886-5a2e0378f97a.png)
 
 ### Para rodar os testes entre na pasta src/test/java
 
@@ -106,10 +120,45 @@ public void cadastrarProfessorMustPass() {
 }
 ```
 
+
+## Instalando o Angular CLI
+
+Um passo a passo de como ter um ambiente de desenvolvimento env do front-end rodando.
+
+Baixe o Visual Studio Code para poder editar o nosso Front End
+
+* [VS Code](https://code.visualstudio.com/download)
+
+Instale o Node JS pelo terminal utilizando o comando;
+
+```
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
+```
+```
+nvm install node
+```
+
+Ou pelo site do Node JS;
+
+* [Node JS](https://nodejs.org/en/download/)
+
+Instale o Angular CLI pelo terminal utilizando o comando;
+
+```
+npm install -g @angular/cli
+```
+
+Abra a pasta clonada do repositório pelo VS Code, caso não tenha clonado, use o comando abaixo;
+
+```
+git clone https://github.com/jlenon7/projeto-final.git
+```
+
 ## Feito com
 
 * [Spring Boot](https://spring.io/projects/spring-boot) - Back-end framework usado
-* [Maven](https://maven.apache.org/) - Gerenciador de dependencias
+* [Maven](https://maven.apache.org/) - Gerenciador de dependencias do back
+* [Node JS](https://nodejs.org/) - Gerenciador de dependencias do front
 * [Angular](https://spring.io/projects/spring-boot) - Front-end framework usado
 
 
