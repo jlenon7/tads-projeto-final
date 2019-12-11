@@ -65,9 +65,9 @@ git clone https://github.com/jlenon7/projeto-final.git
 
 
 ### Importe o projeto como Maven
-<p align="center">
+<div align="center">
 ![Captura de Tela 2019-11-23 às 12 50 51](https://user-images.githubusercontent.com/52840235/69481480-80a79580-0df0-11ea-8973-0ebe017ced52.png)
-</p>
+</div>
 ---
 <p align="center">
 ![Captura de Tela 2019-11-23 às 12 51 23](https://user-images.githubusercontent.com/52840235/69481492-93ba6580-0df0-11ea-8bf7-41ec9d32775f.png)
