@@ -1,3 +1,6 @@
+<p align="center">
+<img src="http://flashcursos.com/img/Logotipo%20-%20Flash%20Cursos%20-%20Branco.png">
+</p>
 # Flash Cursos
 
 Projeto final de Web IV - www.flashcursos.com
