@@ -1,6 +1,7 @@
 <p align="center">
 	<img width="400px" height="180px" src="https://scontent.fagt1-1.fna.fbcdn.net/v/t1.0-9/79474203_158579002163689_6017096216435752960_o.png?_nc_cat=111&_nc_ohc=adrJqjyUnuYAQnNaWhpyq6SFhnh5uqbkLHsdybZwanXJGiDYXsXhpJkIQ&_nc_ht=scontent.fagt1-1.fna&oh=d9d37c31739157fad6b0a7e8438cd90b&oe=5E865B08">
 </p>
+
 # Flash Cursos
 
 Projeto final de Web IV - www.flashcursos.com
@@ -69,7 +70,9 @@ git clone https://github.com/jlenon7/projeto-final.git
 
 ### Importe o projeto como Maven
 <div align="center">
+	
 ![Captura de Tela 2019-11-23 às 12 50 51](https://user-images.githubusercontent.com/52840235/69481480-80a79580-0df0-11ea-8973-0ebe017ced52.png)
+
 </div>
 ---
 <p align="center">
