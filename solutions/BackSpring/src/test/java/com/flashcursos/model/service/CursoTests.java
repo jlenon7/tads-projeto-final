@@ -1,7 +1,11 @@
 package com.flashcursos.model.service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Month;
 import java.util.List;
+
+import javax.validation.ValidationException;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -48,6 +52,23 @@ public class CursoTests extends AbstractIntegrationTests {
 		
 	}
 	
+	@Test(expected = ValidationException.class)
+	@Sql({ "/dataset/truncate.sql", 
+		"/dataset/usuarios.sql", 
+		"/dataset/professor.sql",
+		"/dataset/cursos.sql "})
+	public void cadastrarCursoMustFailAreaEmBranco() {
+		Curso curso = new Curso();
+		
+		curso.setArea("");
+		curso.setCargaHoraria(100);
+		curso.setDificuldade(DificuldadeEnum.INTERMEDIARIO);
+		Professor ministrante = this.professorRepository.findById(1001L).orElse(null);
+		curso.setMinistrante(ministrante);
+
+		this.cursoService.cadastrarCurso(curso);
+	}
+	
 	/**
 	 * ====================================== C(READ)UD =============================================
 	 */
@@ -83,6 +104,24 @@ public class CursoTests extends AbstractIntegrationTests {
 		this.cursoService.atualizarCurso(curso);
 	}
 	
+	@Test(expected = ValidationException.class)
+	@Sql({ "/dataset/truncate.sql", 
+		"/dataset/usuarios.sql", 
+		"/dataset/professor.sql",
+		"/dataset/cursos.sql "})
+	public void atualizarCursoMustFailNomeEmBranco() {
+		Curso curso = new Curso();
+		
+		curso.setArea("");
+		curso.setCargaHoraria(100);
+		curso.setDificuldade(DificuldadeEnum.INTERMEDIARIO);
+		Professor ministrante = this.professorRepository.findById(1001L).orElse(null);
+		curso.setMinistrante(ministrante);
+
+		this.cursoService.atualizarCurso(curso);
+	}
+
+	
 	/**
 	 * ====================================== CRU(DELETE) ===========================================
 	 */
@@ -111,5 +150,4 @@ public class CursoTests extends AbstractIntegrationTests {
 		this.cursoService.desativarCurso(curso);
 		Assert.assertNotNull(curso.getId());
 	}
-
 }

@@ -20,7 +20,7 @@ INSERT INTO usuario (
 		'jlenon7@hotmail.com', 
 		1, 
 		false, 
-		'Jo√£o Lenon', 
+		'Jo„o Lenon', 
 		'092.862.989-94', 
 		'12/09/2000', 
 		'(45) 99955-3220', 

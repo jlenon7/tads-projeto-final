@@ -1,0 +1,9 @@
+com\flashcursos\model\service\ProfessorTests.class
+com\flashcursos\model\service\TurmaTests.class
+com\flashcursos\model\service\ReforcoTests.class
+com\flashcursos\model\service\AbstractIntegrationTests.class
+com\flashcursos\model\service\MatriculaTests.class
+com\flashcursos\SpringWebivApplicationTests.class
+com\flashcursos\model\service\CursoTests.class
+com\flashcursos\model\service\AlunoTests.class
+com\flashcursos\TestApplication.class

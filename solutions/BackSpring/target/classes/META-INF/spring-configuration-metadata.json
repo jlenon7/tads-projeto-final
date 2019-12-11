@@ -23,7 +23,8 @@
       "name": "app.password-token-expiration-hours",
       "type": "java.lang.Integer",
       "description": "Tempo de expiração do token de redefinição de senha.",
-      "sourceType": "com.flashcursos.application.configuration.settings.AppSettings"
+      "sourceType": "com.flashcursos.application.configuration.settings.AppSettings",
+      "defaultValue": 0
     }
   ],
   "hints": []

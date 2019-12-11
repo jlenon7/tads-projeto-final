@@ -1,0 +1,154 @@
+-------------------------------------------------------------------------------
+Test set: com.flashcursos.model.service.AlunoTests
+-------------------------------------------------------------------------------
+Tests run: 15, Failures: 0, Errors: 15, Skipped: 0, Time elapsed: 38.311 s <<< FAILURE! - in com.flashcursos.model.service.AlunoTests
+desativarAlunoMustPass(com.flashcursos.model.service.AlunoTests)  Time elapsed: 1.123 s  <<< ERROR!
+org.springframework.jdbc.datasource.init.ScriptStatementFailedException: 
+Failed to execute SQL script statement #1 of class path resource [dataset/usuarios.sql]: INSERT INTO usuario ( id, created, email, tipousuario, disponivel, nome, cpf, nascimento, celular, senha, account_activate_token, account_activate_token_expiration, password_reset_token, password_reset_token_expiration) VALUES ( 1001, now(), 'jlenon7@hotmail.com', 1, false, 'João Lenon', '092.862.989-94', '12/09/2000', '(45) 99955-3220', '$2a$10$bAdAVLvM.k3DqPaPYi0gnO1OffPSHLref8MElAk.u.fFQ17v9YKC2', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02'), ( 1002, now(), 'adryell.silva10@gmail.com', 2, false, 'Adryell Nathann', '116.506.789-75', '10/27/2000', '(45) 99996-4523', '$2a$10$bAdAVLvM.k3DqPaPYi0gnO1OffPSHLref8MElAk.u.fFQ17v9YKC2', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02'); nested exception is org.postgresql.util.PSQLException: ERROR: date/time field value out of range: "10/27/2000"
+  Dica: Perhaps you need a different "datestyle" setting.
+  Posição: 605
+Caused by: org.postgresql.util.PSQLException: 
+ERROR: date/time field value out of range: "10/27/2000"
+  Dica: Perhaps you need a different "datestyle" setting.
+  Posição: 605
+
+detalharAlunoMustPass(com.flashcursos.model.service.AlunoTests)  Time elapsed: 0.687 s  <<< ERROR!
+org.springframework.jdbc.datasource.init.ScriptStatementFailedException: 
+Failed to execute SQL script statement #1 of class path resource [dataset/usuarios.sql]: INSERT INTO usuario ( id, created, email, tipousuario, disponivel, nome, cpf, nascimento, celular, senha, account_activate_token, account_activate_token_expiration, password_reset_token, password_reset_token_expiration) VALUES ( 1001, now(), 'jlenon7@hotmail.com', 1, false, 'João Lenon', '092.862.989-94', '12/09/2000', '(45) 99955-3220', '$2a$10$bAdAVLvM.k3DqPaPYi0gnO1OffPSHLref8MElAk.u.fFQ17v9YKC2', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02'), ( 1002, now(), 'adryell.silva10@gmail.com', 2, false, 'Adryell Nathann', '116.506.789-75', '10/27/2000', '(45) 99996-4523', '$2a$10$bAdAVLvM.k3DqPaPYi0gnO1OffPSHLref8MElAk.u.fFQ17v9YKC2', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02'); nested exception is org.postgresql.util.PSQLException: ERROR: date/time field value out of range: "10/27/2000"
+  Dica: Perhaps you need a different "datestyle" setting.
+  Posição: 605
+Caused by: org.postgresql.util.PSQLException: 
+ERROR: date/time field value out of range: "10/27/2000"
+  Dica: Perhaps you need a different "datestyle" setting.
+  Posição: 605
+
+listarAlunosMustPass(com.flashcursos.model.service.AlunoTests)  Time elapsed: 0.482 s  <<< ERROR!
+org.springframework.jdbc.datasource.init.ScriptStatementFailedException: 
+Failed to execute SQL script statement #1 of class path resource [dataset/usuarios.sql]: INSERT INTO usuario ( id, created, email, tipousuario, disponivel, nome, cpf, nascimento, celular, senha, account_activate_token, account_activate_token_expiration, password_reset_token, password_reset_token_expiration) VALUES ( 1001, now(), 'jlenon7@hotmail.com', 1, false, 'João Lenon', '092.862.989-94', '12/09/2000', '(45) 99955-3220', '$2a$10$bAdAVLvM.k3DqPaPYi0gnO1OffPSHLref8MElAk.u.fFQ17v9YKC2', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02'), ( 1002, now(), 'adryell.silva10@gmail.com', 2, false, 'Adryell Nathann', '116.506.789-75', '10/27/2000', '(45) 99996-4523', '$2a$10$bAdAVLvM.k3DqPaPYi0gnO1OffPSHLref8MElAk.u.fFQ17v9YKC2', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02'); nested exception is org.postgresql.util.PSQLException: ERROR: date/time field value out of range: "10/27/2000"
+  Dica: Perhaps you need a different "datestyle" setting.
+  Posição: 605
+Caused by: org.postgresql.util.PSQLException: 
+ERROR: date/time field value out of range: "10/27/2000"
+  Dica: Perhaps you need a different "datestyle" setting.
+  Posição: 605
+
+atualizarAlunoMustFailCpfDuplicado(com.flashcursos.model.service.AlunoTests)  Time elapsed: 0.417 s  <<< ERROR!
+org.springframework.jdbc.datasource.init.ScriptStatementFailedException: 
+Failed to execute SQL script statement #1 of class path resource [dataset/usuarios.sql]: INSERT INTO usuario ( id, created, email, tipousuario, disponivel, nome, cpf, nascimento, celular, senha, account_activate_token, account_activate_token_expiration, password_reset_token, password_reset_token_expiration) VALUES ( 1001, now(), 'jlenon7@hotmail.com', 1, false, 'João Lenon', '092.862.989-94', '12/09/2000', '(45) 99955-3220', '$2a$10$bAdAVLvM.k3DqPaPYi0gnO1OffPSHLref8MElAk.u.fFQ17v9YKC2', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02'), ( 1002, now(), 'adryell.silva10@gmail.com', 2, false, 'Adryell Nathann', '116.506.789-75', '10/27/2000', '(45) 99996-4523', '$2a$10$bAdAVLvM.k3DqPaPYi0gnO1OffPSHLref8MElAk.u.fFQ17v9YKC2', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02'); nested exception is org.postgresql.util.PSQLException: ERROR: date/time field value out of range: "10/27/2000"
+  Dica: Perhaps you need a different "datestyle" setting.
+  Posição: 605
+Caused by: org.postgresql.util.PSQLException: 
+ERROR: date/time field value out of range: "10/27/2000"
+  Dica: Perhaps you need a different "datestyle" setting.
+  Posição: 605
+
+detalharAlunoMustFailIdNaoExiste(com.flashcursos.model.service.AlunoTests)  Time elapsed: 0.592 s  <<< ERROR!
+org.springframework.jdbc.datasource.init.ScriptStatementFailedException: 
+Failed to execute SQL script statement #1 of class path resource [dataset/usuarios.sql]: INSERT INTO usuario ( id, created, email, tipousuario, disponivel, nome, cpf, nascimento, celular, senha, account_activate_token, account_activate_token_expiration, password_reset_token, password_reset_token_expiration) VALUES ( 1001, now(), 'jlenon7@hotmail.com', 1, false, 'João Lenon', '092.862.989-94', '12/09/2000', '(45) 99955-3220', '$2a$10$bAdAVLvM.k3DqPaPYi0gnO1OffPSHLref8MElAk.u.fFQ17v9YKC2', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02'), ( 1002, now(), 'adryell.silva10@gmail.com', 2, false, 'Adryell Nathann', '116.506.789-75', '10/27/2000', '(45) 99996-4523', '$2a$10$bAdAVLvM.k3DqPaPYi0gnO1OffPSHLref8MElAk.u.fFQ17v9YKC2', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02'); nested exception is org.postgresql.util.PSQLException: ERROR: date/time field value out of range: "10/27/2000"
+  Dica: Perhaps you need a different "datestyle" setting.
+  Posição: 605
+Caused by: org.postgresql.util.PSQLException: 
+ERROR: date/time field value out of range: "10/27/2000"
+  Dica: Perhaps you need a different "datestyle" setting.
+  Posição: 605
+
+removerAlunoMatriculadoMustFailIdNaoExiste(com.flashcursos.model.service.AlunoTests)  Time elapsed: 0.607 s  <<< ERROR!
+org.springframework.jdbc.datasource.init.ScriptStatementFailedException: 
+Failed to execute SQL script statement #1 of class path resource [dataset/usuarios.sql]: INSERT INTO usuario ( id, created, email, tipousuario, disponivel, nome, cpf, nascimento, celular, senha, account_activate_token, account_activate_token_expiration, password_reset_token, password_reset_token_expiration) VALUES ( 1001, now(), 'jlenon7@hotmail.com', 1, false, 'João Lenon', '092.862.989-94', '12/09/2000', '(45) 99955-3220', '$2a$10$bAdAVLvM.k3DqPaPYi0gnO1OffPSHLref8MElAk.u.fFQ17v9YKC2', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02'), ( 1002, now(), 'adryell.silva10@gmail.com', 2, false, 'Adryell Nathann', '116.506.789-75', '10/27/2000', '(45) 99996-4523', '$2a$10$bAdAVLvM.k3DqPaPYi0gnO1OffPSHLref8MElAk.u.fFQ17v9YKC2', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02'); nested exception is org.postgresql.util.PSQLException: ERROR: date/time field value out of range: "10/27/2000"
+  Dica: Perhaps you need a different "datestyle" setting.
+  Posição: 605
+Caused by: org.postgresql.util.PSQLException: 
+ERROR: date/time field value out of range: "10/27/2000"
+  Dica: Perhaps you need a different "datestyle" setting.
+  Posição: 605
+
+atualizarAlunoMustFailNomeEmBranco(com.flashcursos.model.service.AlunoTests)  Time elapsed: 0.352 s  <<< ERROR!
+org.springframework.jdbc.datasource.init.ScriptStatementFailedException: 
+Failed to execute SQL script statement #1 of class path resource [dataset/usuarios.sql]: INSERT INTO usuario ( id, created, email, tipousuario, disponivel, nome, cpf, nascimento, celular, senha, account_activate_token, account_activate_token_expiration, password_reset_token, password_reset_token_expiration) VALUES ( 1001, now(), 'jlenon7@hotmail.com', 1, false, 'João Lenon', '092.862.989-94', '12/09/2000', '(45) 99955-3220', '$2a$10$bAdAVLvM.k3DqPaPYi0gnO1OffPSHLref8MElAk.u.fFQ17v9YKC2', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02'), ( 1002, now(), 'adryell.silva10@gmail.com', 2, false, 'Adryell Nathann', '116.506.789-75', '10/27/2000', '(45) 99996-4523', '$2a$10$bAdAVLvM.k3DqPaPYi0gnO1OffPSHLref8MElAk.u.fFQ17v9YKC2', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02'); nested exception is org.postgresql.util.PSQLException: ERROR: date/time field value out of range: "10/27/2000"
+  Dica: Perhaps you need a different "datestyle" setting.
+  Posição: 605
+Caused by: org.postgresql.util.PSQLException: 
+ERROR: date/time field value out of range: "10/27/2000"
+  Dica: Perhaps you need a different "datestyle" setting.
+  Posição: 605
+
+listarAlunosMustFailSize2(com.flashcursos.model.service.AlunoTests)  Time elapsed: 0.425 s  <<< ERROR!
+org.springframework.jdbc.datasource.init.ScriptStatementFailedException: 
+Failed to execute SQL script statement #1 of class path resource [dataset/usuarios.sql]: INSERT INTO usuario ( id, created, email, tipousuario, disponivel, nome, cpf, nascimento, celular, senha, account_activate_token, account_activate_token_expiration, password_reset_token, password_reset_token_expiration) VALUES ( 1001, now(), 'jlenon7@hotmail.com', 1, false, 'João Lenon', '092.862.989-94', '12/09/2000', '(45) 99955-3220', '$2a$10$bAdAVLvM.k3DqPaPYi0gnO1OffPSHLref8MElAk.u.fFQ17v9YKC2', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02'), ( 1002, now(), 'adryell.silva10@gmail.com', 2, false, 'Adryell Nathann', '116.506.789-75', '10/27/2000', '(45) 99996-4523', '$2a$10$bAdAVLvM.k3DqPaPYi0gnO1OffPSHLref8MElAk.u.fFQ17v9YKC2', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02'); nested exception is org.postgresql.util.PSQLException: ERROR: date/time field value out of range: "10/27/2000"
+  Dica: Perhaps you need a different "datestyle" setting.
+  Posição: 605
+Caused by: org.postgresql.util.PSQLException: 
+ERROR: date/time field value out of range: "10/27/2000"
+  Dica: Perhaps you need a different "datestyle" setting.
+  Posição: 605
+
+atualizarAlunoMustPass(com.flashcursos.model.service.AlunoTests)  Time elapsed: 0.679 s  <<< ERROR!
+org.springframework.jdbc.datasource.init.ScriptStatementFailedException: 
+Failed to execute SQL script statement #1 of class path resource [dataset/usuarios.sql]: INSERT INTO usuario ( id, created, email, tipousuario, disponivel, nome, cpf, nascimento, celular, senha, account_activate_token, account_activate_token_expiration, password_reset_token, password_reset_token_expiration) VALUES ( 1001, now(), 'jlenon7@hotmail.com', 1, false, 'João Lenon', '092.862.989-94', '12/09/2000', '(45) 99955-3220', '$2a$10$bAdAVLvM.k3DqPaPYi0gnO1OffPSHLref8MElAk.u.fFQ17v9YKC2', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02'), ( 1002, now(), 'adryell.silva10@gmail.com', 2, false, 'Adryell Nathann', '116.506.789-75', '10/27/2000', '(45) 99996-4523', '$2a$10$bAdAVLvM.k3DqPaPYi0gnO1OffPSHLref8MElAk.u.fFQ17v9YKC2', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02'); nested exception is org.postgresql.util.PSQLException: ERROR: date/time field value out of range: "10/27/2000"
+  Dica: Perhaps you need a different "datestyle" setting.
+  Posição: 605
+Caused by: org.postgresql.util.PSQLException: 
+ERROR: date/time field value out of range: "10/27/2000"
+  Dica: Perhaps you need a different "datestyle" setting.
+  Posição: 605
+
+cadastrarAlunoMustFailCpfDuplicado(com.flashcursos.model.service.AlunoTests)  Time elapsed: 0.333 s  <<< ERROR!
+org.springframework.jdbc.datasource.init.ScriptStatementFailedException: 
+Failed to execute SQL script statement #1 of class path resource [dataset/usuarios.sql]: INSERT INTO usuario ( id, created, email, tipousuario, disponivel, nome, cpf, nascimento, celular, senha, account_activate_token, account_activate_token_expiration, password_reset_token, password_reset_token_expiration) VALUES ( 1001, now(), 'jlenon7@hotmail.com', 1, false, 'João Lenon', '092.862.989-94', '12/09/2000', '(45) 99955-3220', '$2a$10$bAdAVLvM.k3DqPaPYi0gnO1OffPSHLref8MElAk.u.fFQ17v9YKC2', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02'), ( 1002, now(), 'adryell.silva10@gmail.com', 2, false, 'Adryell Nathann', '116.506.789-75', '10/27/2000', '(45) 99996-4523', '$2a$10$bAdAVLvM.k3DqPaPYi0gnO1OffPSHLref8MElAk.u.fFQ17v9YKC2', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02'); nested exception is org.postgresql.util.PSQLException: ERROR: date/time field value out of range: "10/27/2000"
+  Dica: Perhaps you need a different "datestyle" setting.
+  Posição: 605
+Caused by: org.postgresql.util.PSQLException: 
+ERROR: date/time field value out of range: "10/27/2000"
+  Dica: Perhaps you need a different "datestyle" setting.
+  Posição: 605
+
+cadastrarAlunoMustFailNomeEmBranco(com.flashcursos.model.service.AlunoTests)  Time elapsed: 0.316 s  <<< ERROR!
+org.springframework.jdbc.datasource.init.ScriptStatementFailedException: 
+Failed to execute SQL script statement #1 of class path resource [dataset/usuarios.sql]: INSERT INTO usuario ( id, created, email, tipousuario, disponivel, nome, cpf, nascimento, celular, senha, account_activate_token, account_activate_token_expiration, password_reset_token, password_reset_token_expiration) VALUES ( 1001, now(), 'jlenon7@hotmail.com', 1, false, 'João Lenon', '092.862.989-94', '12/09/2000', '(45) 99955-3220', '$2a$10$bAdAVLvM.k3DqPaPYi0gnO1OffPSHLref8MElAk.u.fFQ17v9YKC2', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02'), ( 1002, now(), 'adryell.silva10@gmail.com', 2, false, 'Adryell Nathann', '116.506.789-75', '10/27/2000', '(45) 99996-4523', '$2a$10$bAdAVLvM.k3DqPaPYi0gnO1OffPSHLref8MElAk.u.fFQ17v9YKC2', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02'); nested exception is org.postgresql.util.PSQLException: ERROR: date/time field value out of range: "10/27/2000"
+  Dica: Perhaps you need a different "datestyle" setting.
+  Posição: 605
+Caused by: org.postgresql.util.PSQLException: 
+ERROR: date/time field value out of range: "10/27/2000"
+  Dica: Perhaps you need a different "datestyle" setting.
+  Posição: 605
+
+removerAlunoMustPass(com.flashcursos.model.service.AlunoTests)  Time elapsed: 0.485 s  <<< ERROR!
+org.springframework.jdbc.datasource.init.ScriptStatementFailedException: 
+Failed to execute SQL script statement #1 of class path resource [dataset/usuarios.sql]: INSERT INTO usuario ( id, created, email, tipousuario, disponivel, nome, cpf, nascimento, celular, senha, account_activate_token, account_activate_token_expiration, password_reset_token, password_reset_token_expiration) VALUES ( 1001, now(), 'jlenon7@hotmail.com', 1, false, 'João Lenon', '092.862.989-94', '12/09/2000', '(45) 99955-3220', '$2a$10$bAdAVLvM.k3DqPaPYi0gnO1OffPSHLref8MElAk.u.fFQ17v9YKC2', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02'), ( 1002, now(), 'adryell.silva10@gmail.com', 2, false, 'Adryell Nathann', '116.506.789-75', '10/27/2000', '(45) 99996-4523', '$2a$10$bAdAVLvM.k3DqPaPYi0gnO1OffPSHLref8MElAk.u.fFQ17v9YKC2', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02'); nested exception is org.postgresql.util.PSQLException: ERROR: date/time field value out of range: "10/27/2000"
+  Dica: Perhaps you need a different "datestyle" setting.
+  Posição: 605
+Caused by: org.postgresql.util.PSQLException: 
+ERROR: date/time field value out of range: "10/27/2000"
+  Dica: Perhaps you need a different "datestyle" setting.
+  Posição: 605
+
+removerAlunoMatriculadoMustPass(com.flashcursos.model.service.AlunoTests)  Time elapsed: 0.328 s  <<< ERROR!
+org.springframework.jdbc.datasource.init.ScriptStatementFailedException: 
+Failed to execute SQL script statement #1 of class path resource [dataset/usuarios.sql]: INSERT INTO usuario ( id, created, email, tipousuario, disponivel, nome, cpf, nascimento, celular, senha, account_activate_token, account_activate_token_expiration, password_reset_token, password_reset_token_expiration) VALUES ( 1001, now(), 'jlenon7@hotmail.com', 1, false, 'João Lenon', '092.862.989-94', '12/09/2000', '(45) 99955-3220', '$2a$10$bAdAVLvM.k3DqPaPYi0gnO1OffPSHLref8MElAk.u.fFQ17v9YKC2', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02'), ( 1002, now(), 'adryell.silva10@gmail.com', 2, false, 'Adryell Nathann', '116.506.789-75', '10/27/2000', '(45) 99996-4523', '$2a$10$bAdAVLvM.k3DqPaPYi0gnO1OffPSHLref8MElAk.u.fFQ17v9YKC2', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02'); nested exception is org.postgresql.util.PSQLException: ERROR: date/time field value out of range: "10/27/2000"
+  Dica: Perhaps you need a different "datestyle" setting.
+  Posição: 605
+Caused by: org.postgresql.util.PSQLException: 
+ERROR: date/time field value out of range: "10/27/2000"
+  Dica: Perhaps you need a different "datestyle" setting.
+  Posição: 605
+
+removerAlunoMustFailIdNaoExiste(com.flashcursos.model.service.AlunoTests)  Time elapsed: 0.312 s  <<< ERROR!
+org.springframework.jdbc.datasource.init.ScriptStatementFailedException: 
+Failed to execute SQL script statement #1 of class path resource [dataset/usuarios.sql]: INSERT INTO usuario ( id, created, email, tipousuario, disponivel, nome, cpf, nascimento, celular, senha, account_activate_token, account_activate_token_expiration, password_reset_token, password_reset_token_expiration) VALUES ( 1001, now(), 'jlenon7@hotmail.com', 1, false, 'João Lenon', '092.862.989-94', '12/09/2000', '(45) 99955-3220', '$2a$10$bAdAVLvM.k3DqPaPYi0gnO1OffPSHLref8MElAk.u.fFQ17v9YKC2', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02'), ( 1002, now(), 'adryell.silva10@gmail.com', 2, false, 'Adryell Nathann', '116.506.789-75', '10/27/2000', '(45) 99996-4523', '$2a$10$bAdAVLvM.k3DqPaPYi0gnO1OffPSHLref8MElAk.u.fFQ17v9YKC2', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02'); nested exception is org.postgresql.util.PSQLException: ERROR: date/time field value out of range: "10/27/2000"
+  Dica: Perhaps you need a different "datestyle" setting.
+  Posição: 605
+Caused by: org.postgresql.util.PSQLException: 
+ERROR: date/time field value out of range: "10/27/2000"
+  Dica: Perhaps you need a different "datestyle" setting.
+  Posição: 605
+
+cadastrarAlunoMustPass(com.flashcursos.model.service.AlunoTests)  Time elapsed: 0.447 s  <<< ERROR!
+org.springframework.jdbc.datasource.init.ScriptStatementFailedException: 
+Failed to execute SQL script statement #1 of class path resource [dataset/usuarios.sql]: INSERT INTO usuario ( id, created, email, tipousuario, disponivel, nome, cpf, nascimento, celular, senha, account_activate_token, account_activate_token_expiration, password_reset_token, password_reset_token_expiration) VALUES ( 1001, now(), 'jlenon7@hotmail.com', 1, false, 'João Lenon', '092.862.989-94', '12/09/2000', '(45) 99955-3220', '$2a$10$bAdAVLvM.k3DqPaPYi0gnO1OffPSHLref8MElAk.u.fFQ17v9YKC2', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02'), ( 1002, now(), 'adryell.silva10@gmail.com', 2, false, 'Adryell Nathann', '116.506.789-75', '10/27/2000', '(45) 99996-4523', '$2a$10$bAdAVLvM.k3DqPaPYi0gnO1OffPSHLref8MElAk.u.fFQ17v9YKC2', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02', 'f786c907-032e-451b-ac93-8508dec75a3d', '2019-12-02'); nested exception is org.postgresql.util.PSQLException: ERROR: date/time field value out of range: "10/27/2000"
+  Dica: Perhaps you need a different "datestyle" setting.
+  Posição: 605
+Caused by: org.postgresql.util.PSQLException: 
+ERROR: date/time field value out of range: "10/27/2000"
+  Dica: Perhaps you need a different "datestyle" setting.
+  Posição: 605
+

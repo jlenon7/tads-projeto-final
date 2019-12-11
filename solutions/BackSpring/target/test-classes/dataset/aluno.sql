@@ -1,2 +1,2 @@
 INSERT INTO aluno (id)
-VALUES (1002);
+VALUES (1001);

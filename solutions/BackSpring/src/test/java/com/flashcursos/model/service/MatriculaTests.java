@@ -62,6 +62,8 @@ public class MatriculaTests extends AbstractIntegrationTests {
 		Assert.assertNotNull(matricula.getId());
 		
 	}
+	
+	
 	/**
 	 * ======================================= C(READ)UD =============================================
 	 */
